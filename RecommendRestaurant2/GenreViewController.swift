@@ -10,9 +10,12 @@ import UIKit
 
 class GenreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
-    var genre = ["","居酒屋","和食","洋食","ラーメン"]
+    var genre = ["","sake","japanese","french","ramen"]
     
     @IBOutlet weak var myTableView: UITableView!
+    
+    //選択した行が何番目かを保存するための数字
+    var selectedIndex = -1
     
     
     
@@ -24,11 +27,12 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
     }
 
+    //cellの個数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return genre.count
     }
     
-    
+    //cellの中身を決める
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row{
@@ -63,6 +67,31 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             return cell
             
         }
+    }
+    
+    //cellが押された時に実行するメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //選択された行番号をメンバ変数に格納
+        selectedIndex = indexPath.row
+        
+        if selectedIndex == 0 {
+            return
+        }
+        else {
+        //セグエを指定して画面移動
+        self.performSegue(withIdentifier: "showDetail", sender: nil)
+        }
+    }
+    
+    //segueを使って画面移動する時に実行される（そのメソッドをoverrideで書き換えてる）
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //次の画面をインスタンス化(as:ダウンキャスト型変換)
+        var vc = segue.destination as! ViewController
+        
+        //次の画面のプロパティに選択された行番号を指定
+        vc.sIndex = selectedIndex
     }
     
     

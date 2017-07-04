@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F903FB2B1F092E4200E7F1AF /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB291F092E4200E7F1AF /* izakaya.jpeg */; };
+		F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */; };
+		F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */; };
+		F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */; };
 		F91FDD671F02945100641B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD661F02945100641B83 /* AppDelegate.swift */; };
 		F91FDD691F02945100641B83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD681F02945100641B83 /* ViewController.swift */; };
 		F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FDD6A1F02945100641B83 /* Main.storyboard */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F903FB291F092E4200E7F1AF /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpeg; sourceTree = "<group>"; };
+		F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wasyoku.jpeg; sourceTree = "<group>"; };
+		F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = "<group>"; };
+		F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ra-menn.jpeg"; sourceTree = "<group>"; };
 		F91FDD631F02945100641B83 /* RecommendRestaurant2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendRestaurant2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FDD661F02945100641B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91FDD681F02945100641B83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +109,10 @@
 		F91FDD651F02945100641B83 /* RecommendRestaurant2 */ = {
 			isa = PBXGroup;
 			children = (
+				F903FB291F092E4200E7F1AF /* izakaya.jpeg */,
+				F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */,
+				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
+				F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
@@ -242,7 +254,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91FDD741F02945100641B83 /* LaunchScreen.storyboard in Resources */,
+				F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */,
 				F91FDD711F02945100641B83 /* Assets.xcassets in Resources */,
+				F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */,
+				F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */,
+				F903FB2B1F092E4200E7F1AF /* izakaya.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
