@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DD56BEFAA38B1385E6D153B /* Pods_RecommendRestaurant2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */; };
+		5B702DD47B53C602D4FA8B00 /* Pods_RecommendRestaurant2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */; };
+		5BCF6AB671412913D637D2CD /* Pods_RecommendRestaurant2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */; };
 		F903FB2B1F092E4200E7F1AF /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB291F092E4200E7F1AF /* izakaya.jpeg */; };
 		F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */; };
 		F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */; };
@@ -40,10 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03D00AD679DD91CDF582529D /* Pods-RecommendRestaurant2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecommendRestaurant2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B48E989F783931D49356F29 /* Pods-RecommendRestaurant2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2UITests/Pods-RecommendRestaurant2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecommendRestaurant2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecommendRestaurant2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4BFF9AADA6EDD16AFA18F13 /* Pods-RecommendRestaurant2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2UITests/Pods-RecommendRestaurant2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.release.xcconfig"; sourceTree = "<group>"; };
+		F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.debug.xcconfig"; sourceTree = "<group>"; };
 		F903FB291F092E4200E7F1AF /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpeg; sourceTree = "<group>"; };
 		F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wasyoku.jpeg; sourceTree = "<group>"; };
 		F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = "<group>"; };
 		F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ra-menn.jpeg"; sourceTree = "<group>"; };
+		F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendRestaurant2_Bridging_Header.h; sourceTree = "<group>"; };
 		F91FDD631F02945100641B83 /* RecommendRestaurant2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendRestaurant2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FDD661F02945100641B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91FDD681F02945100641B83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B702DD47B53C602D4FA8B00 /* Pods_RecommendRestaurant2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD56BEFAA38B1385E6D153B /* Pods_RecommendRestaurant2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +95,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCF6AB671412913D637D2CD /* Pods_RecommendRestaurant2UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E7BBDBD04C28C517519FA07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */,
+				7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */,
+				766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C52C3FAC166DDD498649FA5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */,
+				EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */,
+				EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */,
+				03D00AD679DD91CDF582529D /* Pods-RecommendRestaurant2Tests.release.xcconfig */,
+				C4BFF9AADA6EDD16AFA18F13 /* Pods-RecommendRestaurant2UITests.debug.xcconfig */,
+				1B48E989F783931D49356F29 /* Pods-RecommendRestaurant2UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F91FDD5A1F02945100641B83 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +132,8 @@
 				F91FDD7D1F02945100641B83 /* RecommendRestaurant2Tests */,
 				F91FDD881F02945100641B83 /* RecommendRestaurant2UITests */,
 				F91FDD641F02945100641B83 /* Products */,
+				C52C3FAC166DDD498649FA5C /* Pods */,
+				3E7BBDBD04C28C517519FA07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +150,7 @@
 		F91FDD651F02945100641B83 /* RecommendRestaurant2 */ = {
 			isa = PBXGroup;
 			children = (
+				F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */,
 				F903FB291F092E4200E7F1AF /* izakaya.jpeg */,
 				F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */,
 				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
@@ -150,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F91FDD8E1F02945100641B83 /* Build configuration list for PBXNativeTarget "RecommendRestaurant2" */;
 			buildPhases = (
+				EC20A4D7096086A732F538B0 /* [CP] Check Pods Manifest.lock */,
 				F91FDD5F1F02945100641B83 /* Sources */,
 				F91FDD601F02945100641B83 /* Frameworks */,
 				F91FDD611F02945100641B83 /* Resources */,
+				6B2DBDA35C70EF452128052A /* [CP] Embed Pods Frameworks */,
+				46A267F4B486B1FB2772A532 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F91FDD911F02945100641B83 /* Build configuration list for PBXNativeTarget "RecommendRestaurant2Tests" */;
 			buildPhases = (
+				4841DFE5F15D4A85DDBA9C3B /* [CP] Check Pods Manifest.lock */,
 				F91FDD761F02945100641B83 /* Sources */,
 				F91FDD771F02945100641B83 /* Frameworks */,
 				F91FDD781F02945100641B83 /* Resources */,
+				152316A75834A74F1D4CC191 /* [CP] Embed Pods Frameworks */,
+				172FD044DCE93FE33438675B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F91FDD941F02945100641B83 /* Build configuration list for PBXNativeTarget "RecommendRestaurant2UITests" */;
 			buildPhases = (
+				AC06C04B28C8C6EC83D2F2E2 /* [CP] Check Pods Manifest.lock */,
 				F91FDD811F02945100641B83 /* Sources */,
 				F91FDD821F02945100641B83 /* Frameworks */,
 				F91FDD831F02945100641B83 /* Resources */,
+				2AF7820BD7331F846B1694C5 /* [CP] Embed Pods Frameworks */,
+				B511C3D1C44F4DBDB348EBC0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +329,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		152316A75834A74F1D4CC191 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		172FD044DCE93FE33438675B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AF7820BD7331F846B1694C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2UITests/Pods-RecommendRestaurant2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46A267F4B486B1FB2772A532 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4841DFE5F15D4A85DDBA9C3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B2DBDA35C70EF452128052A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC06C04B28C8C6EC83D2F2E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B511C3D1C44F4DBDB348EBC0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecommendRestaurant2UITests/Pods-RecommendRestaurant2UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC20A4D7096086A732F538B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F91FDD5F1F02945100641B83 /* Sources */ = {
@@ -439,6 +628,7 @@
 		};
 		F91FDD8F1F02945100641B83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FL88HC48Y6;
@@ -446,12 +636,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harukiyasui.RecommendRestaurant2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RecommendRestaurant2/RecommendRestaurant2_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		F91FDD901F02945100641B83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FL88HC48Y6;
@@ -459,12 +651,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harukiyasui.RecommendRestaurant2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = RecommendRestaurant2/RecommendRestaurant2_Bridging_Header.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		F91FDD921F02945100641B83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,6 +674,7 @@
 		};
 		F91FDD931F02945100641B83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03D00AD679DD91CDF582529D /* Pods-RecommendRestaurant2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -495,6 +690,7 @@
 		};
 		F91FDD951F02945100641B83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4BFF9AADA6EDD16AFA18F13 /* Pods-RecommendRestaurant2UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FL88HC48Y6;
@@ -509,6 +705,7 @@
 		};
 		F91FDD961F02945100641B83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B48E989F783931D49356F29 /* Pods-RecommendRestaurant2UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = FL88HC48Y6;

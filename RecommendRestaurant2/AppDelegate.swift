@@ -13,6 +13,86 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var izakaya = ["storename":[],"photo":[]]
+     
+    var diningbar = [[:]]
+    
+    var sousakuryouri = [[:]]
+    
+    var wasyoku = [[:]]
+    
+    var nihonnryouri = [[:]]
+    
+    var suhsi = [[:]]
+    
+    var syabusyabu = [[:]]
+    
+    var udon = [[:]]
+    
+    var yousyoku = [[:]]
+    
+    var steak = [[:]]
+    
+    var italian = [[:]]
+    
+    var french = [[:]]
+    
+    var bistoro = [[:]]
+    
+    var tyuka = [[:]]
+    
+    var kanntouryouri = [[:]]
+    
+    var shisenn = [[:]]
+    
+    var shanhai = [[:]]
+    
+    var pekinn = [[:]]
+    
+    var yakiniku = [[:]]
+    
+    var kannkokuryouri = [[:]]
+    
+    var ajian = [[:]]
+    
+    var thai = [[:]]
+    
+    var indo = [[:]]
+    
+    var spein = [[:]]
+    
+    var karaoke = [[:]]
+    
+    var bar = [[:]]
+    
+    var ramenn = [[:]]
+    
+    var cafe = [[:]]
+    
+    var sweets = [[:]]
+    
+    var okonomiyaki = [[:]]
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

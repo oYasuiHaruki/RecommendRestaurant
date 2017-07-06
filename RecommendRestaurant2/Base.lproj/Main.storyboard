@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="throw away"/>
                                 <connections>
-                                    <action selector="throwAway:" destination="gBa-hv-PsN" eventType="touchUpInside" id="8WE-MF-CJW"/>
+                                    <action selector="throwAway:" destination="gBa-hv-PsN" eventType="touchUpInside" id="UaY-aM-Orb"/>
                                 </connections>
                             </button>
                         </subviews>
