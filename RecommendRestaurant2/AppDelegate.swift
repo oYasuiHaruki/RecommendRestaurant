@@ -16,65 +16,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var izakaya = ["storename":[],"photo":[]]
      
-    var diningbar = [[:]]
+    var diningbar = ["storename":[],"photo":[]]
     
-    var sousakuryouri = [[:]]
+    var sousakuryouri = ["storename":[],"photo":[]]
     
-    var wasyoku = [[:]]
+    var wasyoku = ["storename":[],"photo":[]]
     
-    var nihonnryouri = [[:]]
+    var nihonnryouri = ["storename":[],"photo":[]]
     
-    var suhsi = [[:]]
+    var suhsi = ["storename":[],"photo":[]]
     
-    var syabusyabu = [[:]]
+    var syabusyabu = ["storename":[],"photo":[]]
     
-    var udon = [[:]]
+    var udon = ["storename":[],"photo":[]]
     
-    var yousyoku = [[:]]
+    var yousyoku = ["storename":[],"photo":[]]
     
-    var steak = [[:]]
+    var steak = ["storename":[],"photo":[]]
     
-    var italian = [[:]]
+    var italian = ["storename":[],"photo":[]]
     
-    var french = [[:]]
+    var french = ["storename":[],"photo":[]]
     
-    var bistoro = [[:]]
+    var pasta = ["storename":[],"photo":[]]
     
-    var tyuka = [[:]]
+    var bistoro = ["storename":[],"photo":[]]
     
-    var kanntouryouri = [[:]]
+    var tyuka = ["storename":[],"photo":[]]
     
-    var shisenn = [[:]]
+    var kanntouryouri = ["storename":[],"photo":[]]
     
-    var shanhai = [[:]]
+    var shisenn = ["storename":[],"photo":[]]
     
-    var pekinn = [[:]]
+    var shanhai = ["storename":[],"photo":[]]
     
-    var yakiniku = [[:]]
+    var pekinn = ["storename":[],"photo":[]]
     
-    var kannkokuryouri = [[:]]
+    var yakiniku = ["storename":[],"photo":[]]
     
-    var ajian = [[:]]
+    var kannkokuryouri = ["storename":[],"photo":[]]
     
-    var thai = [[:]]
+    var ajian = ["storename":[],"photo":[]]
     
-    var indo = [[:]]
+    var thai = ["storename":[],"photo":[]]
     
-    var spein = [[:]]
+    var indo = ["storename":[],"photo":[]]
     
-    var karaoke = [[:]]
+    var spein = ["storename":[],"photo":[]]
     
-    var bar = [[:]]
+    var karaoke = ["storename":[],"photo":[]]
     
-    var ramenn = [[:]]
+    var bar = ["storename":[],"photo":[]]
     
-    var cafe = [[:]]
+    var ramenn = ["storename":[],"photo":[]]
     
-    var sweets = [[:]]
+    var cafe = ["storename":[],"photo":[]]
     
-    var okonomiyaki = [[:]]
+    var sweets = ["storename":[],"photo":[]]
     
+    var okonomiyaki = ["storename":[],"photo":[]]
     
+    var amount = [[]]
     
     
     
