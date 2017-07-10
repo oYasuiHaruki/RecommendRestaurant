@@ -32,12 +32,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
-    struct Item {
-        var genreName = "居酒屋"
-        var storeNames:[String] = []
-        var storeCount = 0
-    }
-    
+     
     var result1 : [Item] = []
 
     
@@ -56,35 +51,32 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         let jsonDic = (try! JSONSerialization.jsonObject(with: jsondata, options: [])) as! NSDictionary
         
         do{
+        //resultsキーを指定して全ての情報を取得
         var result:NSDictionary
         result = jsonDic["results"] as! NSDictionary
-        //
+        
+        //店の情報を取得
         var resultArray:NSArray
         resultArray = result["shop"] as! NSArray
             
+        //店の情報がarray型で入ってるので、whileで回して全ての情報を取得
         var number = 0
         var izakayaStoreNames: [String] = []
         var izakayaPhotos: [URL] = []
         
         while number < resultArray.count {
+            
+            //それぞれの店の情報をeachStoreInforamtionに保存
             var eachStoreInfomation:NSDictionary
             eachStoreInfomation = resultArray[number] as! NSDictionary
-        //            print(rest2Name)
         
-        //            storeName.text = rest2Name
-        //
-            var storeName:String
-            storeName = eachStoreInfomation["name"] as! String
-            
             //店の名前をstoreArray配列に追加
+            let storeName: String = eachStoreInfomation["name"] as! String
             storeNameArray.append(storeName)
-                
+            
             let genreDictionary:NSDictionary = eachStoreInfomation["genre"] as! NSDictionary
-            let genreName:String = genreDictionary["name"] as! String
-            
-            //ジャンル名をgenreArray配列に追加
+            let genreName :String = genreDictionary["name"] as! String
             genreArray.append(genreName)
-            
             
             
             
@@ -99,8 +91,10 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
                 
             //配列の要素数取り出すための処理
             number += 1
-                
-                
+            
+            
+            var items: [Item] = []
+
                 
             //データをジャンルごとに保存していく
             switch genreName {
@@ -195,9 +189,9 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             print("不明のジャンルが入りました")
             }
            
-            }
             
-            
+        }
+        
             
 //            appDelegate.izakaya["storename"] = izakayaStoreNames
 //            appDelegate.izakaya["photo"] = izakayaPhotos
@@ -207,6 +201,8 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             var amountDictionary:NSDictionary = ["居酒屋":appDelegate.izakaya["storename"]!,"ダイニングバー":appDelegate.diningbar["storename"]!,"創作料理":appDelegate.sousakuryouri["storename"]!,"和食":appDelegate.wasyoku["storename"]!,"日本料理・懐石":appDelegate.nihonnryouri["storename"]!,"寿司":appDelegate.suhsi["storename"]!,"しゃぶしゃぶ・すき焼き":appDelegate.syabusyabu["storename"]!,"うどん・そば":appDelegate.udon["storename"]!,"洋食":appDelegate.yousyoku["storename"]!,"ステーキ・ハンバーグ・カレー":appDelegate.steak["storename"]!,"イタリアン":appDelegate.italian["storename"]!,"フレンチ":appDelegate.french["storename"]!,"パスタ・ピザ":appDelegate.pasta["storename"]!,"ビストロ":appDelegate.bistoro["storename"]!,"中華":appDelegate.tyuka["storename"]!,"広東料理":appDelegate.kanntouryouri["storename"]!,"四川料理":appDelegate.shisenn["storename"]!,"上海料理":appDelegate.shanhai["storename"]!,"北京料理":appDelegate.pekinn["storename"]!,"焼肉":appDelegate.yakiniku["storename"]!,"韓国料理":appDelegate.kannkokuryouri["storename"]!,"アジアン":appDelegate.ajian["storename"]!,"タイ・ベトナム料理":appDelegate.thai["storename"]!,"インド料理":appDelegate.indo["storename"]!,"スペイン・地中海料理":appDelegate.spein["storename"]!,"カラオケ":appDelegate.karaoke["storename"]!,"バー・カクテル":appDelegate.bar["storename"]!,"ラーメン":appDelegate.ramenn["storename"]!,"カフェ":appDelegate.cafe["storename"]!,"スイーツ":appDelegate.sweets["storename"]!,"お好み焼き・もんじゃ・鉄板焼き":appDelegate.okonomiyaki["storename"]!]
             
             var amountArray: NSArray = [appDelegate.izakaya["storename"]!,appDelegate.diningbar["storename"]!,appDelegate.sousakuryouri["storename"]!,appDelegate.wasyoku["storename"]!,appDelegate.nihonnryouri["storename"]!,appDelegate.suhsi["storename"]!,appDelegate.syabusyabu["storename"]!,appDelegate.udon["storename"]!,appDelegate.yousyoku["storename"]!,appDelegate.steak["storename"]!,appDelegate.italian["storename"]!,appDelegate.french["storename"]!,appDelegate.pasta["storename"]!,appDelegate.bistoro["storename"]!,appDelegate.tyuka["storename"]!,appDelegate.kanntouryouri["storename"]!,appDelegate.shisenn["storename"]!,appDelegate.shanhai["storename"]!,appDelegate.pekinn["storename"]!,appDelegate.yakiniku["storename"]!,appDelegate.kannkokuryouri["storename"]!,appDelegate.ajian["storename"]!,appDelegate.thai["storename"]!,appDelegate.indo["storename"]!,appDelegate.spein["storename"]!,appDelegate.karaoke["storename"]!,appDelegate.bar["storename"]!,appDelegate.ramenn["storename"]!,appDelegate.cafe["storename"]!,appDelegate.sweets["storename"]!,appDelegate.okonomiyaki["storename"]!]
+        
+            var amountArray1: NSArray = [appDelegate.izakaya["photo"]!,appDelegate.diningbar["photo"]!,appDelegate.sousakuryouri["photo"]!,appDelegate.wasyoku[""]!,appDelegate.nihonnryouri["photo"]!,appDelegate.suhsi["photo"]!,appDelegate.syabusyabu["photo"]!,appDelegate.udon["photo"]!,appDelegate.yousyoku["photo"]!,appDelegate.steak["photo"]!,appDelegate.italian["photo"]!,appDelegate.french["photo"]!,appDelegate.pasta["photo"]!,appDelegate.bistoro["photo"]!,appDelegate.tyuka["photo"]!,appDelegate.kanntouryouri["photo"]!,appDelegate.shisenn["photo"]!,appDelegate.shanhai["photo"]!,appDelegate.pekinn["photo"]!,appDelegate.yakiniku["photo"]!,appDelegate.kannkokuryouri["photo"]!,appDelegate.ajian["photo"]!,appDelegate.thai["photo"]!,appDelegate.indo["photo"]!,appDelegate.spein["photo"]!,appDelegate.karaoke["photo"]!,appDelegate.bar["photo"]!,appDelegate.ramenn["photo"]!,appDelegate.cafe["photo"]!,appDelegate.sweets["photo"]!,appDelegate.okonomiyaki["photo"]!]
             
 
             
@@ -224,7 +220,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             for n in 0...genreNames.count - 1 {
             
                 if (amountArray[n] as AnyObject).count != 0 {
-                items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count))
+                    items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count), photoURLs: amountArray1[n] as! [URL])
                 }
             }
 //            let items: [Item] = [
@@ -269,7 +265,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
                     return false
                 }
             }
-            
+        
             
             let sortedByCount: SortDescriptor<Item> = { $0.storeCount > $1.storeCount }
             
@@ -280,7 +276,6 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
 //            }
             
             print(result1)
-            print(result1.count)
             
             
             
@@ -469,7 +464,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         //次の画面のプロパティに選択された行番号を指定
         
-        vc.restaurantName = appDelegate.izakaya["storename"] as! [String]
+        vc.item = result1[selectedIndex - 1]
 //
 //        vc.myPicures = foodPictures
     }

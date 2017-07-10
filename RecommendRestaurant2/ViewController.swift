@@ -13,6 +13,8 @@ import SDWebImage
 
 class ViewController: UIViewController{
     
+    var item : Item? = nil
+    
     //GenreViewControllerから送られた情報を保存
     var sIndex = 0
     
@@ -183,7 +185,7 @@ class ViewController: UIViewController{
             self.myPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
 //            self.myPicture.image = UIImage(named : self.myPicures[self.sIndex])
             self.myLabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 50))
-            self.myLabel.text = "\(self.restaurantName[self.num])"
+            self.myLabel.text = "\(item?.storeNames[sIndex])"
         
             
             
@@ -202,7 +204,7 @@ class ViewController: UIViewController{
     func showPicture(n: Int) {
         
         
-        let imageURL = appDelegate.izakaya["photo"]?[n] as! URL
+        let imageURL = item?.photoURLs[n]
         
         myPicture.sd_setImage(with: imageURL)
         
