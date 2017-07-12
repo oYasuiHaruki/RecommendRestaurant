@@ -7,45 +7,79 @@
 //
 
 import UIKit
+import MapKit
 
-class GenreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+class GenreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+
+    @IBOutlet weak var latitudeLabel: UILabel!
     
     @IBOutlet weak var myTableView: UITableView!
+    
+    @IBOutlet weak var longitudeLabel: UILabel!
     
     //選択した行が何番目かを保存するための数字
     var selectedIndex = -1
     
-    //料理のジャンルを入れる配列
-    var genreArray: [String] = ["",]
-
-    //料理の写真を保存する配列
-    var foodPictures: [URL] = []
-    
-    //データ型で写真を保存する配列
-    var fodPicturesData: [Data] = []
-    
-    //店名を保存する配列
-    var storeNameArray : [String] = []
-    
     //グローバル変数を使うために定義
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    //struct Itemのインスタンス作成
+    var Items : [Item] = []
     
-     
-    var result1 : [Item] = []
+    
+    var myLocationManager: CLLocationManager!
+    
+    var latitude:Double = 0
+    
+    var longitude:Double = 0
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        let status = CLLocationManager.authorizationStatus()
+        if status == CLAuthorizationStatus.restricted || status == CLAuthorizationStatus.denied{
+            return
+        }
+        
+        myLocationManager = CLLocationManager()
+        myLocationManager.delegate = self
+        
+        if status == CLAuthorizationStatus.notDetermined {
+            myLocationManager.requestWhenInUseAuthorization()
+        }
+        
+        if !CLLocationManager.locationServicesEnabled() {
+            return
+        }
+        
+        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        myLocationManager.distanceFilter = kCLDistanceFilterNone
+        
+        myLocationManager.requestLocation()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         myTableView.delegate = self
         myTableView.dataSource = self
         // Do any additional setup after loading the view.
         
         //hotpepperの情報を取ってくる
-        let url = URL(string: "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=847b52fd31d7b663&lat=35.01&lng=135.7556&range=5&order=4&format=json&count=20")
+        let url = URL(string: "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=847b52fd31d7b663&lat=35.01&lng=135.7556&range=5&order=4&format=json&count=100")
         let request = URLRequest(url: url!)
         let jsondata = (try! NSURLConnection.sendSynchronousRequest(request, returning: nil))
         let jsonDic = (try! JSONSerialization.jsonObject(with: jsondata, options: [])) as! NSDictionary
@@ -64,19 +98,19 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         var izakayaStoreNames: [String] = []
         var izakayaPhotos: [URL] = []
         
+        
         while number < resultArray.count {
             
             //それぞれの店の情報をeachStoreInforamtionに保存
             var eachStoreInfomation:NSDictionary
             eachStoreInfomation = resultArray[number] as! NSDictionary
         
-            //店の名前をstoreArray配列に追加
+            //店の名前をstoreNameとして保存
             let storeName: String = eachStoreInfomation["name"] as! String
-            storeNameArray.append(storeName)
             
+            //ジャンルの名前をgenreNameとして保存
             let genreDictionary:NSDictionary = eachStoreInfomation["genre"] as! NSDictionary
             let genreName :String = genreDictionary["name"] as! String
-            genreArray.append(genreName)
             
             
             
@@ -86,9 +120,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             let photoDataString:String = photoDictionaryPc["l"] as! String
             let photoDataURL:URL = URL(string: photoDataString)!
             
-            //URL型の写真の情報をfoodPictures配列に保存
-            foodPictures.append(photoDataURL)
-                
+            
             //配列の要素数取り出すための処理
             number += 1
             
@@ -96,7 +128,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             var items: [Item] = []
 
                 
-            //データをジャンルごとに保存していく
+            //データをジャンルごとに保存する
             switch genreName {
             case "居酒屋":
                 appDelegate.izakaya["storename"]?.append(storeName)
@@ -188,220 +220,156 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             default:
             print("不明のジャンルが入りました")
             }
-           
+            }
+        
+        //並べ替えのため作成(店名)
+        var amountArray: NSArray =
+            
+            [appDelegate.izakaya["storename"]!,
+             appDelegate.diningbar["storename"]!,
+             appDelegate.sousakuryouri["storename"]!,
+             appDelegate.wasyoku["storename"]!,
+             appDelegate.nihonnryouri["storename"]!,
+             appDelegate.suhsi["storename"]!,
+             appDelegate.syabusyabu["storename"]!,
+             appDelegate.udon["storename"]!,
+             appDelegate.yousyoku["storename"]!,
+             appDelegate.steak["storename"]!,
+             appDelegate.italian["storename"]!,
+             appDelegate.french["storename"]!,
+             appDelegate.pasta["storename"]!,
+             appDelegate.bistoro["storename"]!,
+             appDelegate.tyuka["storename"]!,
+             appDelegate.kanntouryouri["storename"]!,
+             appDelegate.shisenn["storename"]!,
+             appDelegate.shanhai["storename"]!,
+             appDelegate.pekinn["storename"]!,
+             appDelegate.yakiniku["storename"]!,
+             appDelegate.kannkokuryouri["storename"]!,
+             appDelegate.ajian["storename"]!,
+             appDelegate.thai["storename"]!,
+             appDelegate.indo["storename"]!,
+             appDelegate.spein["storename"]!,
+             appDelegate.karaoke["storename"]!,
+             appDelegate.bar["storename"]!,
+             appDelegate.ramenn["storename"]!,
+             appDelegate.cafe["storename"]!,
+             appDelegate.sweets["storename"]!,
+             appDelegate.okonomiyaki["storename"]!]
+
+            
+        //並べ替えのため作成(写真)
+        var amountArray1: NSArray =
+            
+            [appDelegate.izakaya["photo"]!,
+             appDelegate.diningbar["photo"]!,
+             appDelegate.sousakuryouri["photo"]!,
+             appDelegate.wasyoku["photo"]!,
+             appDelegate.nihonnryouri["photo"]!,
+             appDelegate.suhsi["photo"]!,
+             appDelegate.syabusyabu["photo"]!,
+             appDelegate.udon["photo"]!,
+             appDelegate.yousyoku["photo"]!,
+             appDelegate.steak["photo"]!,
+             appDelegate.italian["photo"]!,
+             appDelegate.french["photo"]!,
+             appDelegate.pasta["photo"]!,
+             appDelegate.bistoro["photo"]!,
+             appDelegate.tyuka["photo"]!,
+             appDelegate.kanntouryouri["photo"]!,
+             appDelegate.shisenn["photo"]!,
+             appDelegate.shanhai["photo"]!,
+             appDelegate.pekinn["photo"]!,
+             appDelegate.yakiniku["photo"]!,
+             appDelegate.kannkokuryouri["photo"]!,
+             appDelegate.ajian["photo"]!,
+             appDelegate.thai["photo"]!,
+             appDelegate.indo["photo"]!,
+             appDelegate.spein["photo"]!,
+             appDelegate.karaoke["photo"]!,
+             appDelegate.bar["photo"]!,
+             appDelegate.ramenn["photo"]!,
+             appDelegate.cafe["photo"]!,
+             appDelegate.sweets["photo"]!,
+             appDelegate.okonomiyaki["photo"]!]
+            
+            
+        //並べ替えのための作成(ジャンル名)
+        var genreNames =
+                
+            ["居酒屋",
+             "ダイニングバー",
+             "創作料理",
+             "和食",
+             "日本料理・懐石",
+             "寿司",
+             "しゃぶしゃぶ・すき焼き",
+             "うどん・そば",
+             "洋食",
+             "ステーキ・ハンバーグ・カレー",
+             "イタリアン" ,
+             "フレンチ" ,
+             "パスタ・ピザ" ,
+             "ビストロ",
+             "中華",
+             "広東料理",
+             "四川料理",
+             "上海料理",
+             "北京料理",
+             "焼肉",
+             "韓国料理",
+             "アジアン",
+             "タイ・ベトナム料理",
+             "インド料理",
+             "スペイン・地中海料理",
+             "カラオケ",
+             "バー・カクテル",
+             "ラーメン",
+             "カフェ",
+             "スイーツ",
+             "お好み焼き・もんじゃ・鉄板焼き"]
+            
+        //Items配列にItemインスタンスを入れていく
+        for n in 0...genreNames.count - 1 {
+            
+            if (amountArray[n] as AnyObject).count != 0 {
+                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL])
+            )}
             
         }
-        
-            
-//            appDelegate.izakaya["storename"] = izakayaStoreNames
-//            appDelegate.izakaya["photo"] = izakayaPhotos
 
             
+        //配列の順番をsortする準備
+        typealias SortDescriptor<Value> = (Value, Value) -> Bool
             
-            var amountDictionary:NSDictionary = ["居酒屋":appDelegate.izakaya["storename"]!,"ダイニングバー":appDelegate.diningbar["storename"]!,"創作料理":appDelegate.sousakuryouri["storename"]!,"和食":appDelegate.wasyoku["storename"]!,"日本料理・懐石":appDelegate.nihonnryouri["storename"]!,"寿司":appDelegate.suhsi["storename"]!,"しゃぶしゃぶ・すき焼き":appDelegate.syabusyabu["storename"]!,"うどん・そば":appDelegate.udon["storename"]!,"洋食":appDelegate.yousyoku["storename"]!,"ステーキ・ハンバーグ・カレー":appDelegate.steak["storename"]!,"イタリアン":appDelegate.italian["storename"]!,"フレンチ":appDelegate.french["storename"]!,"パスタ・ピザ":appDelegate.pasta["storename"]!,"ビストロ":appDelegate.bistoro["storename"]!,"中華":appDelegate.tyuka["storename"]!,"広東料理":appDelegate.kanntouryouri["storename"]!,"四川料理":appDelegate.shisenn["storename"]!,"上海料理":appDelegate.shanhai["storename"]!,"北京料理":appDelegate.pekinn["storename"]!,"焼肉":appDelegate.yakiniku["storename"]!,"韓国料理":appDelegate.kannkokuryouri["storename"]!,"アジアン":appDelegate.ajian["storename"]!,"タイ・ベトナム料理":appDelegate.thai["storename"]!,"インド料理":appDelegate.indo["storename"]!,"スペイン・地中海料理":appDelegate.spein["storename"]!,"カラオケ":appDelegate.karaoke["storename"]!,"バー・カクテル":appDelegate.bar["storename"]!,"ラーメン":appDelegate.ramenn["storename"]!,"カフェ":appDelegate.cafe["storename"]!,"スイーツ":appDelegate.sweets["storename"]!,"お好み焼き・もんじゃ・鉄板焼き":appDelegate.okonomiyaki["storename"]!]
-            
-            var amountArray: NSArray = [appDelegate.izakaya["storename"]!,appDelegate.diningbar["storename"]!,appDelegate.sousakuryouri["storename"]!,appDelegate.wasyoku["storename"]!,appDelegate.nihonnryouri["storename"]!,appDelegate.suhsi["storename"]!,appDelegate.syabusyabu["storename"]!,appDelegate.udon["storename"]!,appDelegate.yousyoku["storename"]!,appDelegate.steak["storename"]!,appDelegate.italian["storename"]!,appDelegate.french["storename"]!,appDelegate.pasta["storename"]!,appDelegate.bistoro["storename"]!,appDelegate.tyuka["storename"]!,appDelegate.kanntouryouri["storename"]!,appDelegate.shisenn["storename"]!,appDelegate.shanhai["storename"]!,appDelegate.pekinn["storename"]!,appDelegate.yakiniku["storename"]!,appDelegate.kannkokuryouri["storename"]!,appDelegate.ajian["storename"]!,appDelegate.thai["storename"]!,appDelegate.indo["storename"]!,appDelegate.spein["storename"]!,appDelegate.karaoke["storename"]!,appDelegate.bar["storename"]!,appDelegate.ramenn["storename"]!,appDelegate.cafe["storename"]!,appDelegate.sweets["storename"]!,appDelegate.okonomiyaki["storename"]!]
-        
-            var amountArray1: NSArray = [appDelegate.izakaya["photo"]!,appDelegate.diningbar["photo"]!,appDelegate.sousakuryouri["photo"]!,appDelegate.wasyoku[""]!,appDelegate.nihonnryouri["photo"]!,appDelegate.suhsi["photo"]!,appDelegate.syabusyabu["photo"]!,appDelegate.udon["photo"]!,appDelegate.yousyoku["photo"]!,appDelegate.steak["photo"]!,appDelegate.italian["photo"]!,appDelegate.french["photo"]!,appDelegate.pasta["photo"]!,appDelegate.bistoro["photo"]!,appDelegate.tyuka["photo"]!,appDelegate.kanntouryouri["photo"]!,appDelegate.shisenn["photo"]!,appDelegate.shanhai["photo"]!,appDelegate.pekinn["photo"]!,appDelegate.yakiniku["photo"]!,appDelegate.kannkokuryouri["photo"]!,appDelegate.ajian["photo"]!,appDelegate.thai["photo"]!,appDelegate.indo["photo"]!,appDelegate.spein["photo"]!,appDelegate.karaoke["photo"]!,appDelegate.bar["photo"]!,appDelegate.ramenn["photo"]!,appDelegate.cafe["photo"]!,appDelegate.sweets["photo"]!,appDelegate.okonomiyaki["photo"]!]
-            
+        //create method to combine some sort conditions
+        func combine<Value>(sortDescriptors: [SortDescriptor<Value>]) -> SortDescriptor<Value> {
 
-            
-//            var amountArray: NSArray = [appDelegate.izakaya["storename"],appDelegate.diningbar["storename"],appDelegate.sousakuryouri["storename"]] as! NSArray
-            
-            
-            var genreNames = ["居酒屋", "ダイニングバー", "創作料理", "和食", "日本料理・懐石", "寿司", "しゃぶしゃぶ・すき焼き", "うどん・そば", "洋食", "ステーキ・ハンバーグ・カレー", "イタリアン" ,"フレンチ" ,"パスタ・ピザ" ,"ビストロ", "中華", "広東料理", "四川料理", "上海料理", "北京料理", "焼肉", "韓国料理", "アジアン", "タイ・ベトナム料理", "インド料理", "スペイン・地中海料理", "カラオケ", "バー・カクテル", "ラーメン", "カフェ", "スイーツ", "お好み焼き・もんじゃ・鉄板焼き"]
-            
-           
-            
-            var num1 = genreNames.count
-
-            var items: [Item] = []
-            
-            for n in 0...genreNames.count - 1 {
-            
-                if (amountArray[n] as AnyObject).count != 0 {
-                    items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count), photoURLs: amountArray1[n] as! [URL])
+            return { lhs, rhs in
+                for isOrderedBefore in sortDescriptors {
+                    if isOrderedBefore(lhs,rhs) { return true }
+                    if isOrderedBefore(rhs,lhs) { return false }
                 }
+                return false
             }
-//            let items: [Item] = [
-//                Item(genreName: genreNames[0], storeNames: amountArray[0] as! [String], storeCount: (amountArray[0] as AnyObject).count),
-//                Item(genreName: genreNames[1], storeNames: amountArray[1] as! [String], storeCount: (amountArray[1] as AnyObject).count),
-//                Item(genreName: genreNames[2], storeNames: amountArray[2] as! [String], storeCount: (amountArray[2] as AnyObject).count),
-//                Item(genreName: genreNames[3], storeNames: amountArray[3] as! [String], storeCount: (amountArray[3] as AnyObject).count),
-//                Item(genreName: genreNames[4], storeNames: amountArray[4] as! [String], storeCount: (amountArray[4] as AnyObject).count),
-//                Item(genreName: genreNames[5], storeNames: amountArray[5] as! [String], storeCount: (amountArray[5] as AnyObject).count),
-//                Item(genreName: genreNames[6], storeNames: amountArray[6] as! [String], storeCount: (amountArray[6] as AnyObject).count),
-//                Item(genreName: genreNames[7], storeNames: amountArray[7] as! [String], storeCount: (amountArray[7] as AnyObject).count),
-//                Item(genreName: genreNames[8], storeNames: amountArray[8] as! [String], storeCount: (amountArray[8] as AnyObject).count),
-//                Item(genreName: genreNames[9], storeNames: amountArray[9] as! [String], storeCount: (amountArray[9] as AnyObject).count),
-//                Item(genreName: genreNames[10], storeNames: amountArray[10] as! [String], storeCount: (amountArray[10] as AnyObject).count),
-//                Item(genreName: genreNames[11], storeNames: amountArray[11] as! [String], storeCount: (amountArray[11] as AnyObject).count),
-//                Item(genreName: genreNames[12], storeNames: amountArray[12] as! [String], storeCount: (amountArray[12] as AnyObject).count),
-//                Item(genreName: genreNames[13], storeNames: amountArray[13] as! [String], storeCount: (amountArray[13] as AnyObject).count),
-//                Item(genreName: genreNames[14], storeNames: amountArray[14] as! [String], storeCount: (amountArray[14] as AnyObject).count),
-//                Item(genreName: genreNames[15], storeNames: amountArray[15] as! [String], storeCount: (amountArray[15] as AnyObject).count),
-//                Item(genreName: genreNames[16], storeNames: amountArray[16] as! [String], storeCount: (amountArray[16] as AnyObject).count),
-//                Item(genreName: genreNames[17], storeNames: amountArray[17] as! [String], storeCount: (amountArray[17] as AnyObject).count),
-//                Item(genreName: genreNames[18], storeNames: amountArray[18] as! [String], storeCount: (amountArray[18] as AnyObject).count),
-//                Item(genreName: genreNames[19], storeNames: amountArray[19] as! [String], storeCount: (amountArray[19] as AnyObject).count),
-//                Item(genreName: genreNames[20], storeNames: amountArray[20] as! [String], storeCount: (amountArray[20] as AnyObject).count),
-//                Item(genreName: genreNames[21], storeNames: amountArray[21] as! [String], storeCount: (amountArray[21] as AnyObject).count)
-//            ]
-//            }
-//            print(items)
-            
-            //配列の順番をsortするのを試みる！
-            typealias SortDescriptor<Value> = (Value, Value) -> Bool
-//
-//            
-            //create method to combine some sort conditions
-            func combine<Value>(sortDescriptors: [SortDescriptor<Value>]) -> SortDescriptor<Value> {
-
-                return { lhs, rhs in
-                    for isOrderedBefore in sortDescriptors {
-                        if isOrderedBefore(lhs,rhs) { return true }
-                        if isOrderedBefore(rhs,lhs) { return false }
-                    }
-                    return false
-                }
-            }
+        }
         
+        //店の店数の多い順に並べ替える
+        let sortedByCount: SortDescriptor<Item> = { $0.storeCount > $1.storeCount }
             
-            let sortedByCount: SortDescriptor<Item> = { $0.storeCount > $1.storeCount }
+            Items = Items.sorted(by: sortedByCount)
             
-            result1 = items.sorted(by: sortedByCount)
-            
-//            _ = result1.map {
-//                print($0)
-//            }
-            
-            print(result1)
-            
-            
-            
-            
-            
-            
-            
-            
-//            let byValue = {
-//                (elem1:(key: String, val: Array), elem2:(key: String, val: Array))->Bool in
-//                if elem1.val.count < elem2.val.count {
-//                    return true
-//                } else {
-//                    return false
-//                }
-//            }
-//            let sortedDict = amount.sort(byValue)
-//          
-            
-            
-//            amount.sorted{(object1:(key: String, val: Array), object2(key: String, val: Array)) -> Bool in
-//                if object1.val.count < object2.val.count {
-//                    return object1 < object2
-//                } else {
-//                    return object1 > object2
-//                }
-//            }
-//        
-            
-//            var num = 0
-//            
-//            while num < amount.count {
-//                if num == 0 {
-//                    appDelegate.amount = []
-//                }
-//                if amount[num].count != 0 {
-//                    appDelegate.amount.append(amount[num])
-//                }
-//                
-//                num += 1
-//            }
-//            
-//            print(genreArray)
-//            print(appDelegate.amount)
-            
-            
-//            var photoData:Array = appDelegate.izakaya["photo"] as! NSArray as Array
-            
-            
-            
-            
-//            
-//            
-//            var num = 0
-//            
-//            while num < photoData.count {
-//            //写真をdata型の配列に保存する
-//            let catPictureURL = URL(string: photoData[num] as! String) // We can force unwrap because we are 100% certain the constructor will not return nil in this case.
-//            
-//            let session = URLSession(configuration: .default)
-//            
-//            // Define a download task. The download task will download the contents of the URL as a Data object and then you can do what you wish with that data.
-//            let downloadPicTask = session.dataTask(with: catPictureURL!) { (data, response, error) in
-//                // The download has finished.
-//                if let e = error {
-//                    print("Error downloading cat picture: \(e)")
-//                } else {
-//                    // No errors found.
-//                    // It would be weird if we didn't have a response, so check for that too.
-//                    if let res = response as? HTTPURLResponse {
-//                        print("Downloaded cat picture with response code \(res.statusCode)")
-//                        if let imageData = data {
-//                            // Finally convert that Data into an image and do what you wish with it.
-//                            let image = UIImage(data: imageData)
-//                            
-//                            self.fodPicturesData.append(imageData)
-//                            
-//
-//                        } else {
-//                            print("Couldn't get image: Image is nil")
-//                        }
-//                    } else {
-//                        print("Couldn't get response code for some reason")
-//                    }
-//                }
-//                }
-//            
-//            downloadPicTask.resume()
-//            
-//            }
-//                
-//                print(fodPicturesData)
-//            
-//            
-            
-        //
+            print(Items)
+     
         }catch{
-            
+            print("エラーが起きました")
+            return
         }
-
-       
-        
-        
-        
-        //            print(rest2Name)
-        
-        //            storeName.text = rest2Name
-        //
-//        var name:String
-//        name = rest2Name["name"] as! String
-//        print(name)
-
-//        print(storeName)
-//        print(genreArray)
-//        print(foodPictures)
-        
-        
-        
-        
-        
-        
     }
 
     //cellの個数を決める
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result1.count + 1
+        return Items.count + 1
     
     }
     
@@ -435,7 +403,8 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             //cell accesoryType decision
             cell.accessoryType = .disclosureIndicator
         
-            cell.textLabel?.text = result1[indexPath.row - 1].genreName
+            cell.textLabel?.text = Items[indexPath.row - 1].genreName + "                           \(Items[indexPath.row - 1].storeCount)"
+            
             return cell
             
         }
@@ -456,6 +425,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         }
     }
     
+    
     //segueを使って画面移動する時に実行される（そのメソッドをoverrideで書き換えてる）
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -463,17 +433,8 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         var vc = segue.destination as! ViewController
         
         //次の画面のプロパティに選択された行番号を指定
-        
-        vc.item = result1[selectedIndex - 1]
-//
-//        vc.myPicures = foodPictures
+        vc.item = Items[selectedIndex - 1]
     }
-    
-    
-//    func get_image(_ url_str:String, _ imageView:UIImageView,num:Int) {
-//        let url:URL = URL(string: )
-//    }
-//    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -490,5 +451,39 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = manager.location {
+            latitudeLabel.text = "緯度:\(location.coordinate.latitude)"
+            longitudeLabel.text = "経度:\(location.coordinate.longitude)"
+            
+            //メンバ変数に現在地の経度と緯度を代入
+            latitude = location.coordinate.latitude
+            longitude = location.coordinate.longitude
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
+        print("エラー")
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
