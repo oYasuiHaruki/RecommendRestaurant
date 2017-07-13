@@ -8,10 +8,20 @@
 
 import UIKit
 import SDWebImage
+import MapKit
+import CoreLocation
 
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
+    
+    
+    
+    
+    var testManager:CLLocationManager = CLLocationManager()
+    
+    
+    
     
     var item : Item? = nil
     
@@ -38,6 +48,23 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        //デリゲート先を自分に設定する。
+        testManager.delegate = self
+        
+        
+        //位置情報の利用許可を変更する画面をポップアップ表示する。
+        testManager.requestWhenInUseAuthorization()
+        
+        //位置情報の取得を要求する。
+        testManager.requestLocation()
+        
+        
+        
+        
+        
         divisor = (view.frame.width / 2) / 0.61
     
         //判別するために色をつける
@@ -164,27 +191,45 @@ class ViewController: UIViewController{
     
     @IBAction func moveMap(_ sender: UIButton) {
         
-//        
-//        let annotation = MKPointAnnotation()
-//
-//        
-//        //マップアプリに渡す目的地の位置情報を作る。
-//        let coordinate = CLLocationCoordinate2DMake(view.annotation!.coordinate.latitude, view.annotation!.coordinate.longitude)
-//        let placemark = MKPlacemark(coordinate:coordinate, addressDictionary:nil)
-//        let mapItem = MKMapItem(placemark: placemark)
-//        
-//        //起動オプション
-//        let option:[String:AnyObject] = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving as AnyObject, //車で移動
-//            MKLaunchOptionsMapTypeKey : MKMapType.hybrid.rawValue as AnyObject]  //地図表示はハイブリッド
-//        
-//        //マップアプリを起動する。
-//        mapItem.openInMaps(launchOptions: option)
-//
         
+        let myGeocoder:CLGeocoder = CLGeocoder()
+        
+        var str = item?.address[num]
+        
+        //住所を座標に変換する。
+        myGeocoder.geocodeAddressString("京都府京都市中京区木屋町通三条下ル一筋目西入ル北側", completionHandler: {(placemarks, error) in
+            
+            print(self.item?.address)
+            //item.addressに配列としてちゃんと入ってない可能性
+            print(self.num)
+            print(placemarks)
+//  if(error == nil) {
+    for placemark in placemarks! {
+        let location:CLLocation = placemark.location!
+        
+        print("location:\(location)")
+        
+        
+        //マップアプリに渡す目的地の位置情報を作る。
+        let coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let placemark = MKPlacemark(coordinate:coordinate, addressDictionary:nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        
+        //起動オプション
+        let option:[String:AnyObject] = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving as AnyObject, //車で移動
+            MKLaunchOptionsMapTypeKey : MKMapType.hybrid.rawValue as AnyObject]  //地図表示はハイブリッド
+        
+        //マップアプリを起動する。
+        mapItem.openInMaps(launchOptions: option)
         
         
     }
-    
+//        }
+//  else {
+//    print("エラー")
+//    
+//            }
+        })}
     
     
     
@@ -236,6 +281,12 @@ class ViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
+        print("エラー")
+    }
 
     
     //gesturePanのメソッド
@@ -275,7 +326,7 @@ class ViewController: UIViewController{
             
             if card.center.x < 50 {
                 // Move off to the left side
-                UIView.animate(withDuration: 1, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     card.center = CGPoint(x: card.center.x - 1000, y: card.center.y + 75)
                     card.alpha = 0
                     self.num += 1
@@ -283,7 +334,7 @@ class ViewController: UIViewController{
                     
                 })
                 return
-            } else if card.center.x > (view.frame.width - 50) {
+            } else if card.center.x > (view.frame.width - 75) {
                 // Move off to the right side
                 UIView.animate(withDuration: 1, animations: {
                     card.center = CGPoint(x: card.center.x + 1000, y: card.center.y + 75)
@@ -343,5 +394,21 @@ class ViewController: UIViewController{
     
    
   
-    }}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 

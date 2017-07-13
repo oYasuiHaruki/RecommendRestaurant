@@ -11,5 +11,6 @@ struct Item {
     var storeNames:[String] = []
     var storeCount = 0
     var photoURLs :[URL] = []
+    var address:[String] = []
 }
 

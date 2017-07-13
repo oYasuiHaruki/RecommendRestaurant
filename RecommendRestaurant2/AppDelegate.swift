@@ -14,69 +14,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     
+    var latitude:Double = 0
+    
+    var longitude:Double = 0
+    
+    
     var window: UIWindow?
     
-    var izakaya = ["storename":[],"photo":[]]
+    var izakaya = ["storename":[],"photo":[],"address":[]]
      
-    var diningbar = ["storename":[],"photo":[]]
+    var diningbar = ["storename":[],"photo":[],"address":[]]
     
-    var sousakuryouri = ["storename":[],"photo":[]]
+    var sousakuryouri = ["storename":[],"photo":[],"address":[]]
     
-    var wasyoku = ["storename":[],"photo":[]]
+    var wasyoku = ["storename":[],"photo":[],"address":[]]
     
-    var nihonnryouri = ["storename":[],"photo":[]]
+    var nihonnryouri = ["storename":[],"photo":[],"address":[]]
     
-    var suhsi = ["storename":[],"photo":[]]
+    var suhsi = ["storename":[],"photo":[],"address":[]]
     
-    var syabusyabu = ["storename":[],"photo":[]]
+    var syabusyabu = ["storename":[],"photo":[],"address":[]]
     
-    var udon = ["storename":[],"photo":[]]
+    var udon = ["storename":[],"photo":[],"address":[]]
     
-    var yousyoku = ["storename":[],"photo":[]]
+    var yousyoku = ["storename":[],"photo":[],"address":[]]
     
-    var steak = ["storename":[],"photo":[]]
+    var steak = ["storename":[],"photo":[],"address":[]]
     
-    var italian = ["storename":[],"photo":[]]
+    var italian = ["storename":[],"photo":[],"address":[]]
     
-    var french = ["storename":[],"photo":[]]
+    var french = ["storename":[],"photo":[],"address":[]]
     
-    var pasta = ["storename":[],"photo":[]]
+    var pasta = ["storename":[],"photo":[],"address":[]]
     
-    var bistoro = ["storename":[],"photo":[]]
+    var bistoro = ["storename":[],"photo":[],"address":[]]
     
-    var tyuka = ["storename":[],"photo":[]]
+    var tyuka = ["storename":[],"photo":[],"address":[]]
     
-    var kanntouryouri = ["storename":[],"photo":[]]
+    var kanntouryouri = ["storename":[],"photo":[],"address":[]]
     
-    var shisenn = ["storename":[],"photo":[]]
+    var shisenn = ["storename":[],"photo":[],"address":[]]
     
-    var shanhai = ["storename":[],"photo":[]]
+    var shanhai = ["storename":[],"photo":[],"address":[]]
     
-    var pekinn = ["storename":[],"photo":[]]
+    var pekinn = ["storename":[],"photo":[],"address":[]]
     
-    var yakiniku = ["storename":[],"photo":[]]
+    var yakiniku = ["storename":[],"photo":[],"address":[]]
     
-    var kannkokuryouri = ["storename":[],"photo":[]]
+    var kannkokuryouri = ["storename":[],"photo":[],"address":[]]
     
-    var ajian = ["storename":[],"photo":[]]
+    var ajian = ["storename":[],"photo":[],"address":[]]
     
-    var thai = ["storename":[],"photo":[]]
+    var thai = ["storename":[],"photo":[],"address":[]]
     
-    var indo = ["storename":[],"photo":[]]
+    var indo = ["storename":[],"photo":[],"address":[]]
     
-    var spein = ["storename":[],"photo":[]]
+    var spein = ["storename":[],"photo":[],"address":[]]
     
-    var karaoke = ["storename":[],"photo":[]]
+    var karaoke = ["storename":[],"photo":[],"address":[]]
     
-    var bar = ["storename":[],"photo":[]]
+    var bar = ["storename":[],"photo":[],"address":[]]
     
-    var ramenn = ["storename":[],"photo":[]]
+    var ramenn = ["storename":[],"photo":[],"address":[]]
     
-    var cafe = ["storename":[],"photo":[]]
+    var cafe = ["storename":[],"photo":[],"address":[]]
     
-    var sweets = ["storename":[],"photo":[]]
+    var sweets = ["storename":[],"photo":[],"address":[]]
     
-    var okonomiyaki = ["storename":[],"photo":[]]
+    var okonomiyaki = ["storename":[],"photo":[],"address":[]]
     
     var amount = [[]]
     

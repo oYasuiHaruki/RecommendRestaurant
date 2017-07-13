@@ -107,6 +107,9 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
             //店の名前をstoreNameとして保存
             let storeName: String = eachStoreInfomation["name"] as! String
+
+            //店の住所をaddressとして保存
+            let address: String = eachStoreInfomation["address"] as! String
             
             //ジャンルの名前をgenreNameとして保存
             let genreDictionary:NSDictionary = eachStoreInfomation["genre"] as! NSDictionary
@@ -132,90 +135,119 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             switch genreName {
             case "居酒屋":
                 appDelegate.izakaya["storename"]?.append(storeName)
+                appDelegate.izakaya["address"]?.append(address)
                 appDelegate.izakaya["photo"]?.append(photoDataURL)
             case "ダイニングバー":
                 appDelegate.diningbar["storename"]?.append(storeName)
+                appDelegate.diningbar["address"]?.append(address)
                 appDelegate.diningbar["photo"]?.append(photoDataURL)
             case "創作料理":
                 appDelegate.sousakuryouri["storename"]?.append(storeName)
+                appDelegate.sousakuryouri["address"]?.append(address)
                 appDelegate.sousakuryouri["photo"]?.append(photoDataURL)
             case "和食":
                 appDelegate.wasyoku["storename"]?.append(storeName)
+                appDelegate.wasyoku["address"]?.append(address)
                 appDelegate.wasyoku["photo"]?.append(photoDataURL)
             case "日本料理・懐石":
                 appDelegate.nihonnryouri["storename"]?.append(storeName)
+                appDelegate.nihonnryouri["address"]?.append(address)
                 appDelegate.nihonnryouri["photo"]?.append(photoDataURL)
             case "寿司":
                 appDelegate.suhsi["storename"]?.append(storeName)
+                appDelegate.suhsi["address"]?.append(address)
                 appDelegate.suhsi["photo"]?.append(photoDataURL)
             case "しゃぶしゃぶ・すき焼き":
                 appDelegate.syabusyabu["storename"]?.append(storeName)
+                appDelegate.syabusyabu["address"]?.append(address)
                 appDelegate.syabusyabu["photo"]?.append(photoDataURL)
             case "うどん・そば":
                 appDelegate.udon["storename"]?.append(storeName)
+                appDelegate.udon["address"]?.append(address)
                 appDelegate.udon["photo"]?.append(photoDataURL)
             case "洋食":
                 appDelegate.yousyoku["storename"]?.append(storeName)
+                appDelegate.yousyoku["address"]?.append(address)
                 appDelegate.yousyoku["photo"]?.append(photoDataURL)
             case "ステーキ・ハンバーグ・カレー":
                 appDelegate.steak["storename"]?.append(storeName)
+                appDelegate.steak["address"]?.append(address)
                 appDelegate.steak["photo"]?.append(photoDataURL)
             case "イタリアン・フレンチ":
                 appDelegate.italian["storename"]?.append(storeName)
+                appDelegate.italian["address"]?.append(address)
                 appDelegate.italian["photo"]?.append(photoDataURL)
             case "パスタ・ピザ":
                 appDelegate.pasta["storename"]?.append(storeName)
+                appDelegate.pasta["address"]?.append(address)
                 appDelegate.pasta["photo"]?.append(photoDataURL)
             case "ビストロ":
                 appDelegate.bistoro["storename"]?.append(storeName)
+                appDelegate.bistoro["address"]?.append(address)
                 appDelegate.bistoro["photo"]?.append(photoDataURL)
             case "中華":
                 appDelegate.tyuka["storename"]?.append(storeName)
+                appDelegate.tyuka["address"]?.append(address)
                 appDelegate.tyuka["photo"]?.append(photoDataURL)
             case "広東料理":
                 appDelegate.kanntouryouri["storename"]?.append(storeName)
+                appDelegate.kanntouryouri["address"]?.append(address)
                 appDelegate.kanntouryouri["photo"]?.append(photoDataURL)
             case "四川料理":
                 appDelegate.shisenn["storename"]?.append(storeName)
+                appDelegate.shisenn["address"]?.append(address)
                 appDelegate.shisenn["photo"]?.append(photoDataURL)
             case "上海料理":
                 appDelegate.shanhai["storename"]?.append(storeName)
+                appDelegate.shanhai["address"]?.append(address)
                 appDelegate.shanhai["photo"]?.append(photoDataURL)
             case "北京料理":
                 appDelegate.pekinn["storename"]?.append(storeName)
+                appDelegate.pekinn["address"]?.append(address)
                 appDelegate.pekinn["photo"]?.append(photoDataURL)
             case "焼肉・韓国料理":
                 appDelegate.yakiniku["storename"]?.append(storeName)
+                appDelegate.yakiniku["address"]?.append(address)
                 appDelegate.yakiniku["photo"]?.append(photoDataURL)
             case "アジアン":
                 appDelegate.ajian["storename"]?.append(storeName)
+                appDelegate.ajian["address"]?.append(address)
                 appDelegate.ajian["photo"]?.append(photoDataURL)
             case "タイ・ベトナム料理":
                 appDelegate.thai["storename"]?.append(storeName)
+                appDelegate.thai["address"]?.append(address)
                 appDelegate.thai["photo"]?.append(photoDataURL)
             case "インド料理":
                 appDelegate.indo["storename"]?.append(storeName)
+                appDelegate.indo["address"]?.append(address)
                 appDelegate.indo["photo"]?.append(photoDataURL)
             case "スペイン・地中海料理":
                 appDelegate.spein["storename"]?.append(storeName)
+                appDelegate.spein["address"]?.append(address)
                 appDelegate.spein["photo"]?.append(photoDataURL)
             case "カラオケ":
                 appDelegate.karaoke["storename"]?.append(storeName)
+                appDelegate.karaoke["address"]?.append(address)
                 appDelegate.karaoke["photo"]?.append(photoDataURL)
             case "バー・カクテル":
                 appDelegate.bar["storename"]?.append(storeName)
+                appDelegate.bar["address"]?.append(address)
                 appDelegate.bar["photo"]?.append(photoDataURL)
             case "ラーメン":
                 appDelegate.ramenn["storename"]?.append(storeName)
+                appDelegate.ramenn["address"]?.append(address)
                 appDelegate.ramenn["photo"]?.append(photoDataURL)
             case "カフェ":
                 appDelegate.cafe["storename"]?.append(storeName)
+                appDelegate.cafe["address"]?.append(address)
                 appDelegate.cafe["photo"]?.append(photoDataURL)
             case "スイーツ":
                 appDelegate.sweets["storename"]?.append(storeName)
+                appDelegate.sweets["address"]?.append(address)
                 appDelegate.sweets["photo"]?.append(photoDataURL)
             case "お好み焼き・もんじゃ・鉄板焼き":
                 appDelegate.okonomiyaki["storename"]?.append(storeName)
+                appDelegate.okonomiyaki["address"]?.append(address)
                 appDelegate.okonomiyaki["photo"]?.append(photoDataURL)
             default:
             print("不明のジャンルが入りました")
@@ -293,10 +325,46 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
              appDelegate.sweets["photo"]!,
              appDelegate.okonomiyaki["photo"]!]
             
+        var amountArray2: NSArray =
+                
+            [appDelegate.izakaya["address"]!,
+             appDelegate.diningbar["address"]!,
+             appDelegate.sousakuryouri["address"]!,
+             appDelegate.wasyoku["address"]!,
+             appDelegate.nihonnryouri["address"]!,
+             appDelegate.suhsi["address"]!,
+             appDelegate.syabusyabu["address"]!,
+             appDelegate.udon["address"]!,
+             appDelegate.yousyoku["address"]!,
+             appDelegate.steak["address"]!,
+             appDelegate.italian["address"]!,
+             appDelegate.french["address"]!,
+             appDelegate.pasta["address"]!,
+             appDelegate.bistoro["address"]!,
+             appDelegate.tyuka["address"]!,
+             appDelegate.kanntouryouri["address"]!,
+             appDelegate.shisenn["address"]!,
+             appDelegate.shanhai["address"]!,
+             appDelegate.pekinn["address"]!,
+             appDelegate.yakiniku["address"]!,
+             appDelegate.kannkokuryouri["address"]!,
+             appDelegate.ajian["address"]!,
+             appDelegate.thai["address"]!,
+             appDelegate.indo["address"]!,
+             appDelegate.spein["address"]!,
+             appDelegate.karaoke["address"]!,
+             appDelegate.bar["address"]!,
+             appDelegate.ramenn["address"]!,
+             appDelegate.cafe["address"]!,
+             appDelegate.sweets["address"]!,
+             appDelegate.okonomiyaki["address"]!]
+
+        
+            
             
         //並べ替えのための作成(ジャンル名)
         var genreNames =
-                
+            
             ["居酒屋",
              "ダイニングバー",
              "創作料理",
@@ -333,10 +401,13 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         for n in 0...genreNames.count - 1 {
             
             if (amountArray[n] as AnyObject).count != 0 {
-                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL])
+                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String])
             )}
             
         }
+            
+            
+            
 
             
         //配列の順番をsortする準備
@@ -459,8 +530,8 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             longitudeLabel.text = "経度:\(location.coordinate.longitude)"
             
             //メンバ変数に現在地の経度と緯度を代入
-            latitude = location.coordinate.latitude
-            longitude = location.coordinate.longitude
+            appDelegate.latitude = location.coordinate.latitude
+            appDelegate.longitude = location.coordinate.longitude
         }
         
     }
