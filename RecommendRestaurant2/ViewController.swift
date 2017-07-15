@@ -22,7 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     
     
-    
+    //structのitemのインスタンスを作成
     var item : Item? = nil
     
     //GenreViewControllerから送られた情報を保存
@@ -32,13 +32,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var num = 0
     
     //店の情報が載ったUIViewの作成
-    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 100, width: 250, height: 350))
+    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 300))
     
     //写真を置くUIImageViewの作成
-    var myPicture:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
+    var myPicture:UIImageView = UIImageView(frame: CGRect(x: 25, y: 10, width: 200, height: 200))
     
     //viewの中に店名を表記
-    var myLabel:UILabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 150))
+    var myLabel:UILabel = UILabel(frame: CGRect(x: 25, y: 200, width: 200, height: 30))
+    
+    //viewの中にcatch文を表記
+    var myLabel2:UILabel = UILabel(frame: CGRect(x: 25, y: 250, width: 200, height: 30))
+
+    
     
     
     var divisor : CGFloat!
@@ -49,6 +54,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+      
+        
+
         
         
         //デリゲート先を自分に設定する。
@@ -70,14 +79,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //判別するために色をつける
         baseView.backgroundColor = UIColor.orange
         
+        baseView.center = CGPoint(x: view.center.x, y: view.center.y)
+
+        
         //初期画面の写真を表示
         myPicture.sd_setImage(with: item?.photoURLs[num])
         
         //テキストを表示
         myLabel.text = "\(item?.storeNames[num] as! String)"
         
+        //テキストを表示
+        myLabel2.text = "\(item?.catchInformation[num] as! String)"
+
         
-        num += 1
 
         
         // スワイプを定義
@@ -96,99 +110,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //baseViewの上にmyLabelを配置
         self.baseView.addSubview(myLabel)
         
+        self.baseView.addSubview(myLabel2)
         
+//        self.baseView.layer.borderColor = UIColor.brown as! CGColor
+//        myPicture.layer.borderWidth = 10
         
+        baseView.layer.cornerRadius = 10.0
+        baseView.layer.masksToBounds = true
+
+        
+//        myPicture.layer.cornerRadius = 10.0
+//        myPicture.layer.masksToBounds = true
+
          
     }
     
     
-    
-    //viewを左に飛ばして、再びviewを作成する
-    @IBAction func throwAway(_ sender: UIButton) {
-        
-        //最後まで読まれていたら初期化する
-        if self.num == item?.storeCount {
-            self.num = -1
-        }
-        
-        //重複させないための数字
-        self.num += 1
-        
-        //numがいくつかを確認
-        print(num)
-        
-        
-        //animationで移動させる
-        UIView.animate(withDuration: 1, animations: {
-            self.baseView.center = CGPoint(x: self.baseView.center.x - 500, y: self.baseView.center.y + 75)
-//            self.myPicture.center = CGPoint(x: self.baseView.center.x - 500, y: self.baseView.center.y + 25)
-//            self.myLabel.center = CGPoint(x: self.baseView.center.x - 500, y: self.baseView.center.y + 25)
-            
-            self.baseView.alpha = 0
-            self.myPicture.alpha = 0
-            self.myLabel.alpha = 0
-            
-            self.newPage()
-//            self.showPicture()
-            
-        })
-        return
-    }
-    
-    
-    @IBAction func `return`(_ sender: UIButton) {
-        
-        if self.num == 0 {
-            self.num = (item?.storeCount)! - 1
-        }
-        else{
-        //表示するものを元に戻すために数字を一つ減らす
-        self.num -= 1
-        }
-        
-        //numがいくつかを確認
-        print(num)
-        
-        
-        UIView.animate(withDuration: 1, animations: {
-            
-            self.baseView.alpha = 0
-            self.myPicture.alpha = 0
-            
-            self.newPage()
-//            self.showPicture()
-        })
-        return
-    }
-    
-    @IBAction func go(_ sender: UIButton) {
-        
-        //最後まで読まれていたら初期化する
-        if self.num == item?.storeCount {
-            self.num = -1
-        }
-
-        //重複させないための数字
-        self.num += 1
-        
-        //numがいくつかを確認
-        print(num)
-        
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.baseView.center = CGPoint(x: self.baseView.center.x + 500, y: self.baseView.center.y + 75)
-            self.myPicture.center = CGPoint(x: self.baseView.center.x + 500, y: self.baseView.center.y + 25)
-            self.baseView.alpha = 0
-            self.myPicture.alpha = 0
-            
-            self.newPage()
-
-        })
-        return
-        
-
-    }
-    
+      
     @IBAction func moveMap(_ sender: UIButton) {
         
         
@@ -196,18 +134,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         var str = item?.address[num]
         
+        let arr2 = str?.components(separatedBy: "　")
+        let arr3 = arr2?[0].components(separatedBy: " ")
+        
+        print(arr3?[0])   // apple
+//        print(arr2?[1])   // orange
+        
+        
+        var address1 = convertHalfWidthToFullWidth(half:(arr3?[0])!)
+        
+        
+        print(address1)
+        
+        
+        
         //住所を座標に変換する。
-        myGeocoder.geocodeAddressString("京都府京都市中京区木屋町通三条下ル一筋目西入ル北側", completionHandler: {(placemarks, error) in
+        myGeocoder.geocodeAddressString(address1, completionHandler: {(placemarks, error) in
             
-            print(self.item?.address)
+//            print(self.item?.address)
             //item.addressに配列としてちゃんと入ってない可能性
             print(self.num)
-            print(placemarks)
+//            print(placemarks)
 //  if(error == nil) {
     for placemark in placemarks! {
         let location:CLLocation = placemark.location!
         
-        print("location:\(location)")
+//        print("location:\(location)")
         
         
         //マップアプリに渡す目的地の位置情報を作る。
@@ -246,6 +198,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     
     func newPage(){
+        
+        num += 1
         
         //新規のbaseViewを作成
         baseView = UIView(frame: CGRect(x: 100, y: 100, width: 250, height: 350))
@@ -296,13 +250,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let card = sender.view!
         
         //gestureで動かした分を数値化
-        let point = sender.translation(in: baseView)
+        let point = sender.translation(in: view)
         
         
-        let xFromCenter = baseView.center.x - view.center.x
+        let xFromCenter = card.center.x - view.center.x
         
         //動かしているviewの中心位置を元の位置とgestureで動かした分の和にしている
-        card.center = CGPoint(x: baseView.center.x + point.x, y: baseView.center.y + point.y)
+        card.center = CGPoint(x: baseView.center.x , y: baseView.center.y )
         
         
         let scale = min(100/abs(xFromCenter), 1)
@@ -327,7 +281,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             if card.center.x < 50 {
                 // Move off to the left side
                 UIView.animate(withDuration: 0.3, animations: {
-                    card.center = CGPoint(x: card.center.x - 1000, y: card.center.y + 75)
+                    card.center = CGPoint(x: card.center.x - 50, y: card.center.y + 75)
                     card.alpha = 0
                     self.num += 1
                     self.newPage()
@@ -337,7 +291,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             } else if card.center.x > (view.frame.width - 75) {
                 // Move off to the right side
                 UIView.animate(withDuration: 1, animations: {
-                    card.center = CGPoint(x: card.center.x + 1000, y: card.center.y + 75)
+                    card.center = CGPoint(x: card.center.x + 50, y: card.center.y + 75)
                     card.alpha = 0
                     self.num += 1
                     self.newPage()
@@ -361,7 +315,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //        self.num += 1
         
         //numがいくつかを確認
-        print(num)
+//        print(num)
         
         
 //        //animationで移動させる
@@ -398,6 +352,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 
 
 
+    func convertHalfWidthToFullWidth(half:String) -> String {
+        let str = NSMutableString(string: half) as CFMutableString
+        CFStringTransform(str, nil, kCFStringTransformFullwidthHalfwidth, false)
+        return str as String
+    }
 
 
 

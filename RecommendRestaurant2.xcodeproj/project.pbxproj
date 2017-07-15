@@ -10,7 +10,6 @@
 		2DD56BEFAA38B1385E6D153B /* Pods_RecommendRestaurant2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */; };
 		5B702DD47B53C602D4FA8B00 /* Pods_RecommendRestaurant2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */; };
 		5BCF6AB671412913D637D2CD /* Pods_RecommendRestaurant2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */; };
-		F903FB2B1F092E4200E7F1AF /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB291F092E4200E7F1AF /* izakaya.jpeg */; };
 		F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */; };
 		F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */; };
 		F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */; };
@@ -24,6 +23,8 @@
 		F91FDD8A1F02945100641B83 /* RecommendRestaurant2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD891F02945100641B83 /* RecommendRestaurant2UITests.swift */; };
 		F91FDD981F02955F00641B83 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD971F02955F00641B83 /* GenreViewController.swift */; };
 		F97F1AB21F125E4200461A6B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1AB11F125E4200461A6B /* Item.swift */; };
+		F97F1B641F17D70400461A6B /* izakaya.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B631F17D70400461A6B /* izakaya.jpg */; };
+		F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1B651F17D8ED00461A6B /* customeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +54,6 @@
 		EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.release.xcconfig"; sourceTree = "<group>"; };
 		F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.debug.xcconfig"; sourceTree = "<group>"; };
-		F903FB291F092E4200E7F1AF /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpeg; sourceTree = "<group>"; };
 		F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wasyoku.jpeg; sourceTree = "<group>"; };
 		F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = "<group>"; };
 		F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ra-menn.jpeg"; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		F91FDD8B1F02945100641B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91FDD971F02955F00641B83 /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		F97F1AB11F125E4200461A6B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F97F1B631F17D70400461A6B /* izakaya.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpg; sourceTree = "<group>"; };
+		F97F1B651F17D8ED00461A6B /* customeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,13 +155,14 @@
 			isa = PBXGroup;
 			children = (
 				F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */,
-				F903FB291F092E4200E7F1AF /* izakaya.jpeg */,
+				F97F1B631F17D70400461A6B /* izakaya.jpg */,
 				F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */,
 				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
 				F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
+				F97F1B651F17D8ED00461A6B /* customeCell.swift */,
 				F91FDD971F02955F00641B83 /* GenreViewController.swift */,
 				F97F1AB11F125E4200461A6B /* Item.swift */,
 				F91FDD701F02945100641B83 /* Assets.xcassets */,
@@ -309,10 +312,10 @@
 			files = (
 				F91FDD741F02945100641B83 /* LaunchScreen.storyboard in Resources */,
 				F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */,
+				F97F1B641F17D70400461A6B /* izakaya.jpg in Resources */,
 				F91FDD711F02945100641B83 /* Assets.xcassets in Resources */,
 				F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */,
 				F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */,
-				F903FB2B1F092E4200E7F1AF /* izakaya.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */,
 				F97F1AB21F125E4200461A6B /* Item.swift in Sources */,
 				F91FDD981F02955F00641B83 /* GenreViewController.swift in Sources */,
 				F91FDD691F02945100641B83 /* ViewController.swift in Sources */,

@@ -10,13 +10,23 @@ import UIKit
 import MapKit
 
 
-class GenreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate {
 
+    
+    
+//    UICollectionViewDataSource,UICollectionViewDelegate
+    
+    
     @IBOutlet weak var latitudeLabel: UILabel!
     
     @IBOutlet weak var myTableView: UITableView!
     
     @IBOutlet weak var longitudeLabel: UILabel!
+    
+    @IBOutlet weak var myCollectionView: UICollectionView!
+    
+    
+    
     
     //選択した行が何番目かを保存するための数字
     var selectedIndex = -1
@@ -68,14 +78,15 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         
         
+        myCollectionView.delegate = self
+        myCollectionView.dataSource = self
         
         
         
         
         
-        
-        myTableView.delegate = self
-        myTableView.dataSource = self
+//        myTableView.delegate = self
+//        myTableView.dataSource = self
         // Do any additional setup after loading the view.
         
         //hotpepperの情報を取ってくる
@@ -115,6 +126,9 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             let genreDictionary:NSDictionary = eachStoreInfomation["genre"] as! NSDictionary
             let genreName :String = genreDictionary["name"] as! String
             
+            //店のcatch文をcatchInformationとして保存
+            let catchInformaton:String = genreDictionary["catch"] as! String
+            
             
             
             //写真の情報をAPIから取ってくる
@@ -137,118 +151,147 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
                 appDelegate.izakaya["storename"]?.append(storeName)
                 appDelegate.izakaya["address"]?.append(address)
                 appDelegate.izakaya["photo"]?.append(photoDataURL)
+                appDelegate.izakaya["catch"]?.append(catchInformaton)
             case "ダイニングバー":
                 appDelegate.diningbar["storename"]?.append(storeName)
                 appDelegate.diningbar["address"]?.append(address)
                 appDelegate.diningbar["photo"]?.append(photoDataURL)
+                appDelegate.diningbar["catch"]?.append(catchInformaton)
             case "創作料理":
                 appDelegate.sousakuryouri["storename"]?.append(storeName)
                 appDelegate.sousakuryouri["address"]?.append(address)
                 appDelegate.sousakuryouri["photo"]?.append(photoDataURL)
+                appDelegate.sousakuryouri["catch"]?.append(catchInformaton)
             case "和食":
                 appDelegate.wasyoku["storename"]?.append(storeName)
                 appDelegate.wasyoku["address"]?.append(address)
                 appDelegate.wasyoku["photo"]?.append(photoDataURL)
+                appDelegate.wasyoku["catch"]?.append(catchInformaton)
             case "日本料理・懐石":
                 appDelegate.nihonnryouri["storename"]?.append(storeName)
                 appDelegate.nihonnryouri["address"]?.append(address)
                 appDelegate.nihonnryouri["photo"]?.append(photoDataURL)
+                appDelegate.nihonnryouri["catch"]?.append(catchInformaton)
             case "寿司":
                 appDelegate.suhsi["storename"]?.append(storeName)
                 appDelegate.suhsi["address"]?.append(address)
                 appDelegate.suhsi["photo"]?.append(photoDataURL)
+                appDelegate.suhsi["catch"]?.append(catchInformaton)
             case "しゃぶしゃぶ・すき焼き":
                 appDelegate.syabusyabu["storename"]?.append(storeName)
                 appDelegate.syabusyabu["address"]?.append(address)
                 appDelegate.syabusyabu["photo"]?.append(photoDataURL)
+                appDelegate.syabusyabu["catch"]?.append(catchInformaton)
             case "うどん・そば":
                 appDelegate.udon["storename"]?.append(storeName)
                 appDelegate.udon["address"]?.append(address)
                 appDelegate.udon["photo"]?.append(photoDataURL)
+                appDelegate.udon["catch"]?.append(catchInformaton)
             case "洋食":
                 appDelegate.yousyoku["storename"]?.append(storeName)
                 appDelegate.yousyoku["address"]?.append(address)
                 appDelegate.yousyoku["photo"]?.append(photoDataURL)
+                appDelegate.yousyoku["catch"]?.append(catchInformaton)
             case "ステーキ・ハンバーグ・カレー":
                 appDelegate.steak["storename"]?.append(storeName)
                 appDelegate.steak["address"]?.append(address)
                 appDelegate.steak["photo"]?.append(photoDataURL)
+                appDelegate.steak["catch"]?.append(catchInformaton)
             case "イタリアン・フレンチ":
                 appDelegate.italian["storename"]?.append(storeName)
                 appDelegate.italian["address"]?.append(address)
                 appDelegate.italian["photo"]?.append(photoDataURL)
+                appDelegate.italian["catch"]?.append(catchInformaton)
             case "パスタ・ピザ":
                 appDelegate.pasta["storename"]?.append(storeName)
                 appDelegate.pasta["address"]?.append(address)
                 appDelegate.pasta["photo"]?.append(photoDataURL)
+                appDelegate.pasta["catch"]?.append(catchInformaton)
             case "ビストロ":
                 appDelegate.bistoro["storename"]?.append(storeName)
                 appDelegate.bistoro["address"]?.append(address)
                 appDelegate.bistoro["photo"]?.append(photoDataURL)
+                appDelegate.bistoro["catch"]?.append(catchInformaton)
             case "中華":
                 appDelegate.tyuka["storename"]?.append(storeName)
                 appDelegate.tyuka["address"]?.append(address)
                 appDelegate.tyuka["photo"]?.append(photoDataURL)
+                appDelegate.tyuka["catch"]?.append(catchInformaton)
             case "広東料理":
                 appDelegate.kanntouryouri["storename"]?.append(storeName)
                 appDelegate.kanntouryouri["address"]?.append(address)
                 appDelegate.kanntouryouri["photo"]?.append(photoDataURL)
+                appDelegate.kanntouryouri["catch"]?.append(catchInformaton)
             case "四川料理":
                 appDelegate.shisenn["storename"]?.append(storeName)
                 appDelegate.shisenn["address"]?.append(address)
                 appDelegate.shisenn["photo"]?.append(photoDataURL)
+                appDelegate.shisenn["catch"]?.append(catchInformaton)
             case "上海料理":
                 appDelegate.shanhai["storename"]?.append(storeName)
                 appDelegate.shanhai["address"]?.append(address)
                 appDelegate.shanhai["photo"]?.append(photoDataURL)
+                appDelegate.shanhai["catch"]?.append(catchInformaton)
             case "北京料理":
                 appDelegate.pekinn["storename"]?.append(storeName)
                 appDelegate.pekinn["address"]?.append(address)
                 appDelegate.pekinn["photo"]?.append(photoDataURL)
+                appDelegate.pekinn["catch"]?.append(catchInformaton)
             case "焼肉・韓国料理":
                 appDelegate.yakiniku["storename"]?.append(storeName)
                 appDelegate.yakiniku["address"]?.append(address)
                 appDelegate.yakiniku["photo"]?.append(photoDataURL)
+                appDelegate.yakiniku["catch"]?.append(catchInformaton)
             case "アジアン":
                 appDelegate.ajian["storename"]?.append(storeName)
                 appDelegate.ajian["address"]?.append(address)
                 appDelegate.ajian["photo"]?.append(photoDataURL)
+                appDelegate.ajian["catch"]?.append(catchInformaton)
             case "タイ・ベトナム料理":
                 appDelegate.thai["storename"]?.append(storeName)
                 appDelegate.thai["address"]?.append(address)
                 appDelegate.thai["photo"]?.append(photoDataURL)
+                appDelegate.thai["catch"]?.append(catchInformaton)
             case "インド料理":
                 appDelegate.indo["storename"]?.append(storeName)
                 appDelegate.indo["address"]?.append(address)
                 appDelegate.indo["photo"]?.append(photoDataURL)
+                appDelegate.indo["catch"]?.append(catchInformaton)
             case "スペイン・地中海料理":
                 appDelegate.spein["storename"]?.append(storeName)
                 appDelegate.spein["address"]?.append(address)
                 appDelegate.spein["photo"]?.append(photoDataURL)
+                appDelegate.spein["catch"]?.append(catchInformaton)
             case "カラオケ":
                 appDelegate.karaoke["storename"]?.append(storeName)
                 appDelegate.karaoke["address"]?.append(address)
                 appDelegate.karaoke["photo"]?.append(photoDataURL)
+                appDelegate.karaoke["catch"]?.append(catchInformaton)
             case "バー・カクテル":
                 appDelegate.bar["storename"]?.append(storeName)
                 appDelegate.bar["address"]?.append(address)
                 appDelegate.bar["photo"]?.append(photoDataURL)
+                appDelegate.bar["catch"]?.append(catchInformaton)
             case "ラーメン":
                 appDelegate.ramenn["storename"]?.append(storeName)
                 appDelegate.ramenn["address"]?.append(address)
                 appDelegate.ramenn["photo"]?.append(photoDataURL)
+                appDelegate.ramenn["catch"]?.append(catchInformaton)
             case "カフェ":
                 appDelegate.cafe["storename"]?.append(storeName)
                 appDelegate.cafe["address"]?.append(address)
                 appDelegate.cafe["photo"]?.append(photoDataURL)
+                appDelegate.cafe["catch"]?.append(catchInformaton)
             case "スイーツ":
                 appDelegate.sweets["storename"]?.append(storeName)
                 appDelegate.sweets["address"]?.append(address)
                 appDelegate.sweets["photo"]?.append(photoDataURL)
+                appDelegate.sweets["catch"]?.append(catchInformaton)
             case "お好み焼き・もんじゃ・鉄板焼き":
                 appDelegate.okonomiyaki["storename"]?.append(storeName)
                 appDelegate.okonomiyaki["address"]?.append(address)
                 appDelegate.okonomiyaki["photo"]?.append(photoDataURL)
+                appDelegate.okonomiyaki["catch"]?.append(catchInformaton)
             default:
             print("不明のジャンルが入りました")
             }
@@ -359,7 +402,44 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
              appDelegate.sweets["address"]!,
              appDelegate.okonomiyaki["address"]!]
 
-        
+        //並べ替えのため作成(catch文)
+        var amountArray3: NSArray =
+            
+            [appDelegate.izakaya["catch"]!,
+             appDelegate.diningbar["catch"]!,
+             appDelegate.sousakuryouri["catch"]!,
+             appDelegate.wasyoku["catch"]!,
+             appDelegate.nihonnryouri["catch"]!,
+             appDelegate.suhsi["catch"]!,
+             appDelegate.syabusyabu["catch"]!,
+             appDelegate.udon["catch"]!,
+             appDelegate.yousyoku["catch"]!,
+             appDelegate.steak["catch"]!,
+             appDelegate.italian["catch"]!,
+             appDelegate.french["catch"]!,
+             appDelegate.pasta["catch"]!,
+             appDelegate.bistoro["catch"]!,
+             appDelegate.tyuka["catch"]!,
+             appDelegate.kanntouryouri["catch"]!,
+             appDelegate.shisenn["catch"]!,
+             appDelegate.shanhai["catch"]!,
+             appDelegate.pekinn["catch"]!,
+             appDelegate.yakiniku["catch"]!,
+             appDelegate.kannkokuryouri["catch"]!,
+             appDelegate.ajian["catch"]!,
+             appDelegate.thai["catch"]!,
+             appDelegate.indo["catch"]!,
+             appDelegate.spein["catch"]!,
+             appDelegate.karaoke["catch"]!,
+             appDelegate.bar["catch"]!,
+             appDelegate.ramenn["catch"]!,
+             appDelegate.cafe["catch"]!,
+             appDelegate.sweets["catch"]!,
+             appDelegate.okonomiyaki["catch"]!]
+            
+            
+            
+
             
             
         //並べ替えのための作成(ジャンル名)
@@ -401,7 +481,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         for n in 0...genreNames.count - 1 {
             
             if (amountArray[n] as AnyObject).count != 0 {
-                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String])
+                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String],catchInformation: amountArray3[n] as! [String])
             )}
             
         }
@@ -431,71 +511,73 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
             Items = Items.sorted(by: sortedByCount)
             
             print(Items)
+            
+            
      
         }catch{
             print("エラーが起きました")
             return
         }
     }
-
-    //cellの個数を決める
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Items.count + 1
+//
+//    //cellの個数を決める
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return Items.count + 1
+//    
+//    }
+//    
+//    //cellの中身を決める
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        
+//        switch indexPath.row{
+//            
+//        case 0:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//            
+//            //cell accesoryType decision
+//            cell.accessoryType = .none
+//            
+//            //top cell text 料理ジャンルを選択
+//            cell.textLabel?.text = "料理ジャンルを選択"
+//            
+//            //top cell textcolor change
+//            cell.textLabel?.textColor = UIColor.white
+//            
+//            //top cell backgournd color change
+//            cell.backgroundColor = UIColor.blue
+//            
+//            return cell
+//            
+//        default:
+//            
+//            //cell create
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//        
+//            //cell accesoryType decision
+//            cell.accessoryType = .disclosureIndicator
+//        
+//            cell.textLabel?.text = Items[indexPath.row - 1].genreName + "                           \(Items[indexPath.row - 1].storeCount)"
+//            
+//            return cell
+//            
+//        }
+//    }
     
-    }
-    
-    //cellの中身を決める
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.row{
-            
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            
-            //cell accesoryType decision
-            cell.accessoryType = .none
-            
-            //top cell text 料理ジャンルを選択
-            cell.textLabel?.text = "料理ジャンルを選択"
-            
-            //top cell textcolor change
-            cell.textLabel?.textColor = UIColor.white
-            
-            //top cell backgournd color change
-            cell.backgroundColor = UIColor.blue
-            
-            return cell
-            
-        default:
-            
-            //cell create
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-            //cell accesoryType decision
-            cell.accessoryType = .disclosureIndicator
-        
-            cell.textLabel?.text = Items[indexPath.row - 1].genreName + "                           \(Items[indexPath.row - 1].storeCount)"
-            
-            return cell
-            
-        }
-    }
-    
-    //cellが押された時に実行するメソッド
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //選択された行番号をメンバ変数に格納
-        selectedIndex = indexPath.row
-        
-        if selectedIndex == 0 {
-            return
-        }
-        else {
-        //セグエを指定して画面移動
-        self.performSegue(withIdentifier: "showDetail", sender: nil)
-        }
-    }
-    
+//    //cellが押された時に実行するメソッド
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        //選択された行番号をメンバ変数に格納
+//        selectedIndex = indexPath.row
+//        
+//        if selectedIndex == 0 {
+//            return
+//        }
+//        else {
+//        //セグエを指定して画面移動
+//        self.performSegue(withIdentifier: "showDetail", sender: nil)
+//        }
+//    }
+//    
     
     //segueを使って画面移動する時に実行される（そのメソッドをoverrideで書き換えてる）
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -504,7 +586,7 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
         var vc = segue.destination as! ViewController
         
         //次の画面のプロパティに選択された行番号を指定
-        vc.item = Items[selectedIndex - 1]
+        vc.item = Items[selectedIndex]
     }
     
     override func didReceiveMemoryWarning() {
@@ -543,6 +625,41 @@ class GenreViewController: UIViewController,UITableViewDelegate, UITableViewData
 
     
     
+    
+    
+    
+    
+    // MARK: - UICollectionViewDelegate Protocol
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.title.text = Items[indexPath.row].genreName
+        cell.image.image = UIImage(named: "izakaya.jpg")
+        cell.backgroundColor = UIColor.green
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Items.count
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //選択された行番号をメンバ変数に格納
+        selectedIndex = indexPath.row
+        
+//        if selectedIndex == 0 {
+//            return
+//        }
+//        else {
+            //セグエを指定して画面移動
+            self.performSegue(withIdentifier: "showDetail", sender: nil)
+//        }
+
+    }
     
     
     

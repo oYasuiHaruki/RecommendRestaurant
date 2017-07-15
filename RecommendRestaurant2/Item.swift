@@ -12,5 +12,6 @@ struct Item {
     var storeCount = 0
     var photoURLs :[URL] = []
     var address:[String] = []
+    var catchInformation:[String] = []
 }
 
