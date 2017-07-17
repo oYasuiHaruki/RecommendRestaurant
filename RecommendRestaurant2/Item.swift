@@ -15,5 +15,6 @@ struct Item {
     var catchInformation:[String] = []
     var price:[String] = []
     var openTime:[String] = []
+    var genrePicture:String = ""
 }
 

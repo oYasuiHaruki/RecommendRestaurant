@@ -28,6 +28,7 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     
     @IBOutlet weak var genreNavigation: UINavigationItem!
     
+
     
     
     
@@ -49,6 +50,50 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     
     var longitude:Double = 0
 
+    var genrePictures:[String] =
+        
+        ["izakaya",
+         "diningbar",
+         "sousakuryouri",
+         "wasyoku",
+         "nihonnryouri",
+         "suhsi",
+         "syabusyabu",
+         "udon",
+         "yousyoku",
+         "steak",
+         "italian",
+         "french",
+         "pasta",
+         "bistoro",
+         "tyuka",
+         "kanntouryouri",
+         "shisenn",
+         "shanhai",
+         "pekinn",
+         "yakiniku",
+         "kannkokuryouri",
+         "ajian",
+         "thai",
+         "indo",
+         "spein",
+         "karaoke",
+         "bar",
+         "ramenn",
+         "cafe",
+         "okonomiyaki"]
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -58,8 +103,6 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         
 
         genreNavigation.accessibilityElementsHidden = true
-        
-        
         
         
         
@@ -617,11 +660,15 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
              "カフェ・スイーツ",
              "お好み焼き・もんじゃ・鉄板焼き"]
             
+            
+            
+            
+            
         //Items配列にItemインスタンスを入れていく
         for n in 0...genreNames.count - 1 {
             
             if (amountArray[n] as AnyObject).count != 0 {
-                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String],catchInformation: amountArray3[n] as! [String], price: amountArray4[n] as! [String], openTime: amountArray5[n] as! [String])
+                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String],catchInformation: amountArray3[n] as! [String], price: amountArray4[n] as! [String], openTime: amountArray5[n] as! [String], genrePicture: genrePictures[n])
             )}
             
         }
@@ -773,8 +820,8 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.title.text = Items[indexPath.row].genreName
-        cell.image.image = UIImage(named: "izakaya.jpg")
-        cell.backgroundColor = UIColor.green
+        cell.image.image = UIImage(named: Items[indexPath.row].genrePicture + ".jpeg")
+        cell.backgroundColor = UIColor.orange
         return cell
     }
     

@@ -34,26 +34,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var num = 0
     
     //店の情報が載ったUIViewの作成
-    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 400))
+    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 330))
     
     //写真を置くUIImageViewの作成
-    var myPicture:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 220))
+    var myPicture:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 200))
     
     //店名を表記したラベルの作成
-    var myLabelStoreName:UILabel = UILabel(frame: CGRect(x: 0, y: 230, width: 250, height: 30))
+    var myLabelStoreName:UILabel = UILabel(frame: CGRect(x: 0, y: 200, width: 250, height: 30))
     
     //catch文を表記したラベルの作成
-    var myLabelCatchSentence:UILabel = UILabel(frame: CGRect(x: 0, y: 270, width: 250, height: 30))
+    var myLabelCatchSentence:UILabel = UILabel(frame: CGRect(x: 0, y: 230, width: 250, height: 30))
     
     //営業時間を表記したラベルの作成
-    var myLabelOpenTime:UILabel = UILabel(frame: CGRect(x: 0, y: 310, width: 250, height: 60))
+    var myLabelOpenTime:UILabel = UILabel(frame: CGRect(x: 0, y: 260, width: 250, height: 30))
     
     //価格を表記したラベルの作成
-    var myLabelPrice:UILabel = UILabel(frame: CGRect(x: 0, y: 350, width: 250, height: 30))
+    var myLabelPrice:UILabel = UILabel(frame: CGRect(x: 0, y: 290, width: 250, height: 30))
 
-    
     //navigationのラベル
     @IBOutlet weak var viewTitle: UINavigationItem!
+    
+    
     
     
     
@@ -106,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //baseView(カード)の色をつける
         baseView.backgroundColor = UIColor.orange
         
-        baseView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
+        baseView.center = CGPoint(x: view.center.x, y: view.center.y)
         
     
 
@@ -294,9 +295,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         
         //新規のbaseViewを作成
-        baseView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 400))
+        baseView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 330))
         
-        baseView.center = CGPoint(x: view.center.x, y: view.center.y - 50)
+        baseView.center = CGPoint(x: view.center.x, y: view.center.y)
         
 //        baseView.layer.borderColor = UIColor.orange as! CGColor
         
@@ -426,7 +427,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             }
             UIView.animate(withDuration: 1, animations: {
 //                
-                card.center = CGPoint(x: self.view.center.x ,y: self.view.center.y - 50)
+                card.center = CGPoint(x: self.view.center.x ,y: self.view.center.y)
 //                self.thumbImageView.alpha = 0
                 card.alpha = 1
                 card.transform = .identity
