@@ -13,5 +13,7 @@ struct Item {
     var photoURLs :[URL] = []
     var address:[String] = []
     var catchInformation:[String] = []
+    var price:[String] = []
+    var openTime:[String] = []
 }
 

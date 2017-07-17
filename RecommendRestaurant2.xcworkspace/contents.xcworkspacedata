@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:wasyoku.jpg">
+   </FileRef>
+   <FileRef
       location = "group:RecommendRestaurant2.xcodeproj">
    </FileRef>
    <FileRef

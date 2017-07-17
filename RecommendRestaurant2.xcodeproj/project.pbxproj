@@ -10,9 +10,8 @@
 		2DD56BEFAA38B1385E6D153B /* Pods_RecommendRestaurant2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */; };
 		5B702DD47B53C602D4FA8B00 /* Pods_RecommendRestaurant2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */; };
 		5BCF6AB671412913D637D2CD /* Pods_RecommendRestaurant2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */; };
-		F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */; };
 		F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */; };
-		F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */; };
+		F916A75F1F1B4D300038968E /* Maps-icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = F916A75E1F1B4D300038968E /* Maps-icon4.png */; };
 		F91FDD671F02945100641B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD661F02945100641B83 /* AppDelegate.swift */; };
 		F91FDD691F02945100641B83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD681F02945100641B83 /* ViewController.swift */; };
 		F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91FDD6A1F02945100641B83 /* Main.storyboard */; };
@@ -25,6 +24,11 @@
 		F97F1AB21F125E4200461A6B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1AB11F125E4200461A6B /* Item.swift */; };
 		F97F1B641F17D70400461A6B /* izakaya.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B631F17D70400461A6B /* izakaya.jpg */; };
 		F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1B651F17D8ED00461A6B /* customeCell.swift */; };
+		F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B671F19C41500461A6B /* yakiniku.jpeg */; };
+		F97F1B6A1F19C51400461A6B /* diningbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B691F19C51400461A6B /* diningbar.jpg */; };
+		F9C075901F1A835B00E0B4BA /* Maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C0758F1F1A835B00E0B4BA /* Maps-icon.png */; };
+		F9C075921F1A85FF00E0B4BA /* Maps-icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C075911F1A85FF00E0B4BA /* Maps-icon2.png */; };
+		F9C075961F1AFB1100E0B4BA /* Maps-icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C075951F1AFB1100E0B4BA /* Maps-icon3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +58,8 @@
 		EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.release.xcconfig"; sourceTree = "<group>"; };
 		F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.debug.xcconfig"; sourceTree = "<group>"; };
-		F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wasyoku.jpeg; sourceTree = "<group>"; };
 		F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = "<group>"; };
-		F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ra-menn.jpeg"; sourceTree = "<group>"; };
+		F916A75E1F1B4D300038968E /* Maps-icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon4.png"; sourceTree = "<group>"; };
 		F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendRestaurant2_Bridging_Header.h; sourceTree = "<group>"; };
 		F91FDD631F02945100641B83 /* RecommendRestaurant2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecommendRestaurant2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91FDD661F02945100641B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +79,11 @@
 		F97F1AB11F125E4200461A6B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97F1B631F17D70400461A6B /* izakaya.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpg; sourceTree = "<group>"; };
 		F97F1B651F17D8ED00461A6B /* customeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customeCell.swift; sourceTree = "<group>"; };
+		F97F1B671F19C41500461A6B /* yakiniku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yakiniku.jpeg; sourceTree = "<group>"; };
+		F97F1B691F19C51400461A6B /* diningbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diningbar.jpg; sourceTree = "<group>"; };
+		F9C0758F1F1A835B00E0B4BA /* Maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maps-icon.png"; path = "../Maps-icon.png"; sourceTree = "<group>"; };
+		F9C075911F1A85FF00E0B4BA /* Maps-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon2.png"; sourceTree = "<group>"; };
+		F9C075951F1AFB1100E0B4BA /* Maps-icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +163,14 @@
 			isa = PBXGroup;
 			children = (
 				F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */,
+				F9C0758F1F1A835B00E0B4BA /* Maps-icon.png */,
+				F9C075911F1A85FF00E0B4BA /* Maps-icon2.png */,
+				F9C075951F1AFB1100E0B4BA /* Maps-icon3.png */,
+				F916A75E1F1B4D300038968E /* Maps-icon4.png */,
 				F97F1B631F17D70400461A6B /* izakaya.jpg */,
-				F903FB2A1F092E4200E7F1AF /* wasyoku.jpeg */,
+				F97F1B691F19C51400461A6B /* diningbar.jpg */,
+				F97F1B671F19C41500461A6B /* yakiniku.jpeg */,
 				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
-				F903FB2E1F092E5900E7F1AF /* ra-menn.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
@@ -310,12 +322,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F916A75F1F1B4D300038968E /* Maps-icon4.png in Resources */,
+				F97F1B6A1F19C51400461A6B /* diningbar.jpg in Resources */,
 				F91FDD741F02945100641B83 /* LaunchScreen.storyboard in Resources */,
+				F9C075901F1A835B00E0B4BA /* Maps-icon.png in Resources */,
 				F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */,
+				F9C075921F1A85FF00E0B4BA /* Maps-icon2.png in Resources */,
 				F97F1B641F17D70400461A6B /* izakaya.jpg in Resources */,
 				F91FDD711F02945100641B83 /* Assets.xcassets in Resources */,
-				F903FB2C1F092E4200E7F1AF /* wasyoku.jpeg in Resources */,
-				F903FB301F092E5900E7F1AF /* ra-menn.jpeg in Resources */,
+				F9C075961F1AFB1100E0B4BA /* Maps-icon3.png in Resources */,
+				F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
