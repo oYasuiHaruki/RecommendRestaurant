@@ -6,6 +6,7 @@ target 'RecommendRestaurant2' do
   use_frameworks!
 
   pod ‘SDWebImage’
+  pod ‘SwiftGifOrigin’
 
 
   # Pods for RecommendRestaurant2

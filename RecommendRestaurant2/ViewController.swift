@@ -19,6 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var countNum: UILabel!
     
     
+    @IBOutlet weak var denominator: UILabel!
     
     
     
@@ -34,22 +35,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var num = 0
     
     //店の情報が載ったUIViewの作成
-    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 330))
+    var baseView:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
+    
+    //情報を囲むビューの作成
+    var baseView2:UIView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
     
     //写真を置くUIImageViewの作成
     var myPicture:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 200))
+    var myPicture2:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 200))
+    
+    
     
     //店名を表記したラベルの作成
-    var myLabelStoreName:UILabel = UILabel(frame: CGRect(x: 0, y: 200, width: 250, height: 30))
+    var myLabelStoreName:UILabel = UILabel(frame: CGRect(x: 0, y: 200, width: 250, height: 60))
+    var myLabelStoreName2:UILabel = UILabel(frame: CGRect(x: 0, y: 200, width: 250, height: 60))
     
     //catch文を表記したラベルの作成
-    var myLabelCatchSentence:UILabel = UILabel(frame: CGRect(x: 0, y: 230, width: 250, height: 30))
+    var myLabelCatchSentence:UILabel = UILabel(frame: CGRect(x: 0, y: 230, width: 210, height: 60))
+    var myLabelCatchSentence2:UILabel = UILabel(frame: CGRect(x: 0, y: 230, width: 210, height: 60))
     
     //営業時間を表記したラベルの作成
-    var myLabelOpenTime:UILabel = UILabel(frame: CGRect(x: 0, y: 260, width: 250, height: 30))
+    var myLabelOpenTime:UILabel = UILabel(frame: CGRect(x: 0, y: 280, width: 210, height: 30))
+    var myLabelOpenTime2:UILabel = UILabel(frame: CGRect(x: 0, y: 280, width: 210, height: 30))
     
     //価格を表記したラベルの作成
-    var myLabelPrice:UILabel = UILabel(frame: CGRect(x: 0, y: 290, width: 250, height: 30))
+    var myLabelPrice:UILabel = UILabel(frame: CGRect(x: 0, y: 310, width: 210, height: 30))
+    var myLabelPrice2:UILabel = UILabel(frame: CGRect(x: 0, y: 310, width: 210, height: 30))
 
     //navigationのラベル
     @IBOutlet weak var viewTitle: UINavigationItem!
@@ -75,17 +86,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        
+//        myLabelStoreName.backgroundColor = UIColor.orange
+        
+//        baseView.addSubview(baseView2)
+        
+//        let attrText = NSMutableAttributedString(string: "\(num + 1)/\((item?.storeCount)!)")
+//        print(attrText)
+//        attrText.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(0, 3))
+//        countNum.attributedText = attrText
+        
+        
+        self.navigationController?.navigationBar.tintColor = .orange
+        
+        
+        
+        
+        
+        
+        
+        
         //navigationのタイトルを編集
         viewTitle.title = item?.genreName
         
         
         goMap.imageView?.image = UIImage(named: "Maps-icon4.png")
-
+        //assetsの中に入れたら.pngの表記が入らない
+        //×1,2,3の中に入れる
+        
 //        var amountStore:Int = (item?.storeCount)!
         
         
-        countNum.text = "\(num + 1)/\((item?.storeCount)!)"
-
+        countNum.text = "\(num + 1)"
+        denominator.text = "/\((item?.storeCount)!)"
         
         
         //デリゲート先を自分に設定する。(CLLocationManagerDelegatのデリゲート)
@@ -105,80 +139,204 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         divisor = (view.frame.width / 2) / 0.61
     
         //baseView(カード)の色をつける
-        baseView.backgroundColor = UIColor.orange
+        baseView.backgroundColor = .white
+        baseView2.backgroundColor = .white
         
-        baseView.center = CGPoint(x: view.center.x, y: view.center.y)
-        
+        baseView.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+        baseView2.center = CGPoint(x: view.center.x, y: view.center.y - 30)
     
 
         
+        
         //初期画面の写真を表示
         myPicture.sd_setImage(with: item?.photoURLs[num])
+        myPicture.contentMode = .scaleToFill
+        if (item?.storeCount)! == 1 {
+        }else{
+        myPicture2.sd_setImage(with: item?.photoURLs[num + 1])
+        myPicture2.contentMode = .scaleToFill
+        }
+        
         
         //テキスト・フォントを設定
         myLabelStoreName.text = "\(item?.storeNames[num] as! String)"
-        myLabelStoreName.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 15)
+        myLabelStoreName.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 20)
+        myLabelStoreName.font = UIFont.boldSystemFont(ofSize: 20)
         myLabelStoreName.textAlignment = .center
         myLabelStoreName.numberOfLines = 0
-
+        myLabelStoreName.textColor = UIColor.orange
+        
+        if (item?.storeCount)! == 1 {
+        }else{
+        myLabelStoreName2.text = "\(item?.storeNames[num + 1] as! String)"
+        myLabelStoreName2.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 20)
+        myLabelStoreName2.font = UIFont.boldSystemFont(ofSize: 20)
+        myLabelStoreName2.textAlignment = .center
+        myLabelStoreName2.numberOfLines = 0
+        myLabelStoreName2.textColor = UIColor.orange
+        }
+        
         myLabelCatchSentence.text = "\(item?.catchInformation[num] as! String)"
-        myLabelCatchSentence.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 10)
+        myLabelCatchSentence.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 15)
         myLabelCatchSentence.textAlignment = .center
         myLabelCatchSentence.numberOfLines = 0
         
+        if (item?.storeCount)! == 1 {
+        }else{
+        myLabelCatchSentence2.text = "\(item?.catchInformation[num + 1] as! String)"
+        myLabelCatchSentence2.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 15)
+        myLabelCatchSentence2.textAlignment = .center
+        myLabelCatchSentence2.numberOfLines = 0
+        }
+        
+        
+        var timeString:String = ""
         
         let time = item?.openTime[num].components(separatedBy: "（料理")
         var timeNum:Int = (time?.count)!
-        var time1:String = ""
+        
         for n in 0...timeNum - 1{
             if n == 0{
-                time1 += (time?[n])!
+                timeString += (time?[n])!
             }
             else{
-                var time2 = time?[n].components(separatedBy:  "）")
-                time1 += (time2?[1])!
+                var timeAnotherString = time?[n].components(separatedBy:  "）")
+                timeString += (timeAnotherString?[1])!
             }
             
         }
-        print(item?.openTime[num])
-        print(time1)
-        myLabelOpenTime.text = time1
-        myLabelOpenTime.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 10)
+        print(time)
+        print(timeString)
+        
+        var timeString2:String = ""
+        
+        if (item?.storeCount)! == 1 {
+        }else{
+        let time2 = item?.openTime[num + 1].components(separatedBy: "（料理")
+        var timeNum2:Int = (time2?.count)!
+        
+        for n in 0...timeNum2 - 1{
+            if n == 0{
+                timeString2 += (time2?[n])!
+            }
+            else{
+                var timeAnotherString2 = time2?[n].components(separatedBy:  "）")
+                timeString2 += (timeAnotherString2?[1])!
+            }
+            
+        }
+        print(timeString2)
+        }
+        
+//        print(item?.openTime[num])
+//        print(timeString)
+        myLabelOpenTime.text = timeString
+        myLabelOpenTime.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 12)
         myLabelOpenTime.textAlignment = .center
         myLabelOpenTime.numberOfLines = 0
         
-        myLabelPrice.text = "\(item?.price[num] as! String)"
-        myLabelPrice.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 10)
+        if (item?.storeCount)! == 1 {
+        }else{
+        myLabelOpenTime2.text = timeString2
+        myLabelOpenTime2.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 12)
+        myLabelOpenTime2.textAlignment = .center
+        myLabelOpenTime2.numberOfLines = 0
+        }
+        
+        myLabelPrice.text = "平均予算：\(item?.price[num] as! String)"
+        myLabelPrice.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 12)
         myLabelPrice.textAlignment = .center
         myLabelPrice.numberOfLines = 0
         
+        if (item?.storeCount)! == 1 {
+        }else{
+        myLabelPrice2.text = "平均予算：\(item?.price[num + 1] as! String)"
+        myLabelPrice2.font =  UIFont(name: "HelveticaNeue-UltraLight", size: 12)
+        myLabelPrice2.textAlignment = .center
+        myLabelPrice2.numberOfLines = 0
+        }
 
         
         // スワイプを定義
         let Pan = UIPanGestureRecognizer(target: self, action: #selector(self.PanView(sender:)))
         
         // baseViewにジェスチャーを登録
+      
+//        self.baseView2.addGestureRecognizer(Pan)
         self.baseView.addGestureRecognizer(Pan)
-        
         //元々のviewの上に作成したbaseViewを載せる
+        if (item?.storeCount)! == 1 {
+        }else{
+        self.view.addSubview(baseView2)
+        }
         self.view.addSubview(baseView)
+        
         
         // baseViewの上にmyPictureを載せる
         self.baseView.addSubview(myPicture)
+        self.baseView2.addSubview(myPicture2)
         
         //baseViewの上にmyLabelを配置
-        self.baseView.addSubview(myLabelStoreName)
-        self.baseView.addSubview(myLabelCatchSentence)
-        self.baseView.addSubview(myLabelOpenTime)
-        self.baseView.addSubview(myLabelPrice)
+        baseView.addSubview(myLabelStoreName)
+        baseView.addSubview(myLabelCatchSentence)
+        baseView.addSubview(myLabelOpenTime)
+        baseView.addSubview(myLabelPrice)
+        
+        baseView2.addSubview(myLabelStoreName2)
+        baseView2.addSubview(myLabelCatchSentence2)
+        baseView2.addSubview(myLabelOpenTime2)
+        baseView2.addSubview(myLabelPrice2)
         
 //        self.baseView.layer.borderColor = UIColor.brown as! CGColor
 //        myPicture.layer.borderWidth = 10
         
         //baseViewの角を丸くする
-        baseView.layer.cornerRadius = 10.0
-        baseView.layer.masksToBounds = true
+//        baseView.layer.borderWidth = 10
+//        let shadowView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//        baseView.backgroundColor = UIColor(red: 89/255, green: 172/255, blue: 255/255, alpha: 1)
+//        shadow.center = baseView.center
+        
+//        myPicture.layer.cornerRadius = 10
+        myPicture.layer.masksToBounds = true
+        
+        baseView.layer.cornerRadius = 10
+        baseView.layer.masksToBounds = false
 
+        baseView2.layer.cornerRadius = 10
+        baseView2.layer.masksToBounds = false
+
+        baseView.layer.shadowColor = UIColor.black.cgColor
+        baseView.layer.shadowOpacity = 0.5 // 透明度
+        baseView.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        baseView.layer.shadowRadius = 5 // ぼかし量
+        
+        baseView2.layer.shadowColor = UIColor.black.cgColor
+        baseView2.layer.shadowOpacity = 0.5 // 透明度
+        baseView2.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        baseView2.layer.shadowRadius = 5 // ぼかし量
+
+//        baseView.addSubview(shadowView)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        
+//        baseView.layer.cornerRadius = 10.0
+//        baseView.layer.masksToBounds = true
+//
 
 //        //写真を丸くする
 //        myPicture.layer.cornerRadius = 10.0
@@ -186,6 +344,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //
         
     }
+    
+    
+    
+    
     
     
     //mapボタンを押した時に発動
@@ -251,22 +413,175 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     //新しいカードを作成するメソッド
     func newPage(){
         
+        
+        
+        baseView2.isHidden = true
 
-        if num == (item?.storeCount)! {
-            num = 0
-        }
+//        if num == (item?.storeCount)! {
+//            num = 0
+//        }
         
         
+//        let time = item?.openTime[num].components(separatedBy: "（料理")
+//        var timeNum:Int = (time?.count)!
+//        var time1:String = ""
+//        for n in 0...timeNum - 1{
+//            if n == 0{
+//                time1 += (time?[n])!
+//            }
+//            else{
+//                var time2 = time?[n].components(separatedBy:  "）")
+//                time1 += (time2?[1])!
+//            }
+//            
+//        }
+
         let time = item?.openTime[num].components(separatedBy: "（料理")
         var timeNum:Int = (time?.count)!
-        var time1:String = ""
+        var timeString:String = ""
         for n in 0...timeNum - 1{
             if n == 0{
-                time1 += (time?[n])!
+                timeString += (time?[n])!
             }
             else{
-                var time2 = time?[n].components(separatedBy:  "）")
-                time1 += (time2?[1])!
+                var timeAnotherString = time?[n].components(separatedBy:  "）")
+                timeString += (timeAnotherString?[1])!
+            }
+            
+        }
+        
+        if num == (item?.storeCount)! - 1 {
+            
+            let time2 = item?.openTime[0].components(separatedBy: "（料理")
+            var timeNum2:Int = (time2?.count)!
+            var timeString2:String = ""
+            for n in 0...timeNum2 - 1{
+                if n == 0{
+                    timeString2 += (time2?[n])!
+                }
+                else{
+                    var timeAnotherString2 = time2?[n].components(separatedBy:  "）")
+                    timeString2 += (timeAnotherString2?[1])!
+                }
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //新規のbaseViewを作成
+            baseView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
+            baseView2 = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
+            
+            baseView.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+            baseView2.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+            
+            //        baseView.layer.borderColor = UIColor.orange as! CGColor
+            
+            //写真を表示
+            //        myPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
+            myPicture.sd_setImage(with: item?.photoURLs[num])
+            myPicture2.sd_setImage(with: item?.photoURLs[0])
+            ////
+            //        //店名を表示
+            //        myLabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 150))
+            myLabelStoreName.text = "\((item?.storeNames[num])!)"
+            myLabelStoreName2.text = "\((item?.storeNames[0])!)"
+            
+            //テキストを表示
+            myLabelCatchSentence.text = "\((item?.catchInformation[num])!)"
+            myLabelCatchSentence2.text = "\((item?.catchInformation[0])!)"
+            
+            myLabelOpenTime.text = timeString
+            myLabelOpenTime2.text = timeString2
+            
+            myLabelPrice.text = "平均予算：\((item?.price[num])!)"
+            myLabelPrice2.text = "平均予算：\((item?.price[0])!)"
+            
+            
+            
+            //backgroundColorを変更
+            baseView.backgroundColor = .white
+            baseView2.backgroundColor = .white
+            
+            
+            //gesturePanを定義
+            let Pan = UIPanGestureRecognizer(target: self, action: #selector(self.PanView(sender:)))  //Swift3
+            
+            
+//            //baseViewの角を丸くする
+//            baseView.layer.cornerRadius = 10.0
+//            baseView.layer.masksToBounds = true
+//            baseView2.layer.cornerRadius = 10.0
+//            baseView2.layer.masksToBounds = true
+            
+            
+            
+            //        //写真を丸くする
+            //        myPicture.layer.cornerRadius = 10.0
+            //        myPicture.layer.masksToBounds = true
+            
+            
+            
+            //viewたちを追加
+            view.addSubview(baseView2)
+            view.addSubview(baseView)
+            
+            //        baseView.sendSubview(toBack: baseView2)
+            baseView.addSubview(myPicture)
+            baseView.addSubview(myLabelStoreName)
+            baseView.addSubview(myLabelCatchSentence)
+            baseView.addSubview(myLabelOpenTime)
+            baseView.addSubview(myLabelPrice)
+            baseView.addGestureRecognizer(Pan)
+            
+            //        baseView2.sendSubview(toBack: baseView2)
+            baseView2.addSubview(myPicture2)
+            baseView2.addSubview(myLabelStoreName2)
+            baseView2.addSubview(myLabelCatchSentence2)
+            baseView2.addSubview(myLabelOpenTime2)
+            baseView2.addSubview(myLabelPrice2)
+            //        baseView2.addGestureRecognizer(Pan)
+            
+            //        baseView2.addGestureRecognizer(Pan)
+            
+            
+            countNum.text = "\(num + 1)"
+            denominator.text = "/\((item?.storeCount)!)"
+            
+            
+
+        }
+        else{
+        let time2 = item?.openTime[num + 1].components(separatedBy: "（料理")
+        var timeNum2:Int = (time2?.count)!
+        var timeString2:String = ""
+        for n in 0...timeNum2 - 1{
+            if n == 0{
+                timeString2 += (time2?[n])!
+            }
+            else{
+                var timeAnotherString2 = time2?[n].components(separatedBy:  "）")
+                timeString2 += (timeAnotherString2?[1])!
             }
             
         }
@@ -293,41 +608,52 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         
         
-        
         //新規のbaseViewを作成
-        baseView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 330))
+        baseView = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
+        baseView2 = UIView(frame: CGRect(x: 100, y: 200, width: 250, height: 360))
         
-        baseView.center = CGPoint(x: view.center.x, y: view.center.y)
+        baseView.center = CGPoint(x: view.center.x, y: view.center.y - 30)
+        baseView2.center = CGPoint(x: view.center.x, y: view.center.y - 30)
         
 //        baseView.layer.borderColor = UIColor.orange as! CGColor
         
         //写真を表示
 //        myPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
         myPicture.sd_setImage(with: item?.photoURLs[num])
+        myPicture2.sd_setImage(with: item?.photoURLs[num + 1])
 ////
 //        //店名を表示
 //        myLabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 150))
-        myLabelStoreName.text = "\(item?.storeNames[num] as! String)"
+        myLabelStoreName.text = "\((item?.storeNames[num])!)"
+        myLabelStoreName2.text = "\((item?.storeNames[num + 1])!)"
         
         //テキストを表示
-        myLabelCatchSentence.text = "\(item?.catchInformation[num] as! String)"
+        myLabelCatchSentence.text = "\((item?.catchInformation[num])!)"
+        myLabelCatchSentence2.text = "\((item?.catchInformation[num + 1])!)"
     
-        myLabelOpenTime.text = time1
+        myLabelOpenTime.text = timeString
+        myLabelOpenTime2.text = timeString2
         
-        myLabelPrice.text = "\(item?.price[num] as! String)"
+        myLabelPrice.text = "平均予算：\((item?.price[num])!)"
+        myLabelPrice2.text = "平均予算：\((item?.price[num + 1])!)"
         
 
         
         //backgroundColorを変更
-        baseView.backgroundColor = UIColor.orange
+        baseView.backgroundColor = .white
+        baseView2.backgroundColor = .white
+        
         
         //gesturePanを定義
         let Pan = UIPanGestureRecognizer(target: self, action: #selector(self.PanView(sender:)))  //Swift3
         
         
-        //baseViewの角を丸くする
-        baseView.layer.cornerRadius = 10.0
-        baseView.layer.masksToBounds = true
+//        //baseViewの角を丸くする
+//        baseView.layer.cornerRadius = 10.0
+//        baseView.layer.masksToBounds = true
+//        baseView2.layer.cornerRadius = 10.0
+//        baseView2.layer.masksToBounds = true
+
         
         
 //        //写真を丸くする
@@ -337,16 +663,57 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
 
         //viewたちを追加
+        view.addSubview(baseView2)
         view.addSubview(baseView)
+        
+//        baseView.sendSubview(toBack: baseView2)
         baseView.addSubview(myPicture)
         baseView.addSubview(myLabelStoreName)
         baseView.addSubview(myLabelCatchSentence)
         baseView.addSubview(myLabelOpenTime)
         baseView.addSubview(myLabelPrice)
         baseView.addGestureRecognizer(Pan)
+        
+//        baseView2.sendSubview(toBack: baseView2)
+        baseView2.addSubview(myPicture2)
+        baseView2.addSubview(myLabelStoreName2)
+        baseView2.addSubview(myLabelCatchSentence2)
+        baseView2.addSubview(myLabelOpenTime2)
+        baseView2.addSubview(myLabelPrice2)
+//        baseView2.addGestureRecognizer(Pan)
+        
+//        baseView2.addGestureRecognizer(Pan)
 
         
-        countNum.text = "\(num + 1)/\((item?.storeCount)!)"
+        countNum.text = "\(num + 1)"
+        denominator.text = "/\((item?.storeCount)!)"
+        
+        }
+        
+        myPicture.layer.masksToBounds = true
+        
+        baseView.layer.cornerRadius = 10
+        baseView.layer.masksToBounds = false
+        
+        baseView.layer.shadowColor = UIColor.black.cgColor
+        baseView.layer.shadowOpacity = 0.5 // 透明度
+        baseView.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        baseView.layer.shadowRadius = 5 // ぼかし量
+        
+        
+        
+        
+        
+        myPicture2.layer.masksToBounds = true
+        
+        baseView2.layer.cornerRadius = 10
+        baseView2.layer.masksToBounds = false
+        
+        baseView2.layer.shadowColor = UIColor.black.cgColor
+        baseView2.layer.shadowOpacity = 0.5 // 透明度
+        baseView2.layer.shadowOffset = CGSize(width: 5, height: 5) // 距離
+        baseView2.layer.shadowRadius = 5 // ぼかし量
+        
         
     }
     
@@ -398,9 +765,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //        thumbImageView.alpha =  abs(xFromCenter) / view.center.x
         
         //gestureが最後に指が離れた時に呼ばれる
+       
         if sender.state == UIGestureRecognizerState.ended {
             
-            
+            if (item?.storeCount)! == 1 {
+            }else {
             if card.center.x < 50 {
                 // Move off to the left side
                 UIView.animate(withDuration: 1, animations: {
@@ -410,6 +779,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     
                     
                 })
+                if num == (item?.storeCount)! {
+                    num = 0
+                }
                 self.newPage()
                 return
             } else if card.center.x > (view.frame.width - 75) {
@@ -420,19 +792,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     self.num += 1
                     
                 })
+                if num == (item?.storeCount)! {
+                    num = 0
+                }
                 self.newPage()
                 return
             
             
             }
+            }
             UIView.animate(withDuration: 1, animations: {
 //                
-                card.center = CGPoint(x: self.view.center.x ,y: self.view.center.y)
+                card.center = CGPoint(x: self.view.center.x ,y: self.view.center.y - 30)
 //                self.thumbImageView.alpha = 0
                 card.alpha = 1
                 card.transform = .identity
             }
-        )
+            )
             
         
         
@@ -462,14 +838,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //        //let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(SwipeCodeViewController.leftSwipeView(_:)))  //Swit2.2以前
 //        let leftPan = UIPanGestureRecognizer(target: self, action: #selector(self.leftPanView(sender:)))  //Swift3
 //        // レフトスワイプのみ反応するようにする
-////        leftPan.direction = .left
+//        leftPan.direction = .left
 //        // viewにジェスチャーを登録
 //        self.baseView.addGestureRecognizer(leftPan)
 //
 //        self.newPage()
 //        
         return
-
+            
     }
     
    
@@ -485,6 +861,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
 
 
+    @IBAction func goBack(_ sender: UIButton) {
+        if item?.storeCount == 1{
+            return
+        }
+        if num == 0 {
+            num = (item?.storeCount)! - 1
+        }else {
+        num -= 1
+        }
+        self.newPage()
+        return
+    }
 
 
 

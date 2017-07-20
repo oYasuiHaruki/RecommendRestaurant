@@ -2,13 +2,16 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - SDWebImage
+  - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: f648397337109c6bda99162538955dbc9046bddd
+PODFILE CHECKSUM: f67c53915705813736e06872aeb3e90f16e3415e
 
 COCOAPODS: 1.2.1

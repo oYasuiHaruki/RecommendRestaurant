@@ -8,18 +8,17 @@
 
 import UIKit
 import MapKit
-
+import SwiftGifOrigin
 
 class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate {
 
+    //qucik food タイトル
     
     
 //    UICollectionViewDataSource,UICollectionViewDelegate
     
     
     @IBOutlet weak var latitudeLabel: UILabel!
-    
-    @IBOutlet weak var myTableView: UITableView!
     
     @IBOutlet weak var longitudeLabel: UILabel!
     
@@ -28,9 +27,15 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     
     @IBOutlet weak var genreNavigation: UINavigationItem!
     
+    @IBOutlet weak var ajanLabel: UILabel!
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var gifLoading: UIImageView!
     
     
+    
+    let queue:DispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)
     
     
     
@@ -99,10 +104,53 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+
+        myCollectionView.isHidden = true
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
+        queue.async {() -> Void in
+          
+            
+            
+            
+            
+            
+            self.gifLoading.image = UIImage.gif(name: "loading1")
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+           
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
 
-        genreNavigation.accessibilityElementsHidden = true
+        self.genreNavigation.accessibilityElementsHidden = true
         
         
         
@@ -117,31 +165,31 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             return
         }
         
-        myLocationManager = CLLocationManager()
-        myLocationManager.delegate = self
+        self.myLocationManager = CLLocationManager()
+        self.myLocationManager.delegate = self
         
         if status == CLAuthorizationStatus.notDetermined {
-            myLocationManager.requestWhenInUseAuthorization()
+            self.myLocationManager.requestWhenInUseAuthorization()
         }
         
         if !CLLocationManager.locationServicesEnabled() {
             return
         }
         
-        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-        myLocationManager.distanceFilter = kCLDistanceFilterNone
+        self.myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.myLocationManager.distanceFilter = kCLDistanceFilterNone
         
-        myLocationManager.requestLocation()
-        
-        
+        self.myLocationManager.requestLocation()
         
         
         
         
         
         
-        myCollectionView.delegate = self
-        myCollectionView.dataSource = self
+        
+        
+        self.myCollectionView.delegate = self
+        self.myCollectionView.dataSource = self
         
         
         
@@ -152,7 +200,7 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         // Do any additional setup after loading the view.
         
         //hotpepperの情報を取ってくる
-        let url = URL(string: "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=847b52fd31d7b663&lat=35.0334&lng=135.7906&range=5&order=4&format=json&count=100")
+        let url = URL(string: "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=847b52fd31d7b663&lat=35.0334&lng=135.7986&range=3&order=1&format=json&count=100")
         let request = URLRequest(url: url!)
         let jsondata = (try! NSURLConnection.sendSynchronousRequest(request, returning: nil))
         let jsonDic = (try! JSONSerialization.jsonObject(with: jsondata, options: [])) as! NSDictionary
@@ -217,201 +265,201 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             //データをジャンルごとに保存する
             switch genreName {
             case "居酒屋":
-                appDelegate.izakaya["storename"]?.append(storeName)
-                appDelegate.izakaya["address"]?.append(address)
-                appDelegate.izakaya["photo"]?.append(photoDataURL)
-                appDelegate.izakaya["catch"]?.append(catchInformaton)
-                appDelegate.izakaya["price"]?.append(price)
-                appDelegate.izakaya["openTime"]?.append(openTime)
+                self.appDelegate.izakaya["storename"]?.append(storeName)
+                self.appDelegate.izakaya["address"]?.append(address)
+                self.appDelegate.izakaya["photo"]?.append(photoDataURL)
+                self.appDelegate.izakaya["catch"]?.append(catchInformaton)
+                self.appDelegate.izakaya["price"]?.append(price)
+                self.appDelegate.izakaya["openTime"]?.append(openTime)
             case "ダイニングバー":
-                appDelegate.diningbar["storename"]?.append(storeName)
-                appDelegate.diningbar["address"]?.append(address)
-                appDelegate.diningbar["photo"]?.append(photoDataURL)
-                appDelegate.diningbar["catch"]?.append(catchInformaton)
-                appDelegate.diningbar["price"]?.append(price)
-                appDelegate.diningbar["openTime"]?.append(openTime)
+                self.appDelegate.diningbar["storename"]?.append(storeName)
+                self.appDelegate.diningbar["address"]?.append(address)
+                self.appDelegate.diningbar["photo"]?.append(photoDataURL)
+                self.appDelegate.diningbar["catch"]?.append(catchInformaton)
+                self.appDelegate.diningbar["price"]?.append(price)
+                self.appDelegate.diningbar["openTime"]?.append(openTime)
             case "創作料理":
-                appDelegate.sousakuryouri["storename"]?.append(storeName)
-                appDelegate.sousakuryouri["address"]?.append(address)
-                appDelegate.sousakuryouri["photo"]?.append(photoDataURL)
-                appDelegate.sousakuryouri["catch"]?.append(catchInformaton)
-                appDelegate.sousakuryouri["price"]?.append(price)
-                appDelegate.sousakuryouri["openTime"]?.append(openTime)
+                self.appDelegate.sousakuryouri["storename"]?.append(storeName)
+                self.appDelegate.sousakuryouri["address"]?.append(address)
+                self.appDelegate.sousakuryouri["photo"]?.append(photoDataURL)
+                self.appDelegate.sousakuryouri["catch"]?.append(catchInformaton)
+                self.appDelegate.sousakuryouri["price"]?.append(price)
+                self.appDelegate.sousakuryouri["openTime"]?.append(openTime)
             case "和食":
-                appDelegate.wasyoku["storename"]?.append(storeName)
-                appDelegate.wasyoku["address"]?.append(address)
-                appDelegate.wasyoku["photo"]?.append(photoDataURL)
-                appDelegate.wasyoku["catch"]?.append(catchInformaton)
-                appDelegate.wasyoku["price"]?.append(price)
-                appDelegate.wasyoku["openTime"]?.append(openTime)
+                self.appDelegate.wasyoku["storename"]?.append(storeName)
+                self.appDelegate.wasyoku["address"]?.append(address)
+                self.appDelegate.wasyoku["photo"]?.append(photoDataURL)
+                self.appDelegate.wasyoku["catch"]?.append(catchInformaton)
+                self.appDelegate.wasyoku["price"]?.append(price)
+                self.appDelegate.wasyoku["openTime"]?.append(openTime)
             case "日本料理・懐石":
-                appDelegate.nihonnryouri["storename"]?.append(storeName)
-                appDelegate.nihonnryouri["address"]?.append(address)
-                appDelegate.nihonnryouri["photo"]?.append(photoDataURL)
-                appDelegate.nihonnryouri["catch"]?.append(catchInformaton)
-                appDelegate.nihonnryouri["price"]?.append(price)
-                appDelegate.nihonnryouri["openTime"]?.append(openTime)
+                self.appDelegate.nihonnryouri["storename"]?.append(storeName)
+                self.appDelegate.nihonnryouri["address"]?.append(address)
+                self.appDelegate.nihonnryouri["photo"]?.append(photoDataURL)
+                self.appDelegate.nihonnryouri["catch"]?.append(catchInformaton)
+                self.appDelegate.nihonnryouri["price"]?.append(price)
+                self.appDelegate.nihonnryouri["openTime"]?.append(openTime)
             case "寿司":
-                appDelegate.suhsi["storename"]?.append(storeName)
-                appDelegate.suhsi["address"]?.append(address)
-                appDelegate.suhsi["photo"]?.append(photoDataURL)
-                appDelegate.suhsi["catch"]?.append(catchInformaton)
-                appDelegate.suhsi["price"]?.append(price)
-                appDelegate.suhsi["openTime"]?.append(openTime)
+                self.appDelegate.suhsi["storename"]?.append(storeName)
+                self.appDelegate.suhsi["address"]?.append(address)
+                self.appDelegate.suhsi["photo"]?.append(photoDataURL)
+                self.appDelegate.suhsi["catch"]?.append(catchInformaton)
+                self.appDelegate.suhsi["price"]?.append(price)
+                self.appDelegate.suhsi["openTime"]?.append(openTime)
             case "しゃぶしゃぶ・すき焼き":
-                appDelegate.syabusyabu["storename"]?.append(storeName)
-                appDelegate.syabusyabu["address"]?.append(address)
-                appDelegate.syabusyabu["photo"]?.append(photoDataURL)
-                appDelegate.syabusyabu["catch"]?.append(catchInformaton)
-                appDelegate.syabusyabu["price"]?.append(price)
-                appDelegate.syabusyabu["openTime"]?.append(openTime)
+                self.appDelegate.syabusyabu["storename"]?.append(storeName)
+                self.appDelegate.syabusyabu["address"]?.append(address)
+                self.appDelegate.syabusyabu["photo"]?.append(photoDataURL)
+                self.appDelegate.syabusyabu["catch"]?.append(catchInformaton)
+                self.appDelegate.syabusyabu["price"]?.append(price)
+                self.appDelegate.syabusyabu["openTime"]?.append(openTime)
             case "うどん・そば":
-                appDelegate.udon["storename"]?.append(storeName)
-                appDelegate.udon["address"]?.append(address)
-                appDelegate.udon["photo"]?.append(photoDataURL)
-                appDelegate.udon["catch"]?.append(catchInformaton)
-                appDelegate.udon["price"]?.append(price)
-                appDelegate.udon["openTime"]?.append(openTime)
+                self.appDelegate.udon["storename"]?.append(storeName)
+                self.appDelegate.udon["address"]?.append(address)
+                self.appDelegate.udon["photo"]?.append(photoDataURL)
+                self.appDelegate.udon["catch"]?.append(catchInformaton)
+                self.appDelegate.udon["price"]?.append(price)
+                self.appDelegate.udon["openTime"]?.append(openTime)
             case "洋食":
-                appDelegate.yousyoku["storename"]?.append(storeName)
-                appDelegate.yousyoku["address"]?.append(address)
-                appDelegate.yousyoku["photo"]?.append(photoDataURL)
-                appDelegate.yousyoku["catch"]?.append(catchInformaton)
-                appDelegate.yousyoku["price"]?.append(price)
-                appDelegate.yousyoku["openTime"]?.append(openTime)
+                self.appDelegate.yousyoku["storename"]?.append(storeName)
+                self.appDelegate.yousyoku["address"]?.append(address)
+                self.appDelegate.yousyoku["photo"]?.append(photoDataURL)
+                self.appDelegate.yousyoku["catch"]?.append(catchInformaton)
+                self.appDelegate.yousyoku["price"]?.append(price)
+                self.appDelegate.yousyoku["openTime"]?.append(openTime)
             case "ステーキ・ハンバーグ・カレー":
-                appDelegate.steak["storename"]?.append(storeName)
-                appDelegate.steak["address"]?.append(address)
-                appDelegate.steak["photo"]?.append(photoDataURL)
-                appDelegate.steak["catch"]?.append(catchInformaton)
-                appDelegate.steak["price"]?.append(price)
-                appDelegate.steak["openTime"]?.append(openTime)
+                self.appDelegate.steak["storename"]?.append(storeName)
+                self.appDelegate.steak["address"]?.append(address)
+                self.appDelegate.steak["photo"]?.append(photoDataURL)
+                self.appDelegate.steak["catch"]?.append(catchInformaton)
+                self.appDelegate.steak["price"]?.append(price)
+                self.appDelegate.steak["openTime"]?.append(openTime)
             case "イタリアン・フレンチ":
-                appDelegate.italian["storename"]?.append(storeName)
-                appDelegate.italian["address"]?.append(address)
-                appDelegate.italian["photo"]?.append(photoDataURL)
-                appDelegate.italian["catch"]?.append(catchInformaton)
-                appDelegate.italian["price"]?.append(price)
-                appDelegate.italian["openTime"]?.append(openTime)
+                self.appDelegate.italian["storename"]?.append(storeName)
+                self.appDelegate.italian["address"]?.append(address)
+                self.appDelegate.italian["photo"]?.append(photoDataURL)
+                self.appDelegate.italian["catch"]?.append(catchInformaton)
+                self.appDelegate.italian["price"]?.append(price)
+                self.appDelegate.italian["openTime"]?.append(openTime)
             case "パスタ・ピザ":
-                appDelegate.pasta["storename"]?.append(storeName)
-                appDelegate.pasta["address"]?.append(address)
-                appDelegate.pasta["photo"]?.append(photoDataURL)
-                appDelegate.pasta["catch"]?.append(catchInformaton)
-                appDelegate.pasta["price"]?.append(price)
-                appDelegate.pasta["openTime"]?.append(openTime)
+                self.appDelegate.pasta["storename"]?.append(storeName)
+                self.appDelegate.pasta["address"]?.append(address)
+                self.appDelegate.pasta["photo"]?.append(photoDataURL)
+                self.appDelegate.pasta["catch"]?.append(catchInformaton)
+                self.appDelegate.pasta["price"]?.append(price)
+                self.appDelegate.pasta["openTime"]?.append(openTime)
             case "ビストロ":
-                appDelegate.bistoro["storename"]?.append(storeName)
-                appDelegate.bistoro["address"]?.append(address)
-                appDelegate.bistoro["photo"]?.append(photoDataURL)
-                appDelegate.bistoro["catch"]?.append(catchInformaton)
-                appDelegate.bistoro["price"]?.append(price)
-                appDelegate.bistoro["openTime"]?.append(openTime)
+                self.appDelegate.bistoro["storename"]?.append(storeName)
+                self.appDelegate.bistoro["address"]?.append(address)
+                self.appDelegate.bistoro["photo"]?.append(photoDataURL)
+                self.appDelegate.bistoro["catch"]?.append(catchInformaton)
+                self.appDelegate.bistoro["price"]?.append(price)
+                self.appDelegate.bistoro["openTime"]?.append(openTime)
             case "中華":
-                appDelegate.tyuka["storename"]?.append(storeName)
-                appDelegate.tyuka["address"]?.append(address)
-                appDelegate.tyuka["photo"]?.append(photoDataURL)
-                appDelegate.tyuka["catch"]?.append(catchInformaton)
-                appDelegate.tyuka["price"]?.append(price)
-                appDelegate.tyuka["openTime"]?.append(openTime)
+                self.appDelegate.tyuka["storename"]?.append(storeName)
+                self.appDelegate.tyuka["address"]?.append(address)
+                self.appDelegate.tyuka["photo"]?.append(photoDataURL)
+                self.appDelegate.tyuka["catch"]?.append(catchInformaton)
+                self.appDelegate.tyuka["price"]?.append(price)
+                self.appDelegate.tyuka["openTime"]?.append(openTime)
             case "広東料理":
-                appDelegate.kanntouryouri["storename"]?.append(storeName)
-                appDelegate.kanntouryouri["address"]?.append(address)
-                appDelegate.kanntouryouri["photo"]?.append(photoDataURL)
-                appDelegate.kanntouryouri["catch"]?.append(catchInformaton)
-                appDelegate.kanntouryouri["price"]?.append(price)
-                appDelegate.kanntouryouri["openTime"]?.append(openTime)
+                self.appDelegate.kanntouryouri["storename"]?.append(storeName)
+                self.appDelegate.kanntouryouri["address"]?.append(address)
+                self.appDelegate.kanntouryouri["photo"]?.append(photoDataURL)
+                self.appDelegate.kanntouryouri["catch"]?.append(catchInformaton)
+                self.appDelegate.kanntouryouri["price"]?.append(price)
+                self.appDelegate.kanntouryouri["openTime"]?.append(openTime)
             case "四川料理":
-                appDelegate.shisenn["storename"]?.append(storeName)
-                appDelegate.shisenn["address"]?.append(address)
-                appDelegate.shisenn["photo"]?.append(photoDataURL)
-                appDelegate.shisenn["catch"]?.append(catchInformaton)
-                appDelegate.shisenn["price"]?.append(price)
-                appDelegate.shisenn["openTime"]?.append(openTime)
+                self.appDelegate.shisenn["storename"]?.append(storeName)
+                self.appDelegate.shisenn["address"]?.append(address)
+                self.appDelegate.shisenn["photo"]?.append(photoDataURL)
+                self.appDelegate.shisenn["catch"]?.append(catchInformaton)
+                self.appDelegate.shisenn["price"]?.append(price)
+                self.appDelegate.shisenn["openTime"]?.append(openTime)
             case "上海料理":
-                appDelegate.shanhai["storename"]?.append(storeName)
-                appDelegate.shanhai["address"]?.append(address)
-                appDelegate.shanhai["photo"]?.append(photoDataURL)
-                appDelegate.shanhai["catch"]?.append(catchInformaton)
-                appDelegate.shanhai["price"]?.append(price)
-                appDelegate.shanhai["openTime"]?.append(openTime)
+                self.appDelegate.shanhai["storename"]?.append(storeName)
+                self.appDelegate.shanhai["address"]?.append(address)
+                self.appDelegate.shanhai["photo"]?.append(photoDataURL)
+                self.appDelegate.shanhai["catch"]?.append(catchInformaton)
+                self.appDelegate.shanhai["price"]?.append(price)
+                self.appDelegate.shanhai["openTime"]?.append(openTime)
             case "北京料理":
-                appDelegate.pekinn["storename"]?.append(storeName)
-                appDelegate.pekinn["address"]?.append(address)
-                appDelegate.pekinn["photo"]?.append(photoDataURL)
-                appDelegate.pekinn["catch"]?.append(catchInformaton)
-                appDelegate.pekinn["price"]?.append(price)
-                appDelegate.pekinn["openTime"]?.append(openTime)
+                self.appDelegate.pekinn["storename"]?.append(storeName)
+                self.appDelegate.pekinn["address"]?.append(address)
+                self.appDelegate.pekinn["photo"]?.append(photoDataURL)
+                self.appDelegate.pekinn["catch"]?.append(catchInformaton)
+                self.appDelegate.pekinn["price"]?.append(price)
+                self.appDelegate.pekinn["openTime"]?.append(openTime)
             case "焼肉・韓国料理":
-                appDelegate.yakiniku["storename"]?.append(storeName)
-                appDelegate.yakiniku["address"]?.append(address)
-                appDelegate.yakiniku["photo"]?.append(photoDataURL)
-                appDelegate.yakiniku["catch"]?.append(catchInformaton)
-                appDelegate.yakiniku["price"]?.append(price)
-                appDelegate.yakiniku["openTime"]?.append(openTime)
+                self.appDelegate.yakiniku["storename"]?.append(storeName)
+                self.appDelegate.yakiniku["address"]?.append(address)
+                self.appDelegate.yakiniku["photo"]?.append(photoDataURL)
+                self.appDelegate.yakiniku["catch"]?.append(catchInformaton)
+                self.appDelegate.yakiniku["price"]?.append(price)
+                self.appDelegate.yakiniku["openTime"]?.append(openTime)
             case "アジアン":
-                appDelegate.ajian["storename"]?.append(storeName)
-                appDelegate.ajian["address"]?.append(address)
-                appDelegate.ajian["photo"]?.append(photoDataURL)
-                appDelegate.ajian["catch"]?.append(catchInformaton)
-                appDelegate.ajian["price"]?.append(price)
-                appDelegate.ajian["openTime"]?.append(openTime)
+                self.appDelegate.ajian["storename"]?.append(storeName)
+                self.appDelegate.ajian["address"]?.append(address)
+                self.appDelegate.ajian["photo"]?.append(photoDataURL)
+                self.appDelegate.ajian["catch"]?.append(catchInformaton)
+                self.appDelegate.ajian["price"]?.append(price)
+                self.appDelegate.ajian["openTime"]?.append(openTime)
             case "タイ・ベトナム料理":
-                appDelegate.thai["storename"]?.append(storeName)
-                appDelegate.thai["address"]?.append(address)
-                appDelegate.thai["photo"]?.append(photoDataURL)
-                appDelegate.thai["catch"]?.append(catchInformaton)
-                appDelegate.thai["price"]?.append(price)
-                appDelegate.thai["openTime"]?.append(openTime)
+                self.appDelegate.thai["storename"]?.append(storeName)
+                self.appDelegate.thai["address"]?.append(address)
+                self.appDelegate.thai["photo"]?.append(photoDataURL)
+                self.appDelegate.thai["catch"]?.append(catchInformaton)
+                self.appDelegate.thai["price"]?.append(price)
+                self.appDelegate.thai["openTime"]?.append(openTime)
             case "インド料理":
-                appDelegate.indo["storename"]?.append(storeName)
-                appDelegate.indo["address"]?.append(address)
-                appDelegate.indo["photo"]?.append(photoDataURL)
-                appDelegate.indo["catch"]?.append(catchInformaton)
-                appDelegate.indo["price"]?.append(price)
-                appDelegate.indo["openTime"]?.append(openTime)
+                self.appDelegate.indo["storename"]?.append(storeName)
+                self.appDelegate.indo["address"]?.append(address)
+                self.appDelegate.indo["photo"]?.append(photoDataURL)
+                self.appDelegate.indo["catch"]?.append(catchInformaton)
+                self.appDelegate.indo["price"]?.append(price)
+                self.appDelegate.indo["openTime"]?.append(openTime)
             case "スペイン・地中海料理":
-                appDelegate.spein["storename"]?.append(storeName)
-                appDelegate.spein["address"]?.append(address)
-                appDelegate.spein["photo"]?.append(photoDataURL)
-                appDelegate.spein["catch"]?.append(catchInformaton)
-                appDelegate.spein["price"]?.append(price)
-                appDelegate.spein["openTime"]?.append(openTime)
+                self.appDelegate.spein["storename"]?.append(storeName)
+                self.appDelegate.spein["address"]?.append(address)
+                self.appDelegate.spein["photo"]?.append(photoDataURL)
+                self.appDelegate.spein["catch"]?.append(catchInformaton)
+                self.appDelegate.spein["price"]?.append(price)
+                self.appDelegate.spein["openTime"]?.append(openTime)
             case "カラオケ":
-                appDelegate.karaoke["storename"]?.append(storeName)
-                appDelegate.karaoke["address"]?.append(address)
-                appDelegate.karaoke["photo"]?.append(photoDataURL)
-                appDelegate.karaoke["catch"]?.append(catchInformaton)
-                appDelegate.karaoke["price"]?.append(price)
-                appDelegate.karaoke["openTime"]?.append(openTime)
+                self.appDelegate.karaoke["storename"]?.append(storeName)
+                self.appDelegate.karaoke["address"]?.append(address)
+                self.appDelegate.karaoke["photo"]?.append(photoDataURL)
+                self.appDelegate.karaoke["catch"]?.append(catchInformaton)
+                self.appDelegate.karaoke["price"]?.append(price)
+                self.appDelegate.karaoke["openTime"]?.append(openTime)
             case "バー・カクテル":
-                appDelegate.bar["storename"]?.append(storeName)
-                appDelegate.bar["address"]?.append(address)
-                appDelegate.bar["photo"]?.append(photoDataURL)
-                appDelegate.bar["catch"]?.append(catchInformaton)
-                appDelegate.bar["price"]?.append(price)
-                appDelegate.bar["openTime"]?.append(openTime)
+                self.appDelegate.bar["storename"]?.append(storeName)
+                self.appDelegate.bar["address"]?.append(address)
+                self.appDelegate.bar["photo"]?.append(photoDataURL)
+                self.appDelegate.bar["catch"]?.append(catchInformaton)
+                self.appDelegate.bar["price"]?.append(price)
+                self.appDelegate.bar["openTime"]?.append(openTime)
             case "ラーメン":
-                appDelegate.ramenn["storename"]?.append(storeName)
-                appDelegate.ramenn["address"]?.append(address)
-                appDelegate.ramenn["photo"]?.append(photoDataURL)
-                appDelegate.ramenn["catch"]?.append(catchInformaton)
-                appDelegate.ramenn["price"]?.append(price)
-                appDelegate.ramenn["openTime"]?.append(openTime)
+                self.appDelegate.ramenn["storename"]?.append(storeName)
+                self.appDelegate.ramenn["address"]?.append(address)
+                self.appDelegate.ramenn["photo"]?.append(photoDataURL)
+                self.appDelegate.ramenn["catch"]?.append(catchInformaton)
+                self.appDelegate.ramenn["price"]?.append(price)
+                self.appDelegate.ramenn["openTime"]?.append(openTime)
             case "カフェ・スイーツ":
-                appDelegate.cafe["storename"]?.append(storeName)
-                appDelegate.cafe["address"]?.append(address)
-                appDelegate.cafe["photo"]?.append(photoDataURL)
-                appDelegate.cafe["catch"]?.append(catchInformaton)
-                appDelegate.cafe["price"]?.append(price)
-                appDelegate.cafe["openTime"]?.append(openTime)
+                self.appDelegate.cafe["storename"]?.append(storeName)
+                self.appDelegate.cafe["address"]?.append(address)
+                self.appDelegate.cafe["photo"]?.append(photoDataURL)
+                self.appDelegate.cafe["catch"]?.append(catchInformaton)
+                self.appDelegate.cafe["price"]?.append(price)
+                self.appDelegate.cafe["openTime"]?.append(openTime)
             case "お好み焼き・もんじゃ・鉄板焼き":
-                appDelegate.okonomiyaki["storename"]?.append(storeName)
-                appDelegate.okonomiyaki["address"]?.append(address)
-                appDelegate.okonomiyaki["photo"]?.append(photoDataURL)
-                appDelegate.okonomiyaki["catch"]?.append(catchInformaton)
-                appDelegate.okonomiyaki["price"]?.append(price)
-                appDelegate.okonomiyaki["openTime"]?.append(openTime)
+                self.appDelegate.okonomiyaki["storename"]?.append(storeName)
+                self.appDelegate.okonomiyaki["address"]?.append(address)
+                self.appDelegate.okonomiyaki["photo"]?.append(photoDataURL)
+                self.appDelegate.okonomiyaki["catch"]?.append(catchInformaton)
+                self.appDelegate.okonomiyaki["price"]?.append(price)
+                self.appDelegate.okonomiyaki["openTime"]?.append(openTime)
             default:
             print("不明のジャンルが入りました")
             print(genreName)
@@ -421,207 +469,207 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             //並べ替えのため作成(店名)
             var amountArray: NSArray =
                 
-                [appDelegate.izakaya["storename"]!,
-                 appDelegate.diningbar["storename"]!,
-                 appDelegate.sousakuryouri["storename"]!,
-                 appDelegate.wasyoku["storename"]!,
-                 appDelegate.nihonnryouri["storename"]!,
-                 appDelegate.suhsi["storename"]!,
-                 appDelegate.syabusyabu["storename"]!,
-                 appDelegate.udon["storename"]!,
-                 appDelegate.yousyoku["storename"]!,
-                 appDelegate.steak["storename"]!,
-                 appDelegate.italian["storename"]!,
-                 appDelegate.french["storename"]!,
-                 appDelegate.pasta["storename"]!,
-                 appDelegate.bistoro["storename"]!,
-                 appDelegate.tyuka["storename"]!,
-                 appDelegate.kanntouryouri["storename"]!,
-                 appDelegate.shisenn["storename"]!,
-                 appDelegate.shanhai["storename"]!,
-                 appDelegate.pekinn["storename"]!,
-                 appDelegate.yakiniku["storename"]!,
-                 appDelegate.kannkokuryouri["storename"]!,
-                 appDelegate.ajian["storename"]!,
-                 appDelegate.thai["storename"]!,
-                 appDelegate.indo["storename"]!,
-                 appDelegate.spein["storename"]!,
-                 appDelegate.karaoke["storename"]!,
-                 appDelegate.bar["storename"]!,
-                 appDelegate.ramenn["storename"]!,
-                 appDelegate.cafe["storename"]!,
-                 appDelegate.okonomiyaki["storename"]!]
+                [self.appDelegate.izakaya["storename"]!,
+                 self.appDelegate.diningbar["storename"]!,
+                 self.appDelegate.sousakuryouri["storename"]!,
+                 self.appDelegate.wasyoku["storename"]!,
+                 self.appDelegate.nihonnryouri["storename"]!,
+                 self.appDelegate.suhsi["storename"]!,
+                 self.appDelegate.syabusyabu["storename"]!,
+                 self.appDelegate.udon["storename"]!,
+                 self.appDelegate.yousyoku["storename"]!,
+                 self.appDelegate.steak["storename"]!,
+                 self.appDelegate.italian["storename"]!,
+                 self.appDelegate.french["storename"]!,
+                 self.appDelegate.pasta["storename"]!,
+                 self.appDelegate.bistoro["storename"]!,
+                 self.appDelegate.tyuka["storename"]!,
+                 self.appDelegate.kanntouryouri["storename"]!,
+                 self.appDelegate.shisenn["storename"]!,
+                 self.appDelegate.shanhai["storename"]!,
+                 self.appDelegate.pekinn["storename"]!,
+                 self.appDelegate.yakiniku["storename"]!,
+                 self.appDelegate.kannkokuryouri["storename"]!,
+                 self.appDelegate.ajian["storename"]!,
+                 self.appDelegate.thai["storename"]!,
+                 self.appDelegate.indo["storename"]!,
+                 self.appDelegate.spein["storename"]!,
+                 self.appDelegate.karaoke["storename"]!,
+                 self.appDelegate.bar["storename"]!,
+                 self.appDelegate.ramenn["storename"]!,
+                 self.appDelegate.cafe["storename"]!,
+                 self.appDelegate.okonomiyaki["storename"]!]
             
             
             //並べ替えのため作成(写真)
             var amountArray1: NSArray =
             
-                [appDelegate.izakaya["photo"]!,
-                 appDelegate.diningbar["photo"]!,
-                 appDelegate.sousakuryouri["photo"]!,
-                 appDelegate.wasyoku["photo"]!,
-                 appDelegate.nihonnryouri["photo"]!,
-                 appDelegate.suhsi["photo"]!,
-                 appDelegate.syabusyabu["photo"]!,
-                 appDelegate.udon["photo"]!,
-                 appDelegate.yousyoku["photo"]!,
-                 appDelegate.steak["photo"]!,
-                 appDelegate.italian["photo"]!,
-                 appDelegate.french["photo"]!,
-                 appDelegate.pasta["photo"]!,
-                 appDelegate.bistoro["photo"]!,
-                 appDelegate.tyuka["photo"]!,
-                 appDelegate.kanntouryouri["photo"]!,
-                 appDelegate.shisenn["photo"]!,
-                 appDelegate.shanhai["photo"]!,
-                 appDelegate.pekinn["photo"]!,
-                 appDelegate.yakiniku["photo"]!,
-                 appDelegate.kannkokuryouri["photo"]!,
-                 appDelegate.ajian["photo"]!,
-                 appDelegate.thai["photo"]!,
-                 appDelegate.indo["photo"]!,
-                 appDelegate.spein["photo"]!,
-                 appDelegate.karaoke["photo"]!,
-                 appDelegate.bar["photo"]!,
-                 appDelegate.ramenn["photo"]!,
-                 appDelegate.cafe["photo"]!,
-                 appDelegate.okonomiyaki["photo"]!]
+                [self.appDelegate.izakaya["photo"]!,
+                 self.appDelegate.diningbar["photo"]!,
+                 self.appDelegate.sousakuryouri["photo"]!,
+                 self.appDelegate.wasyoku["photo"]!,
+                 self.appDelegate.nihonnryouri["photo"]!,
+                 self.appDelegate.suhsi["photo"]!,
+                 self.appDelegate.syabusyabu["photo"]!,
+                 self.appDelegate.udon["photo"]!,
+                 self.appDelegate.yousyoku["photo"]!,
+                 self.appDelegate.steak["photo"]!,
+                 self.appDelegate.italian["photo"]!,
+                 self.appDelegate.french["photo"]!,
+                 self.appDelegate.pasta["photo"]!,
+                 self.appDelegate.bistoro["photo"]!,
+                 self.appDelegate.tyuka["photo"]!,
+                 self.appDelegate.kanntouryouri["photo"]!,
+                 self.appDelegate.shisenn["photo"]!,
+                 self.appDelegate.shanhai["photo"]!,
+                 self.appDelegate.pekinn["photo"]!,
+                 self.appDelegate.yakiniku["photo"]!,
+                 self.appDelegate.kannkokuryouri["photo"]!,
+                 self.appDelegate.ajian["photo"]!,
+                 self.appDelegate.thai["photo"]!,
+                 self.appDelegate.indo["photo"]!,
+                 self.appDelegate.spein["photo"]!,
+                 self.appDelegate.karaoke["photo"]!,
+                 self.appDelegate.bar["photo"]!,
+                 self.appDelegate.ramenn["photo"]!,
+                 self.appDelegate.cafe["photo"]!,
+                 self.appDelegate.okonomiyaki["photo"]!]
             
             var amountArray2: NSArray =
                 
-                [appDelegate.izakaya["address"]!,
-                 appDelegate.diningbar["address"]!,
-                 appDelegate.sousakuryouri["address"]!,
-                 appDelegate.wasyoku["address"]!,
-                 appDelegate.nihonnryouri["address"]!,
-                 appDelegate.suhsi["address"]!,
-                 appDelegate.syabusyabu["address"]!,
-                 appDelegate.udon["address"]!,
-                 appDelegate.yousyoku["address"]!,
-                 appDelegate.steak["address"]!,
-                 appDelegate.italian["address"]!,
-                 appDelegate.french["address"]!,
-                 appDelegate.pasta["address"]!,
-                 appDelegate.bistoro["address"]!,
-                 appDelegate.tyuka["address"]!,
-                 appDelegate.kanntouryouri["address"]!,
-                 appDelegate.shisenn["address"]!,
-                 appDelegate.shanhai["address"]!,
-                 appDelegate.pekinn["address"]!,
-                 appDelegate.yakiniku["address"]!,
-                 appDelegate.kannkokuryouri["address"]!,
-                 appDelegate.ajian["address"]!,
-                 appDelegate.thai["address"]!,
-                 appDelegate.indo["address"]!,
-                 appDelegate.spein["address"]!,
-                 appDelegate.karaoke["address"]!,
-                 appDelegate.bar["address"]!,
-                 appDelegate.ramenn["address"]!,
-                 appDelegate.cafe["address"]!,
-                 appDelegate.okonomiyaki["address"]!]
+                [self.appDelegate.izakaya["address"]!,
+                 self.appDelegate.diningbar["address"]!,
+                 self.appDelegate.sousakuryouri["address"]!,
+                 self.appDelegate.wasyoku["address"]!,
+                 self.appDelegate.nihonnryouri["address"]!,
+                 self.appDelegate.suhsi["address"]!,
+                 self.appDelegate.syabusyabu["address"]!,
+                 self.appDelegate.udon["address"]!,
+                 self.appDelegate.yousyoku["address"]!,
+                 self.appDelegate.steak["address"]!,
+                 self.appDelegate.italian["address"]!,
+                 self.appDelegate.french["address"]!,
+                 self.appDelegate.pasta["address"]!,
+                 self.appDelegate.bistoro["address"]!,
+                 self.appDelegate.tyuka["address"]!,
+                 self.appDelegate.kanntouryouri["address"]!,
+                 self.appDelegate.shisenn["address"]!,
+                 self.appDelegate.shanhai["address"]!,
+                 self.appDelegate.pekinn["address"]!,
+                 self.appDelegate.yakiniku["address"]!,
+                 self.appDelegate.kannkokuryouri["address"]!,
+                 self.appDelegate.ajian["address"]!,
+                 self.appDelegate.thai["address"]!,
+                 self.appDelegate.indo["address"]!,
+                 self.appDelegate.spein["address"]!,
+                 self.appDelegate.karaoke["address"]!,
+                 self.appDelegate.bar["address"]!,
+                 self.appDelegate.ramenn["address"]!,
+                 self.appDelegate.cafe["address"]!,
+                 self.appDelegate.okonomiyaki["address"]!]
 
             //並べ替えのため作成(catch文)
             var amountArray3: NSArray =
             
-                [appDelegate.izakaya["catch"]!,
-                 appDelegate.diningbar["catch"]!,
-                 appDelegate.sousakuryouri["catch"]!,
-                 appDelegate.wasyoku["catch"]!,
-                 appDelegate.nihonnryouri["catch"]!,
-                 appDelegate.suhsi["catch"]!,
-                 appDelegate.syabusyabu["catch"]!,
-                 appDelegate.udon["catch"]!,
-                 appDelegate.yousyoku["catch"]!,
-                 appDelegate.steak["catch"]!,
-                 appDelegate.italian["catch"]!,
-                 appDelegate.french["catch"]!,
-                 appDelegate.pasta["catch"]!,
-                 appDelegate.bistoro["catch"]!,
-                 appDelegate.tyuka["catch"]!,
-                 appDelegate.kanntouryouri["catch"]!,
-                 appDelegate.shisenn["catch"]!,
-                 appDelegate.shanhai["catch"]!,
-                 appDelegate.pekinn["catch"]!,
-                 appDelegate.yakiniku["catch"]!,
-                 appDelegate.kannkokuryouri["catch"]!,
-                 appDelegate.ajian["catch"]!,
-                 appDelegate.thai["catch"]!,
-                 appDelegate.indo["catch"]!,
-                 appDelegate.spein["catch"]!,
-                 appDelegate.karaoke["catch"]!,
-                 appDelegate.bar["catch"]!,
-                 appDelegate.ramenn["catch"]!,
-                 appDelegate.cafe["catch"]!,
-                 appDelegate.okonomiyaki["catch"]!]
+                [self.appDelegate.izakaya["catch"]!,
+                 self.appDelegate.diningbar["catch"]!,
+                 self.appDelegate.sousakuryouri["catch"]!,
+                 self.appDelegate.wasyoku["catch"]!,
+                 self.appDelegate.nihonnryouri["catch"]!,
+                 self.appDelegate.suhsi["catch"]!,
+                 self.appDelegate.syabusyabu["catch"]!,
+                 self.appDelegate.udon["catch"]!,
+                 self.appDelegate.yousyoku["catch"]!,
+                 self.appDelegate.steak["catch"]!,
+                 self.appDelegate.italian["catch"]!,
+                 self.appDelegate.french["catch"]!,
+                 self.appDelegate.pasta["catch"]!,
+                 self.appDelegate.bistoro["catch"]!,
+                 self.appDelegate.tyuka["catch"]!,
+                 self.appDelegate.kanntouryouri["catch"]!,
+                 self.appDelegate.shisenn["catch"]!,
+                 self.appDelegate.shanhai["catch"]!,
+                 self.appDelegate.pekinn["catch"]!,
+                 self.appDelegate.yakiniku["catch"]!,
+                 self.appDelegate.kannkokuryouri["catch"]!,
+                 self.appDelegate.ajian["catch"]!,
+                 self.appDelegate.thai["catch"]!,
+                 self.appDelegate.indo["catch"]!,
+                 self.appDelegate.spein["catch"]!,
+                 self.appDelegate.karaoke["catch"]!,
+                 self.appDelegate.bar["catch"]!,
+                 self.appDelegate.ramenn["catch"]!,
+                 self.appDelegate.cafe["catch"]!,
+                 self.appDelegate.okonomiyaki["catch"]!]
 
             //並べ替えのため作成(平均価格)
             var amountArray4: NSArray =
                 
-                [appDelegate.izakaya["price"]!,
-                 appDelegate.diningbar["price"]!,
-                 appDelegate.sousakuryouri["price"]!,
-                 appDelegate.wasyoku["price"]!,
-                 appDelegate.nihonnryouri["price"]!,
-                 appDelegate.suhsi["price"]!,
-                 appDelegate.syabusyabu["price"]!,
-                 appDelegate.udon["price"]!,
-                 appDelegate.yousyoku["price"]!,
-                 appDelegate.steak["price"]!,
-                 appDelegate.italian["price"]!,
-                 appDelegate.french["price"]!,
-                 appDelegate.pasta["price"]!,
-                 appDelegate.bistoro["price"]!,
-                 appDelegate.tyuka["price"]!,
-                 appDelegate.kanntouryouri["price"]!,
-                 appDelegate.shisenn["price"]!,
-                 appDelegate.shanhai["price"]!,
-                 appDelegate.pekinn["price"]!,
-                 appDelegate.yakiniku["price"]!,
-                 appDelegate.kannkokuryouri["price"]!,
-                 appDelegate.ajian["price"]!,
-                 appDelegate.thai["price"]!,
-                 appDelegate.indo["price"]!,
-                 appDelegate.spein["price"]!,
-                 appDelegate.karaoke["price"]!,
-                 appDelegate.bar["price"]!,
-                 appDelegate.ramenn["price"]!,
-                 appDelegate.cafe["price"]!,
-                 appDelegate.okonomiyaki["price"]!]
+                [self.appDelegate.izakaya["price"]!,
+                 self.appDelegate.diningbar["price"]!,
+                 self.appDelegate.sousakuryouri["price"]!,
+                 self.appDelegate.wasyoku["price"]!,
+                 self.appDelegate.nihonnryouri["price"]!,
+                 self.appDelegate.suhsi["price"]!,
+                 self.appDelegate.syabusyabu["price"]!,
+                 self.appDelegate.udon["price"]!,
+                 self.appDelegate.yousyoku["price"]!,
+                 self.appDelegate.steak["price"]!,
+                 self.appDelegate.italian["price"]!,
+                 self.appDelegate.french["price"]!,
+                 self.appDelegate.pasta["price"]!,
+                 self.appDelegate.bistoro["price"]!,
+                 self.appDelegate.tyuka["price"]!,
+                 self.appDelegate.kanntouryouri["price"]!,
+                 self.appDelegate.shisenn["price"]!,
+                 self.appDelegate.shanhai["price"]!,
+                 self.appDelegate.pekinn["price"]!,
+                 self.appDelegate.yakiniku["price"]!,
+                 self.appDelegate.kannkokuryouri["price"]!,
+                 self.appDelegate.ajian["price"]!,
+                 self.appDelegate.thai["price"]!,
+                 self.appDelegate.indo["price"]!,
+                 self.appDelegate.spein["price"]!,
+                 self.appDelegate.karaoke["price"]!,
+                 self.appDelegate.bar["price"]!,
+                 self.appDelegate.ramenn["price"]!,
+                 self.appDelegate.cafe["price"]!,
+                 self.appDelegate.okonomiyaki["price"]!]
             
             
             //並べ替えのため作成(営業時間)
             var amountArray5: NSArray =
                 
-                [appDelegate.izakaya["openTime"]!,
-                 appDelegate.diningbar["openTime"]!,
-                 appDelegate.sousakuryouri["openTime"]!,
-                 appDelegate.wasyoku["openTime"]!,
-                 appDelegate.nihonnryouri["openTime"]!,
-                 appDelegate.suhsi["openTime"]!,
-                 appDelegate.syabusyabu["openTime"]!,
-                 appDelegate.udon["openTime"]!,
-                 appDelegate.yousyoku["openTime"]!,
-                 appDelegate.steak["openTime"]!,
-                 appDelegate.italian["openTime"]!,
-                 appDelegate.french["openTime"]!,
-                 appDelegate.pasta["openTime"]!,
-                 appDelegate.bistoro["openTime"]!,
-                 appDelegate.tyuka["openTime"]!,
-                 appDelegate.kanntouryouri["openTime"]!,
-                 appDelegate.shisenn["openTime"]!,
-                 appDelegate.shanhai["openTime"]!,
-                 appDelegate.pekinn["openTime"]!,
-                 appDelegate.yakiniku["openTime"]!,
-                 appDelegate.kannkokuryouri["openTime"]!,
-                 appDelegate.ajian["openTime"]!,
-                 appDelegate.thai["openTime"]!,
-                 appDelegate.indo["openTime"]!,
-                 appDelegate.spein["openTime"]!,
-                 appDelegate.karaoke["openTime"]!,
-                 appDelegate.bar["openTime"]!,
-                 appDelegate.ramenn["openTime"]!,
-                 appDelegate.cafe["openTime"]!,
-                 appDelegate.okonomiyaki["openTime"]!]
+                [self.appDelegate.izakaya["openTime"]!,
+                 self.appDelegate.diningbar["openTime"]!,
+                 self.appDelegate.sousakuryouri["openTime"]!,
+                 self.appDelegate.wasyoku["openTime"]!,
+                 self.appDelegate.nihonnryouri["openTime"]!,
+                 self.appDelegate.suhsi["openTime"]!,
+                 self.appDelegate.syabusyabu["openTime"]!,
+                 self.appDelegate.udon["openTime"]!,
+                 self.appDelegate.yousyoku["openTime"]!,
+                 self.appDelegate.steak["openTime"]!,
+                 self.appDelegate.italian["openTime"]!,
+                 self.appDelegate.french["openTime"]!,
+                 self.appDelegate.pasta["openTime"]!,
+                 self.appDelegate.bistoro["openTime"]!,
+                 self.appDelegate.tyuka["openTime"]!,
+                 self.appDelegate.kanntouryouri["openTime"]!,
+                 self.appDelegate.shisenn["openTime"]!,
+                 self.appDelegate.shanhai["openTime"]!,
+                 self.appDelegate.pekinn["openTime"]!,
+                 self.appDelegate.yakiniku["openTime"]!,
+                 self.appDelegate.kannkokuryouri["openTime"]!,
+                 self.appDelegate.ajian["openTime"]!,
+                 self.appDelegate.thai["openTime"]!,
+                 self.appDelegate.indo["openTime"]!,
+                 self.appDelegate.spein["openTime"]!,
+                 self.appDelegate.karaoke["openTime"]!,
+                 self.appDelegate.bar["openTime"]!,
+                 self.appDelegate.ramenn["openTime"]!,
+                 self.appDelegate.cafe["openTime"]!,
+                 self.appDelegate.okonomiyaki["openTime"]!]
             
 
             
@@ -638,7 +686,7 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
              "しゃぶしゃぶ・すき焼き",
              "うどん・そば",
              "洋食",
-             "ステーキ・ハンバーグ・カレー",
+             "ステーキ",
              "イタリアン" ,
              "フレンチ" ,
              "パスタ・ピザ" ,
@@ -657,8 +705,8 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
              "カラオケ",
              "バー・カクテル",
              "ラーメン",
-             "カフェ・スイーツ",
-             "お好み焼き・もんじゃ・鉄板焼き"]
+             "カフェ",
+             "お好み焼き"]
             
             
             
@@ -668,7 +716,7 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         for n in 0...genreNames.count - 1 {
             
             if (amountArray[n] as AnyObject).count != 0 {
-                Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String],catchInformation: amountArray3[n] as! [String], price: amountArray4[n] as! [String], openTime: amountArray5[n] as! [String], genrePicture: genrePictures[n])
+                self.Items.append(Item(genreName: genreNames[n], storeNames: amountArray[n] as! [String], storeCount: (amountArray[n] as AnyObject).count, photoURLs: amountArray1[n] as! [URL],address:  amountArray2[n] as! [String],catchInformation: amountArray3[n] as! [String], price: amountArray4[n] as! [String], openTime: amountArray5[n] as! [String], genrePicture: self.genrePictures[n])
             )}
             
         }
@@ -695,9 +743,9 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         //店の店数の多い順に並べ替える
         let sortedByCount: SortDescriptor<Item> = { $0.storeCount > $1.storeCount }
             
-            Items = Items.sorted(by: sortedByCount)
+            self.Items = self.Items.sorted(by: sortedByCount)
             
-            print(Items)
+            print(self.Items)
             
             
      
@@ -705,6 +753,18 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             print("エラーが起きました")
             return
         }
+            
+            
+            self.myCollectionView.reloadData()
+            self.myCollectionView.isHidden = false
+            self.myCollectionView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            self.ajanLabel.isHidden = true
+            self.titleLabel.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
+            
+            
+            
+    }
     }
 //
 //    //cellの個数を決める
@@ -820,8 +880,9 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CustomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.title.text = Items[indexPath.row].genreName
+        cell.title.textColor = UIColor.white
         cell.image.image = UIImage(named: Items[indexPath.row].genrePicture + ".jpeg")
-        cell.backgroundColor = UIColor.orange
+        cell.backgroundColor = .orange
         return cell
     }
     
@@ -850,8 +911,8 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     
     
     
-    
-    
+}
+
     
     
     
@@ -861,4 +922,4 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
     
     
 
-}
+

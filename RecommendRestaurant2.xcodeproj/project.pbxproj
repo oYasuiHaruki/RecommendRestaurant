@@ -49,6 +49,12 @@
 		F97F1AB21F125E4200461A6B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1AB11F125E4200461A6B /* Item.swift */; };
 		F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1B651F17D8ED00461A6B /* customeCell.swift */; };
 		F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B671F19C41500461A6B /* yakiniku.jpeg */; };
+		F9BD0C931F1E3866005AA235 /* yellowCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C921F1E3866005AA235 /* yellowCircle.png */; };
+		F9BD0C951F1E3B6D005AA235 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C941F1E3B6D005AA235 /* back.png */; };
+		F9BD0C971F1F8BC6005AA235 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C961F1F8BC6005AA235 /* loading.gif */; };
+		F9BD0C991F1F909B005AA235 /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C981F1F909B005AA235 /* loading1.gif */; };
+		F9BD0C9B1F1FA464005AA235 /* back1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C9A1F1FA464005AA235 /* back1.jpeg */; };
+		F9BD0C9D1F1FA522005AA235 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BD0C9C1F1FA522005AA235 /* back2.png */; };
 		F9C075901F1A835B00E0B4BA /* Maps-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C0758F1F1A835B00E0B4BA /* Maps-icon.png */; };
 		F9C075921F1A85FF00E0B4BA /* Maps-icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C075911F1A85FF00E0B4BA /* Maps-icon2.png */; };
 		F9C075961F1AFB1100E0B4BA /* Maps-icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = F9C075951F1AFB1100E0B4BA /* Maps-icon3.png */; };
@@ -127,6 +133,12 @@
 		F97F1AB11F125E4200461A6B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97F1B651F17D8ED00461A6B /* customeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customeCell.swift; sourceTree = "<group>"; };
 		F97F1B671F19C41500461A6B /* yakiniku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yakiniku.jpeg; sourceTree = "<group>"; };
+		F9BD0C921F1E3866005AA235 /* yellowCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowCircle.png; path = ../../../../Desktop/yellowCircle.png; sourceTree = "<group>"; };
+		F9BD0C941F1E3B6D005AA235 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../../../Desktop/back.png; sourceTree = "<group>"; };
+		F9BD0C961F1F8BC6005AA235 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = ../../../../Desktop/loading.gif; sourceTree = "<group>"; };
+		F9BD0C981F1F909B005AA235 /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading1.gif; path = ../../../../Desktop/loading1.gif; sourceTree = "<group>"; };
+		F9BD0C9A1F1FA464005AA235 /* back1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back1.jpeg; path = ../../../../Desktop/back1.jpeg; sourceTree = "<group>"; };
+		F9BD0C9C1F1FA522005AA235 /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back2.png; path = ../../../../Desktop/back2.png; sourceTree = "<group>"; };
 		F9C0758F1F1A835B00E0B4BA /* Maps-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Maps-icon.png"; path = "../Maps-icon.png"; sourceTree = "<group>"; };
 		F9C075911F1A85FF00E0B4BA /* Maps-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon2.png"; sourceTree = "<group>"; };
 		F9C075951F1AFB1100E0B4BA /* Maps-icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon3.png"; sourceTree = "<group>"; };
@@ -241,9 +253,15 @@
 				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
+				F9BD0C9A1F1FA464005AA235 /* back1.jpeg */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
+				F9BD0C9C1F1FA522005AA235 /* back2.png */,
+				F9BD0C961F1F8BC6005AA235 /* loading.gif */,
+				F9BD0C941F1E3B6D005AA235 /* back.png */,
+				F9BD0C921F1E3866005AA235 /* yellowCircle.png */,
 				F97F1B651F17D8ED00461A6B /* customeCell.swift */,
 				F91FDD971F02955F00641B83 /* GenreViewController.swift */,
+				F9BD0C981F1F909B005AA235 /* loading1.gif */,
 				F97F1AB11F125E4200461A6B /* Item.swift */,
 				F91FDD701F02945100641B83 /* Assets.xcassets */,
 				F91E61561F1CF2F30062FB04 /* diningbar.jpeg */,
@@ -402,6 +420,7 @@
 				F916A78B1F1CA3E70038968E /* suhsi.jpeg in Resources */,
 				F916A78C1F1CA3E70038968E /* syabusyabu.jpeg in Resources */,
 				F91E61571F1CF2F40062FB04 /* diningbar.jpeg in Resources */,
+				F9BD0C971F1F8BC6005AA235 /* loading.gif in Resources */,
 				F9C075921F1A85FF00E0B4BA /* Maps-icon2.png in Resources */,
 				F916A77F1F1CA3E70038968E /* french.jpeg in Resources */,
 				F916A77C1F1CA3E70038968E /* bar.jpeg in Resources */,
@@ -409,8 +428,10 @@
 				F916A7831F1CA3E70038968E /* karaoke.jpeg in Resources */,
 				F916A7881F1CA3E70038968E /* sousakuryouri.jpeg in Resources */,
 				F916A78D1F1CA3E70038968E /* thai.jepg.jpg in Resources */,
+				F9BD0C991F1F909B005AA235 /* loading1.gif in Resources */,
 				F916A77D1F1CA3E70038968E /* bistoro.jpeg in Resources */,
 				F91FDD711F02945100641B83 /* Assets.xcassets in Resources */,
+				F9BD0C951F1E3B6D005AA235 /* back.png in Resources */,
 				F916A7901F1CA3E70038968E /* wasyoku.jpeg in Resources */,
 				F916A7651F1CA3DC0038968E /* ajian.jpeg in Resources */,
 				F916A7861F1CA3E70038968E /* pasta.jpeg in Resources */,
@@ -424,7 +445,10 @@
 				F916A78E1F1CA3E70038968E /* tyuka.jpeg in Resources */,
 				F916A7891F1CA3E70038968E /* spein.jepg.jpeg in Resources */,
 				F916A7851F1CA3E70038968E /* okonomiyaki.jpeg in Resources */,
+				F9BD0C931F1E3866005AA235 /* yellowCircle.png in Resources */,
+				F9BD0C9B1F1FA464005AA235 /* back1.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
+				F9BD0C9D1F1FA522005AA235 /* back2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
