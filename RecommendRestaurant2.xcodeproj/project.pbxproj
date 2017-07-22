@@ -3,15 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2DD56BEFAA38B1385E6D153B /* Pods_RecommendRestaurant2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41BEA1B10293E3ACE7DFBF /* Pods_RecommendRestaurant2Tests.framework */; };
 		5B702DD47B53C602D4FA8B00 /* Pods_RecommendRestaurant2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143AA7BD7CD38931F656CFCF /* Pods_RecommendRestaurant2.framework */; };
 		5BCF6AB671412913D637D2CD /* Pods_RecommendRestaurant2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766A81430542E64329F9DBAD /* Pods_RecommendRestaurant2UITests.framework */; };
-		F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */; };
-		F916A75F1F1B4D300038968E /* Maps-icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = F916A75E1F1B4D300038968E /* Maps-icon4.png */; };
 		F916A7651F1CA3DC0038968E /* ajian.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F916A7641F1CA3DC0038968E /* ajian.jpeg */; };
 		F916A77C1F1CA3E70038968E /* bar.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F916A7661F1CA3E70038968E /* bar.jpeg */; };
 		F916A77D1F1CA3E70038968E /* bistoro.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F916A7671F1CA3E70038968E /* bistoro.jpeg */; };
@@ -50,10 +48,13 @@
 		F91FDD7F1F02945100641B83 /* RecommendRestaurant2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD7E1F02945100641B83 /* RecommendRestaurant2Tests.swift */; };
 		F91FDD8A1F02945100641B83 /* RecommendRestaurant2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD891F02945100641B83 /* RecommendRestaurant2UITests.swift */; };
 		F91FDD981F02955F00641B83 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FDD971F02955F00641B83 /* GenreViewController.swift */; };
+		F955A7161F23C39000EF7F4B /* haruki_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F955A7151F23C39000EF7F4B /* haruki_icon.png */; };
+		F955A7181F23C39A00EF7F4B /* haruki_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F955A7171F23C39A00EF7F4B /* haruki_icon.png */; };
+		F955A71C1F23C41000EF7F4B /* Maps-icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = F955A7191F23C41000EF7F4B /* Maps-icon4.png */; };
+		F955A71D1F23C41000EF7F4B /* yakiniku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F955A71A1F23C41000EF7F4B /* yakiniku.jpeg */; };
+		F955A71E1F23C41000EF7F4B /* yousyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F955A71B1F23C41000EF7F4B /* yousyoku.jpeg */; };
 		F97F1AB21F125E4200461A6B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1AB11F125E4200461A6B /* Item.swift */; };
 		F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1B651F17D8ED00461A6B /* customeCell.swift */; };
-		F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B671F19C41500461A6B /* yakiniku.jpeg */; };
-		F99B54871F23989C0047F536 /* haruki_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F99B54861F23989C0047F536 /* haruki_icon.png */; };
 		F99B54891F2398C80047F536 /* haruki_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F99B54881F2398C80047F536 /* haruki_icon_2.png */; };
 		F99B548F1F239D0C0047F536 /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F99B548E1F239D0C0047F536 /* izakaya.jpeg */; };
 /* End PBXBuildFile section */
@@ -85,8 +86,6 @@
 		EDA41CC5B4548CAC8EDADDF6 /* Pods-RecommendRestaurant2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2Tests/Pods-RecommendRestaurant2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.release.xcconfig"; sourceTree = "<group>"; };
 		F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecommendRestaurant2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecommendRestaurant2/Pods-RecommendRestaurant2.debug.xcconfig"; sourceTree = "<group>"; };
-		F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = "<group>"; };
-		F916A75E1F1B4D300038968E /* Maps-icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon4.png"; sourceTree = "<group>"; };
 		F916A7641F1CA3DC0038968E /* ajian.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ajian.jpeg; path = ../ajian.jpeg; sourceTree = "<group>"; };
 		F916A7661F1CA3E70038968E /* bar.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bar.jpeg; path = ../bar.jpeg; sourceTree = "<group>"; };
 		F916A7671F1CA3E70038968E /* bistoro.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bistoro.jpeg; path = ../bistoro.jpeg; sourceTree = "<group>"; };
@@ -132,10 +131,13 @@
 		F91FDD891F02945100641B83 /* RecommendRestaurant2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendRestaurant2UITests.swift; sourceTree = "<group>"; };
 		F91FDD8B1F02945100641B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91FDD971F02955F00641B83 /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		F955A7151F23C39000EF7F4B /* haruki_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon.png; path = ../haruki_icon.png; sourceTree = "<group>"; };
+		F955A7171F23C39A00EF7F4B /* haruki_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon.png; path = ../haruki_icon.png; sourceTree = "<group>"; };
+		F955A7191F23C41000EF7F4B /* Maps-icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Maps-icon4.png"; sourceTree = SOURCE_ROOT; };
+		F955A71A1F23C41000EF7F4B /* yakiniku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yakiniku.jpeg; sourceTree = SOURCE_ROOT; };
+		F955A71B1F23C41000EF7F4B /* yousyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yousyoku.jpeg; sourceTree = SOURCE_ROOT; };
 		F97F1AB11F125E4200461A6B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97F1B651F17D8ED00461A6B /* customeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customeCell.swift; sourceTree = "<group>"; };
-		F97F1B671F19C41500461A6B /* yakiniku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yakiniku.jpeg; sourceTree = "<group>"; };
-		F99B54861F23989C0047F536 /* haruki_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haruki_icon.png; sourceTree = "<group>"; };
 		F99B54881F2398C80047F536 /* haruki_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon_2.png; path = ../haruki_icon_2.png; sourceTree = "<group>"; };
 		F99B548E1F239D0C0047F536 /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpeg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -218,11 +220,12 @@
 			children = (
 				F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */,
 				F91C3BCC1F231E8F00950A15 /* yellowCircle.png */,
-				F99B54861F23989C0047F536 /* haruki_icon.png */,
 				F99B54881F2398C80047F536 /* haruki_icon_2.png */,
 				F91C3BCA1F231E8B00950A15 /* loading1.gif */,
+				F955A7151F23C39000EF7F4B /* haruki_icon.png */,
 				F91C3BC81F231E8700950A15 /* diningbar.jpeg */,
 				F91C3BC61F231E8200950A15 /* back2.png */,
+				F955A7171F23C39A00EF7F4B /* haruki_icon.png */,
 				F91C3BC41F231E7E00950A15 /* back1.jpeg */,
 				F91C3BC21F231E7100950A15 /* back.png */,
 				F916A7641F1CA3DC0038968E /* ajian.jpeg */,
@@ -249,9 +252,9 @@
 				F916A7791F1CA3E70038968E /* udon.jpeg */,
 				F916A77A1F1CA3E70038968E /* wasyoku.jpeg */,
 				F916A77B1F1CA3E70038968E /* wasyoku.jpg */,
-				F916A75E1F1B4D300038968E /* Maps-icon4.png */,
-				F97F1B671F19C41500461A6B /* yakiniku.jpeg */,
-				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
+				F955A7191F23C41000EF7F4B /* Maps-icon4.png */,
+				F955A71A1F23C41000EF7F4B /* yakiniku.jpeg */,
+				F955A71B1F23C41000EF7F4B /* yousyoku.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
@@ -361,7 +364,7 @@
 				TargetAttributes = {
 					F91FDD621F02945100641B83 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = FL88HC48Y6;
+						DevelopmentTeam = ZVKGPHP638;
 						ProvisioningStyle = Automatic;
 					};
 					F91FDD791F02945100641B83 = {
@@ -379,7 +382,7 @@
 				};
 			};
 			buildConfigurationList = F91FDD5E1F02945100641B83 /* Build configuration list for PBXProject "RecommendRestaurant2" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -403,12 +406,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F916A75F1F1B4D300038968E /* Maps-icon4.png in Resources */,
 				F916A7911F1CA3E70038968E /* wasyoku.jpg in Resources */,
 				F91C3BC91F231E8700950A15 /* diningbar.jpeg in Resources */,
 				F916A7821F1CA3E70038968E /* kannkokuryouri.jpeg in Resources */,
+				F955A71C1F23C41000EF7F4B /* Maps-icon4.png in Resources */,
 				F91FDD741F02945100641B83 /* LaunchScreen.storyboard in Resources */,
-				F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */,
 				F916A7841F1CA3E70038968E /* nihonnryouri.jpeg in Resources */,
 				F916A78F1F1CA3E70038968E /* udon.jpeg in Resources */,
 				F916A78B1F1CA3E70038968E /* suhsi.jpeg in Resources */,
@@ -433,12 +435,14 @@
 				F916A7861F1CA3E70038968E /* pasta.jpeg in Resources */,
 				F916A78A1F1CA3E70038968E /* steak.jpeg in Resources */,
 				F916A7871F1CA3E70038968E /* ramenn.jpeg in Resources */,
-				F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */,
+				F955A71E1F23C41000EF7F4B /* yousyoku.jpeg in Resources */,
 				F916A7811F1CA3E70038968E /* italian.jpeg in Resources */,
 				F916A77E1F1CA3E70038968E /* cafe.jpeg in Resources */,
 				F916A78E1F1CA3E70038968E /* tyuka.jpeg in Resources */,
-				F99B54871F23989C0047F536 /* haruki_icon.png in Resources */,
+				F955A7161F23C39000EF7F4B /* haruki_icon.png in Resources */,
 				F916A7891F1CA3E70038968E /* spein.jepg.jpeg in Resources */,
+				F955A7181F23C39A00EF7F4B /* haruki_icon.png in Resources */,
+				F955A71D1F23C41000EF7F4B /* yakiniku.jpeg in Resources */,
 				F916A7851F1CA3E70038968E /* okonomiyaki.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
 			);
@@ -763,7 +767,7 @@
 			baseConfigurationReference = F37B4F4F6F138C37EB118AD0 /* Pods-RecommendRestaurant2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FL88HC48Y6;
+				DEVELOPMENT_TEAM = ZVKGPHP638;
 				INFOPLIST_FILE = RecommendRestaurant2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harukiyasui.QuEat;
@@ -778,7 +782,7 @@
 			baseConfigurationReference = EF2B40F150ACB51E87F4736B /* Pods-RecommendRestaurant2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FL88HC48Y6;
+				DEVELOPMENT_TEAM = ZVKGPHP638;
 				INFOPLIST_FILE = RecommendRestaurant2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harukiyasui.QuEat;

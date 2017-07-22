@@ -130,21 +130,7 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             self.latitude = location.coordinate.latitude
             self.longitude = location.coordinate.longitude
         }
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        
             
         do{
         //hotpepperの情報を取ってくる
