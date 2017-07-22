@@ -35,9 +35,6 @@
 		F916A78F1F1CA3E70038968E /* udon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F916A7791F1CA3E70038968E /* udon.jpeg */; };
 		F916A7901F1CA3E70038968E /* wasyoku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F916A77A1F1CA3E70038968E /* wasyoku.jpeg */; };
 		F916A7911F1CA3E70038968E /* wasyoku.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F916A77B1F1CA3E70038968E /* wasyoku.jpg */; };
-		F916AE491F21E6300061EE8E /* haruki_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F916AE481F21E6300061EE8E /* haruki_icon.png */; };
-		F916AE4B1F21E7D80061EE8E /* haruki_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F916AE4A1F21E7D80061EE8E /* haruki_icon_2.png */; };
-		F91C3BC11F231C6C00950A15 /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F91C3BC01F231C6C00950A15 /* izakaya.jpeg */; };
 		F91C3BC31F231E7100950A15 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F91C3BC21F231E7100950A15 /* back.png */; };
 		F91C3BC51F231E7E00950A15 /* back1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F91C3BC41F231E7E00950A15 /* back1.jpeg */; };
 		F91C3BC71F231E8200950A15 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = F91C3BC61F231E8200950A15 /* back2.png */; };
@@ -56,6 +53,9 @@
 		F97F1AB21F125E4200461A6B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1AB11F125E4200461A6B /* Item.swift */; };
 		F97F1B661F17D8ED00461A6B /* customeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97F1B651F17D8ED00461A6B /* customeCell.swift */; };
 		F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F97F1B671F19C41500461A6B /* yakiniku.jpeg */; };
+		F99B54871F23989C0047F536 /* haruki_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F99B54861F23989C0047F536 /* haruki_icon.png */; };
+		F99B54891F2398C80047F536 /* haruki_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F99B54881F2398C80047F536 /* haruki_icon_2.png */; };
+		F99B548F1F239D0C0047F536 /* izakaya.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F99B548E1F239D0C0047F536 /* izakaya.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,9 +110,6 @@
 		F916A7791F1CA3E70038968E /* udon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = udon.jpeg; path = ../udon.jpeg; sourceTree = "<group>"; };
 		F916A77A1F1CA3E70038968E /* wasyoku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wasyoku.jpeg; path = ../wasyoku.jpeg; sourceTree = "<group>"; };
 		F916A77B1F1CA3E70038968E /* wasyoku.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wasyoku.jpg; path = ../wasyoku.jpg; sourceTree = "<group>"; };
-		F916AE481F21E6300061EE8E /* haruki_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon.png; path = ../../../../Downloads/haruki_icon.png; sourceTree = "<group>"; };
-		F916AE4A1F21E7D80061EE8E /* haruki_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon_2.png; path = ../../../../Downloads/haruki_icon_2.png; sourceTree = "<group>"; };
-		F91C3BC01F231C6C00950A15 /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = izakaya.jpeg; path = ../../../../Desktop/Pictures/izakaya.jpeg; sourceTree = "<group>"; };
 		F91C3BC21F231E7100950A15 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = SOURCE_ROOT; };
 		F91C3BC41F231E7E00950A15 /* back1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back1.jpeg; sourceTree = SOURCE_ROOT; };
 		F91C3BC61F231E8200950A15 /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = SOURCE_ROOT; };
@@ -138,6 +135,9 @@
 		F97F1AB11F125E4200461A6B /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97F1B651F17D8ED00461A6B /* customeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customeCell.swift; sourceTree = "<group>"; };
 		F97F1B671F19C41500461A6B /* yakiniku.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yakiniku.jpeg; sourceTree = "<group>"; };
+		F99B54861F23989C0047F536 /* haruki_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haruki_icon.png; sourceTree = "<group>"; };
+		F99B54881F2398C80047F536 /* haruki_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = haruki_icon_2.png; path = ../haruki_icon_2.png; sourceTree = "<group>"; };
+		F99B548E1F239D0C0047F536 /* izakaya.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = izakaya.jpeg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +218,8 @@
 			children = (
 				F91E2E071F0E9A64009BE5AF /* RecommendRestaurant2_Bridging_Header.h */,
 				F91C3BCC1F231E8F00950A15 /* yellowCircle.png */,
+				F99B54861F23989C0047F536 /* haruki_icon.png */,
+				F99B54881F2398C80047F536 /* haruki_icon_2.png */,
 				F91C3BCA1F231E8B00950A15 /* loading1.gif */,
 				F91C3BC81F231E8700950A15 /* diningbar.jpeg */,
 				F91C3BC61F231E8200950A15 /* back2.png */,
@@ -230,6 +232,7 @@
 				F916A7691F1CA3E70038968E /* french.jpeg */,
 				F916A76A1F1CA3E70038968E /* indo.jpeg */,
 				F916A76B1F1CA3E70038968E /* italian.jpeg */,
+				F99B548E1F239D0C0047F536 /* izakaya.jpeg */,
 				F916A76C1F1CA3E70038968E /* kannkokuryouri.jpeg */,
 				F916A76D1F1CA3E70038968E /* karaoke.jpeg */,
 				F916A76E1F1CA3E70038968E /* nihonnryouri.jpeg */,
@@ -248,13 +251,10 @@
 				F916A77B1F1CA3E70038968E /* wasyoku.jpg */,
 				F916A75E1F1B4D300038968E /* Maps-icon4.png */,
 				F97F1B671F19C41500461A6B /* yakiniku.jpeg */,
-				F916AE4A1F21E7D80061EE8E /* haruki_icon_2.png */,
-				F91C3BC01F231C6C00950A15 /* izakaya.jpeg */,
 				F903FB2D1F092E5900E7F1AF /* yousyoku.jpeg */,
 				F91FDD661F02945100641B83 /* AppDelegate.swift */,
 				F91FDD681F02945100641B83 /* ViewController.swift */,
 				F91FDD6A1F02945100641B83 /* Main.storyboard */,
-				F916AE481F21E6300061EE8E /* haruki_icon.png */,
 				F97F1B651F17D8ED00461A6B /* customeCell.swift */,
 				F91FDD971F02955F00641B83 /* GenreViewController.swift */,
 				F97F1AB11F125E4200461A6B /* Item.swift */,
@@ -409,11 +409,11 @@
 				F916A7821F1CA3E70038968E /* kannkokuryouri.jpeg in Resources */,
 				F91FDD741F02945100641B83 /* LaunchScreen.storyboard in Resources */,
 				F903FB2F1F092E5900E7F1AF /* yousyoku.jpeg in Resources */,
-				F91C3BC11F231C6C00950A15 /* izakaya.jpeg in Resources */,
 				F916A7841F1CA3E70038968E /* nihonnryouri.jpeg in Resources */,
 				F916A78F1F1CA3E70038968E /* udon.jpeg in Resources */,
 				F916A78B1F1CA3E70038968E /* suhsi.jpeg in Resources */,
 				F916A78C1F1CA3E70038968E /* syabusyabu.jpeg in Resources */,
+				F99B54891F2398C80047F536 /* haruki_icon_2.png in Resources */,
 				F91C3BC71F231E8200950A15 /* back2.png in Resources */,
 				F916A77F1F1CA3E70038968E /* french.jpeg in Resources */,
 				F916A77C1F1CA3E70038968E /* bar.jpeg in Resources */,
@@ -423,21 +423,21 @@
 				F916A7881F1CA3E70038968E /* sousakuryouri.jpeg in Resources */,
 				F916A78D1F1CA3E70038968E /* thai.jepg.jpg in Resources */,
 				F916A77D1F1CA3E70038968E /* bistoro.jpeg in Resources */,
+				F99B548F1F239D0C0047F536 /* izakaya.jpeg in Resources */,
 				F91FDD711F02945100641B83 /* Assets.xcassets in Resources */,
 				F91C3BCB1F231E8B00950A15 /* loading1.gif in Resources */,
 				F91C3BC31F231E7100950A15 /* back.png in Resources */,
 				F916A7901F1CA3E70038968E /* wasyoku.jpeg in Resources */,
-				F916AE491F21E6300061EE8E /* haruki_icon.png in Resources */,
 				F91C3BCD1F231E8F00950A15 /* yellowCircle.png in Resources */,
 				F916A7651F1CA3DC0038968E /* ajian.jpeg in Resources */,
 				F916A7861F1CA3E70038968E /* pasta.jpeg in Resources */,
 				F916A78A1F1CA3E70038968E /* steak.jpeg in Resources */,
 				F916A7871F1CA3E70038968E /* ramenn.jpeg in Resources */,
 				F97F1B681F19C41500461A6B /* yakiniku.jpeg in Resources */,
-				F916AE4B1F21E7D80061EE8E /* haruki_icon_2.png in Resources */,
 				F916A7811F1CA3E70038968E /* italian.jpeg in Resources */,
 				F916A77E1F1CA3E70038968E /* cafe.jpeg in Resources */,
 				F916A78E1F1CA3E70038968E /* tyuka.jpeg in Resources */,
+				F99B54871F23989C0047F536 /* haruki_icon.png in Resources */,
 				F916A7891F1CA3E70038968E /* spein.jepg.jpeg in Resources */,
 				F916A7851F1CA3E70038968E /* okonomiyaki.jpeg in Resources */,
 				F91FDD6C1F02945100641B83 /* Main.storyboard in Resources */,
