@@ -11,7 +11,6 @@ import MapKit
 import SwiftGifOrigin
 
 class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate {
-
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
@@ -94,12 +93,48 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         //gifの画像を起動画面で使用
         self.gifLoading.image = UIImage.gif(name: "loading1")
         
+        if UIDevice().model == "iPad" {
+            print("iPad")
+            //viewを出現させる
+            self.myCollectionView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            self.titleLabel.isHidden = true
+            self.iconImage.isHidden = true
+            self.gifLoading.isHidden = true
+            //アクションシートを作成
+            let alertController = UIAlertController(title: "エラーが起きました。", message: "申し訳ありません。iPadではこのアプリは使用できません。", preferredStyle: .alert)
+            
+            //アクティビティボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //アクションシートを表示
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+
+        } else {
+            print("iPhone")
+        }
+        
         //非同期処理
         queue.async {() -> Void in
         
         //現在地の取得
         let status = CLLocationManager.authorizationStatus()
         if status == CLAuthorizationStatus.restricted || status == CLAuthorizationStatus.denied{
+            //viewを出現させる
+            self.myCollectionView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            self.titleLabel.isHidden = true
+            self.iconImage.isHidden = true
+            self.gifLoading.isHidden = true
+            //アクションシートを作成
+            let alertController = UIAlertController(title: "エラーが起きました。", message: "申し訳ありません。位置情報の取得に失敗しました。時間をおいて再度お試しください。または、設定画面からGPSを許可してください。", preferredStyle: .alert)
+            
+            //アクティビティボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //アクションシートを表示
+            self.present(alertController, animated: true, completion: nil)
+
             return
         }
         
@@ -111,6 +146,20 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         }
         
         if !CLLocationManager.locationServicesEnabled() {
+            //viewを出現させる
+            self.myCollectionView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            self.titleLabel.isHidden = true
+            self.iconImage.isHidden = true
+            self.gifLoading.isHidden = true
+            //アクションシートを作成
+            let alertController = UIAlertController(title: "エラーが起きました。", message: "申し訳ありません。位置情報の取得に失敗しました。時間をおいて再度お試しください。または、設定画面からGPSを許可してください。", preferredStyle: .alert)
+            
+            //アクティビティボタンを追加
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //アクションシートを表示
+            self.present(alertController, animated: true, completion: nil)
+
             return
         }
         
@@ -122,15 +171,12 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         self.myCollectionView.delegate = self
         self.myCollectionView.dataSource = self
             
-            
-            
         if let location = self.myLocationManager.location {
                 
             //メンバ変数に現在地の経度と緯度を代入
             self.latitude = location.coordinate.latitude
             self.longitude = location.coordinate.longitude
         }
-        
             
         do{
         //hotpepperの情報を取ってくる
@@ -666,13 +712,13 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
         self.Items = self.Items.sorted(by: sortedByCount)
      
         }catch{
-            //        アクションシートを作成
+            //アクションシートを作成
             let alertController = UIAlertController(title: "エラーが起きました。", message: "申し訳ありません。起動に失敗しました。通信環境の良い場所で再度試してください。", preferredStyle: .alert)
             
-            //        アクティビティボタンを追加
+            //アクティビティボタンを追加
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
-            //        アクションシートを表示
+            //アクションシートを表示
             self.present(alertController, animated: true, completion: nil)
             
             return
@@ -712,7 +758,6 @@ class GenreViewController: UIViewController, CLLocationManagerDelegate,UICollect
             latitude = location.coordinate.latitude
             longitude = location.coordinate.longitude
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {

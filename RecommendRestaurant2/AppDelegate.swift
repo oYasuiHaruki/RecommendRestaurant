@@ -12,12 +12,9 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    
-    
     var latitude:Double = 0
     
     var longitude:Double = 0
-    
     
     var window: UIWindow?
     
@@ -82,26 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var okonomiyaki = ["storename":[],"photo":[],"address":[],"catch":[],"price":[],"openTime":[]]
     
     var amount = [[]]
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

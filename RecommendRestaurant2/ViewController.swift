@@ -77,6 +77,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //カードが現在何枚目かを示す数字
         countNum.text = "\(num + 1)"
+        
         //そのジャンルにカードが何枚あるかを示す数字
         denominator.text = "/\((item?.storeCount)!)"
         
@@ -90,7 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         testManager.requestLocation()
         
         divisor = (view.frame.width / 2) / 0.61
-    
+        
         //baseView(カード)の色をつける
         baseView.backgroundColor = .white
         baseView2.backgroundColor = .white
@@ -101,6 +102,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //初期画面の写真を表示
         myPicture.sd_setImage(with: item?.photoURLs[num])
         myPicture.contentMode = .scaleToFill
+        
         //カードが１枚の時以外に実行
         if (item?.storeCount)! != 1 {
         myPicture2.sd_setImage(with: item?.photoURLs[num + 1])
@@ -239,14 +241,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         baseView2.layer.shadowRadius = 5 // ぼかし量
     }
     
-    
-    
-    
-    
-    
     //mapボタンを押した時に発動
     @IBAction func moveMap(_ sender: UIButton) {
-        
         
         let myGeocoder:CLGeocoder = CLGeocoder()
         
@@ -257,22 +253,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //住所を座標に変換する。
         myGeocoder.geocodeAddressString((arr3?[0])!, completionHandler: {(placemarks, error) in
-            
+        
         //item.addressに配列としてちゃんと入ってない可能性
         if(error == nil) {
             for placemark in placemarks! {
                 let location:CLLocation = placemark.location!
-        
-        
+                
                 //マップアプリに渡す目的地の位置情報を作る。
                 let coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                 let placemark = MKPlacemark(coordinate:coordinate, addressDictionary:nil)
                 let mapItem = MKMapItem(placemark: placemark)
-        
+                
                 //起動オプション
                 let option:[String:AnyObject] = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking as AnyObject, //車で移動
                     MKLaunchOptionsMapTypeKey : MKMapType.hybrid.rawValue as AnyObject]  //地図表示はハイブリッド
-        
+                
                 //マップアプリを起動する。
                 mapItem.openInMaps(launchOptions: option)
             }
@@ -335,15 +330,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             baseView.center = CGPoint(x: view.center.x, y: view.center.y - 10)
             baseView2.center = CGPoint(x: view.center.x, y: view.center.y - 10)
             
-            //        baseView.layer.borderColor = UIColor.orange as! CGColor
+            //  baseView.layer.borderColor = UIColor.orange as! CGColor
             
             //写真を表示
-            //        myPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
+            //  myPicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
             myPicture.sd_setImage(with: item?.photoURLs[num])
             myPicture2.sd_setImage(with: item?.photoURLs[0])
-            ////
-            //        //店名を表示
-            //        myLabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 150))
+            
+            //店名を表示
+            //myLabel = UILabel(frame: CGRect(x: 10, y: 260, width: 200, height: 150))
             myLabelStoreName.text = "\((item?.storeNames[num])!)"
             myLabelStoreName2.text = "\((item?.storeNames[0])!)"
             
@@ -460,7 +455,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         denominator.text = "/\((item?.storeCount)!)"
         }
         
-//        myPicture.layer.masksToBounds = true
+        //myPicture.layer.masksToBounds = true
         
         baseView.layer.cornerRadius = 10
         baseView.layer.masksToBounds = false
@@ -495,7 +490,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Swift.Error) {
         print("エラー")
     }
-
+    
     //gesturePanのメソッド
     func PanView(sender: UIPanGestureRecognizer) {
         
@@ -510,7 +505,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //動かしているviewの中心位置を元の位置とgestureで動かした分の和にしている
         card.center = CGPoint(x: card.center.x + (point.x)/4, y: card.center.y + (point.y)/4)
-        
         
         let scale = min(100/abs(xFromCenter), 1)
         card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor).scaledBy(x: scale, y: scale)
